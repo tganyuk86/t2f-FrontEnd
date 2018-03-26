@@ -1,0 +1,412 @@
+{% import "partials/_mixins.html" as mixins %}
+
+{% set navItems = [
+	{
+		icon: 'shelter',
+		link: 'index.html',
+		name: 'Home'
+	},
+	{
+		icon: 'check-list',
+		link: 'forms.html',
+		name: 'Forms'
+	},
+	{
+		icon: 'man-user',
+		link: 'teams.html',
+		name: 'Users'
+	},
+	{
+		icon: 'settings',
+		link: 'settings.html',
+		name: 'Settings'
+	},
+	{
+		icon: 'envelope',
+		link: '#',
+		name: 'Message'
+	},
+	{
+		icon: 'problem',
+		link: '#',
+		name: 'Alert'
+	}
+	]
+%}
+
+
+{% set 
+formData = [
+	{
+		name: 'Some Name',
+		purpose: 'School Trip',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.',
+		creationDate: 'December 10, 2017',
+		commitDate: 'December 12, 2017',
+		fee: 'N/A',
+		feeClass: 'na',
+		status: 'D<span>raft</span>',
+		statusClass: 'draft'
+	},
+	{
+		name: 'Form Name',
+		purpose: 'Registration',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.',
+		creationDate: 'March 10, 2017',
+		commitDate: 'May 12, 2017',
+		fee: '80',
+		status: 'C<span>ommitted</span>',
+		statusClass: 'committed'
+	},
+	{
+		name: 'Some Name',
+		purpose: 'Medical',
+		description: 'Lorem ipsum dolor sit amet.',
+		creationDate: 'December 10, 2017',
+		commitDate: 'December 12, 2017',
+		fee: 'N/A',
+		feeClass: 'na',
+		status: '<span>In </span>U<span>se</span>',
+		statusClass: 'in-use'
+	},
+	{
+		name: 'Some Long Name',
+		purpose: 'School Trip',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.',
+		creationDate: 'March 10, 2017',
+		commitDate: 'May 12, 2017',
+		fee: '240',
+		status: 'A<span>rchived</span>',
+		statusClass: 'archived'
+	},
+	{
+		name: 'Some Name',
+		purpose: 'Medical',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.',
+		creationDate: 'March 10, 2017',
+		commitDate: 'May 12, 2017',
+		fee: '120',
+		status: 'As<span>signed</span>',
+		statusClass: 'assigned'
+	},
+	{
+		name: 'Some Name',
+		purpose: 'School Trip',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien',
+		creationDate: 'December 10, 2017',
+		commitDate: 'December 12, 2017',
+		fee: 'N/A',
+		feeClass: 'na',
+		status: 'A<span>rchived</span>',
+		statusClass: 'archived'
+	},
+	{
+		name: 'Some Long Name',
+		purpose: 'Registration',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.',
+		creationDate: 'March 10, 2017',
+		commitDate: 'May 12, 2017',
+		fee: '240',
+		status: 'A<span>rchived</span>',
+		statusClass: 'archived'
+	},
+	{
+		name: 'Some Name',
+		purpose: 'Registration',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien',
+		creationDate: 'March 10, 2017',
+		commitDate: 'May 12, 2017',
+		fee: '120',
+		status: 'D<span>raft</span>',
+		statusClass: 'draft'
+	},
+	{
+		name: 'Some Name',
+		purpose: 'School Trip',
+		description: 'Lorem ipsum dolor sit amet.',
+		creationDate: 'December 10, 2017',
+		commitDate: 'December 12, 2017',
+		fee: 'N/A',
+		feeClass: 'na',
+		status: '<span>In </span>U<span>se</span>',
+		statusClass: 'in-use'
+	}
+] 
+%}
+
+
+{% set 
+teams = [
+	{
+		logo: 'img/user-logo-1.jpg',
+		name: 'Team Name',
+		number: '6',
+		description: '<p>Someteam Name</p><p>Stuart street, Boston, <span class="item-address">Massachusetts, USA, 4566548</span></p><p><span class="item-address">mymail@mail.com</span></p><p><span class="item-address">+1564575645212</span></p>'
+	},
+	{
+		logo: 'img/user-logo-2.jpg',
+		name: 'Team Name',
+		number: '8',
+		description: '<p>Someteam Name</p><p>Stuart street, Boston, <span class="item-address">Massachusetts, USA, 4566548</span></p><p><span class="item-address">mymail@mail.com</span></p><p><span class="item-address">+1564575645212</span></p>'
+	},
+	{
+		logo: 'img/user-logo-3.jpg',
+		name: 'Someteam Name',
+		number: '17',
+		description: '<p>Someteam Name</p><p>Stuart street, Boston, <span class="item-address">Massachusetts, USA, 4566548</span></p><p><span class="item-address">mymail@mail.com</span></p><p><span class="item-address">+1564575645212</span></p>'
+	},
+	{
+		logo: 'img/user-logo-4.jpg',
+		name: 'Team Name',
+		number: '0',
+		description: '<p>Someteam Name</p><p>Stuart street, Boston, <span class="item-address">Massachusetts, USA, 4566548</span></p><p><span class="item-address">mymail@mail.com</span></p><p><span class="item-address">+1564575645212</span></p>'
+	},
+	{
+		logo: 'img/user-logo-5.jpg',
+		name: 'Team Name',
+		number: '11',
+		description: '<p>Someteam Name</p><p>Stuart street, Boston, <span class="item-address">Massachusetts, USA, 4566548</span></p><p><span class="item-address">mymail@mail.com</span></p><p><span class="item-address">+1564575645212</span></p>'
+	},
+	{
+		logo: 'img/user-logo-6.jpg',
+		name: 'Team Name',
+		number: '5',
+		description: '<p>Someteam Name</p><p>Stuart street, Boston, <span class="item-address">Massachusetts, USA, 4566548</span></p><p><span class="item-address">mymail@mail.com</span></p><p><span class="item-address">+1564575645212</span></p>'
+	},
+	{
+		logo: 'img/user-logo-7.jpg',
+		name: 'Team Name',
+		number: '14',
+		description: '<p>Someteam Name</p><p>Stuart street, Boston, <span class="item-address">Massachusetts, USA, 4566548</span></p><p><span class="item-address">mymail@mail.com</span></p><p><span class="item-address">+1564575645212</span></p>'
+	}
+]	
+
+%}
+
+
+{% set 
+users = [
+	{
+		name: 'User Name',
+		number: '8',
+		forms: [
+			{
+				name: 'Form Name',
+				purpose: 'School Trip',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien',
+				creationDate: 'December 10, 2017',
+				commitDate: 'December 12, 2017',
+				fee: '80',
+				status: 'C<span>ommitted</span>',
+				statusClass: 'committed'
+			},
+			{
+				name: 'Some Name',
+				purpose: 'School Trip',
+				description: 'Lorem ipsum dolor sit amet',
+				creationDate: 'December 10, 2017',
+				commitDate: 'December 12, 2017',
+				fee: '80',
+				status: 'D<span>raft</span>',
+				statusClass: 'draft'
+			}
+		]
+	},
+	{
+		name: 'Someuser Name',
+		number: '17',
+		forms: [
+			{
+				name: 'Form Name',
+				purpose: 'School Trip',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien',
+				creationDate: 'December 10, 2017',
+				commitDate: 'December 12, 2017',
+				fee: '80',
+				status: 'C<span>ommitted</span>',
+				statusClass: 'committed'
+			},
+			{
+				name: 'Some Name',
+				purpose: 'School Trip',
+				description: 'Lorem ipsum dolor sit amet',
+				creationDate: 'December 10, 2017',
+				commitDate: 'December 12, 2017',
+				fee: '80',
+				status: 'D<span>raft</span>',
+				statusClass: 'draft'
+			}
+		]
+	},
+	{
+		name: 'User Name',
+		number: '0',
+		forms: [
+			{
+				name: 'Form Name',
+				purpose: 'School Trip',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien',
+				creationDate: 'December 10, 2017',
+				commitDate: 'December 12, 2017',
+				fee: '80',
+				status: 'C<span>ommitted</span>',
+				statusClass: 'committed'
+			},
+			{
+				name: 'Some Name',
+				purpose: 'School Trip',
+				description: 'Lorem ipsum dolor sit amet',
+				creationDate: 'December 10, 2017',
+				commitDate: 'December 12, 2017',
+				fee: '80',
+				status: 'D<span>raft</span>',
+				statusClass: 'draft'
+			}
+		]
+	},
+	{
+		name: 'User Name',
+		number: '11',
+		forms: [
+			{
+				name: 'Form Name',
+				purpose: 'School Trip',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien',
+				creationDate: 'December 10, 2017',
+				commitDate: 'December 12, 2017',
+				fee: '80',
+				status: 'C<span>ommitted</span>',
+				statusClass: 'committed'
+			},
+			{
+				name: 'Some Name',
+				purpose: 'School Trip',
+				description: 'Lorem ipsum dolor sit amet',
+				creationDate: 'December 10, 2017',
+				commitDate: 'December 12, 2017',
+				fee: '80',
+				status: 'D<span>raft</span>',
+				statusClass: 'draft'
+			}
+		]
+	},
+	{
+		name: 'User Name',
+		number: '2',
+		forms: [
+			{
+				name: 'Form Name',
+				purpose: 'School Trip',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien',
+				creationDate: 'December 10, 2017',
+				commitDate: 'December 12, 2017',
+				fee: '80',
+				status: 'C<span>ommitted</span>',
+				statusClass: 'committed'
+			},
+			{
+				name: 'Some Name',
+				purpose: 'School Trip',
+				description: 'Lorem ipsum dolor sit amet',
+				creationDate: 'December 10, 2017',
+				commitDate: 'December 12, 2017',
+				fee: '80',
+				status: 'D<span>raft</span>',
+				statusClass: 'draft'
+			}
+		]
+	},
+	{
+		name: 'User Name',
+		number: '5',
+		forms: [
+			{
+				name: 'Form Name',
+				purpose: 'School Trip',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien',
+				creationDate: 'December 10, 2017',
+				commitDate: 'December 12, 2017',
+				fee: '80',
+				status: 'C<span>ommitted</span>',
+				statusClass: 'committed'
+			},
+			{
+				name: 'Some Name',
+				purpose: 'School Trip',
+				description: 'Lorem ipsum dolor sit amet',
+				creationDate: 'December 10, 2017',
+				commitDate: 'December 12, 2017',
+				fee: '80',
+				status: 'D<span>raft</span>',
+				statusClass: 'draft'
+			}
+		]
+	}
+
+]
+%} 
+
+
+{% set selectUser = [
+		{name: 'Angela Behar'},
+		{name: 'Tommy Hughes'},
+		{name: 'Dillon Ferro'},
+		{name: 'Joseph Brinker'},
+		{name: 'Errol Wilhite'},
+		{name: 'Bertram Dunston'},
+		{name: 'Chi Pigg'},
+		{name: 'Francisco Ashline'}
+	]
+	
+%}
+
+
+{% set actionPanel = [
+	{
+		name: 'forms',
+		firstBtn: '<button type="button" class="button button_middle-blue button_m int-action-panel__button" data-target="open-pop-up" data-action="choose-user" data-assign-type="multiple" disabled>
+			<svg class="icon icon-point-at">
+				<use xlink:href="img/sprite.svg#icon-point-at"></use>
+			</svg>
+			<span>Assign form</span>
+		</button>',
+		secondBtn: '<button type="button" class="button button_dark-purple button_m int-action-panel__button">
+			<svg class="icon icon-add">
+				<use xlink:href="img/sprite.svg#icon-add"></use>
+			</svg>
+			<span>Form wizard</span>
+		</button>'
+	},
+	{
+		name: 'teams',
+		firstBtn: '<button type="button" class="button button_blue-green button_m  int-action-panel__button" data-target="open-pop-up" data-action="add-list-item">
+				<svg class="icon icon-user">
+					<use xlink:href="img/sprite.svg#icon-user"></use>
+				</svg>
+			<span>Add team</span>
+		</button>',
+		secondBtn: '<button type="button" class="button button_middle-blue button_m  int-action-panel__button" data-target="open-pop-up" data-action="assign-form" data-assign-type="all">
+			<svg class="icon icon-point-at">
+				<use xlink:href="img/sprite.svg#icon-point-at"></use>
+			</svg>
+			<span>Assign to all</span>
+		</button>'
+	},
+	{
+		name: 'users',
+		firstBtn: '<button type="button" class="button button_blue-green button_m  int-action-panel__button" data-target="open-pop-up" data-action="choose-user">
+				<svg class="icon icon-user">
+					<use xlink:href="img/sprite.svg#icon-user"></use>
+				</svg>
+			<span>Add member to team</span>
+		</button>',
+		secondBtn: '<button type="button" class="button button_dark-purple button_m  int-action-panel__button" data-target="open-pop-up" data-action="add-list-item">
+				<svg class="icon icon-add">
+				<use xlink:href="img/sprite.svg#icon-add"></use>
+			</svg>
+			<span>Invite user</span>
+		</button>'
+	}
+
+	]
+%}

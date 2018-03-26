@@ -1,0 +1,235 @@
+.header
+	box-shadow: 0 0 13.9px 7.1px rgba(33, 33, 38, 0.08)
+	background-color: #fff
+	padding: 17px 40px 19px
+	font-size: 0
+	text-align: center
+	position: fixed
+	left: 0
+	right: 0
+	z-index: 3
+	+clr
+	+r(1041)
+		padding-left: 20px
+		padding-right: 20px
+	+r(660)
+		padding: 12px 0 8px 15px
+	&__logo
+		float: left
+		svg
+			width: 200px
+			height: 44px
+			+r(377)
+				width: 126px
+				height: 28px
+			+r(783)
+				width: 171px
+				height: 38px
+			+r(660)
+				width: 138px
+				height: 31px
+
+	&__account-data
+		float: right
+	&__btn
+		width: 200px
+		height: 42px
+		top: 2px
+		position: relative
+		left: -5px
+		span, svg
+			line-height: 40px
+		+r(1041)
+			left: -6px
+		+r(783)
+			left: 10px
+		+r(660)
+			position: fixed
+			top: auto
+			left: auto
+			right: -210px
+			bottom: 0
+			box-shadow: none
+			width: 210px
+			height: 60px
+			line-height: 60px
+			text-align: left
+			border-radius: 0
+			transition: right 0.25s ease
+			&.is-responsive
+				right: 0
+			svg
+				margin-left: 38px
+				margin-right: 7px
+			span
+				position: relative
+				top: -1px
+		+r(377)
+			width: 210px
+			height: 60px
+	&__hamburger-btn
+		position: absolute
+		right: 0
+		top: 0
+		width: 60px
+		height: 60px
+		z-index: 1
+		+r(660)
+			display: block
+			&::before
+				content: ''
+				position: fixed
+				top: 0
+				right: -210px
+				width: 210px
+				height: 70px
+				transition: right 0.25s ease
+				background-color:  #699ad2
+				cursor: default
+				pointer-events: none
+		&.is-responsive
+			border-radius: 0
+			&::before
+				right: 0
+
+.account-data
+	padding-right: 20px
+	top: 5px
+	position: relative
+	+r(660)
+		padding-right: 75px
+		top: 0
+	&__notifications, &__profile
+		display: inline-block
+		vertical-align: middle
+	&__notifications
+		margin-right: 27px
+		+r(660)
+			margin-right: 19px
+	&__notification-link
+		display: block
+		font-size: 12px
+		position: relative
+		text-decoration: none
+		width: 24px
+		height: 24px
+		.icon-alarm-bell
+			transition: all 0.25s ease
+			fill: #699ad2			
+			width: 24px
+			height: 24px
+			&:hover
+				fill: #0b56b3
+	&__notification-number
+		position: absolute
+		top: -5px
+		right: -5px
+		width: 16px
+		height: 16px
+		background-color: #ff3653
+		border-radius: 50%
+		color: #fff
+		display: none
+		&.is-active
+			display: block
+
+.profile
+	position: relative
+	font-size: 0
+	&__image-holder, &__image
+		display: inline-block
+		vertical-align: middle
+	&__image
+		border-radius: 50%
+		width: 40px
+		height: 40px
+		+cover
+
+	&__nickname
+		margin-left: 10px
+		font-size: 16px
+		font-weight: 400
+		color: #3f92cc
+		text-decoration: none
+		position: relative
+		top: 4px
+		&:hover
+			color: #3f92cc
+			text-decoration: none
+		+arrow-down(12px, -19px, -15px)
+		+r(660)
+			display: none
+	&__menu-list
+		position: absolute
+		text-align: left
+		box-shadow: 0 2px 9px rgba(33, 33, 38, 0.08)
+		background-color: #fff
+		width: 160px
+		border-radius: 10px
+		top: 48px
+		left: -18px
+		padding: 15px
+		z-index: 1
+		display: none
+		+r(660)
+			left: -110px
+			top: 18px
+			padding-top: 20px
+			padding-bottom: 20px
+		&.is-open
+			display: block
+		&-item
+			&:not(:last-child)
+				margin-bottom: 12px
+				+r(660)
+					margin-bottom: 10px
+			&_nickname
+				display: none
+				padding-left: 20px
+				+r(660)
+					display: block
+					font-size: 14px
+					color: #3f92cc
+		&-link
+			color: #52545a
+			font-size: 14px
+			text-decoration: none
+			svg, span
+				display: inline-block
+				vertical-align: middle
+				transition: 0.5s all ease
+			svg
+				width: 16px
+				height: 16px
+				transition: 0.5s all ease
+			&:hover
+				text-decoration: none
+				color: #3f92cc
+				svg
+					fill: #3f92cc
+
+.account-data.is-active
+	.profile
+		top: -20px
+		left: -40px
+	.profile__image
+		position: absolute
+		z-index: 12
+	.account-data__notifications
+		margin-right: 59px
+		margin-bottom: 16px
+		position: relative
+		top: 8px
+	.profile__menu-list
+		z-index: 11
+.header-overlay
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background-color: rgba(9,22,48,.25)
+	z-index: 10
+	display: none
+	&.is-active
+		display: block

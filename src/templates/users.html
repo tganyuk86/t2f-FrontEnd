@@ -1,0 +1,238 @@
+---
+title: True2forms - Better forms better fun
+menuPage: Users
+page: users
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+{% extends "layouts/_layout.html" %}
+	{% include "partials/interface-page/_header.html" %}
+
+	{% include "partials/interface-page/_nav.html" %}
+
+	<div class="page-interface scrollbar-inner" data-target="interface-page">
+<form>
+<div class="int-main">
+
+
+	<!-- begin interface container -->
+	<div class="int-container">
+
+		<!-- begin interface action bar -->
+
+		{% include "partials/interface-page/_action-panel.html" %}
+
+
+		<!-- end interface action bar -->
+		
+		<!-- begin interface content holder -->
+		<div class="int-content-holder">
+
+		<!-- begin users list -->
+
+		<ul class="int-list">
+			<li class="int-list-item int-list-item_heading int-list__item" data-name="Team Name">
+				<div class="int-list-item__wrapper">
+					<a href="teams.html" class="button-back int-list-item__btn-back"><span></span></a>
+					<div class="int-list-item__left">
+						<div class="int-list-item__heading">
+							<div class="int-list-item__heading-logo" style="background-image: url(img/user-logo-1.jpg)"></div>
+							<div class="int-list-item__heading-name">Team Name</div>
+						</div>
+						<div class="int-list-item__units">
+							<div class="int-list-item__units-number">6</div>
+							<div class="int-list-item__units-text">members</div>
+						</div>
+					</div>
+					<div class="int-list-item__right">
+						<a href="#" class="button button_middle-blue button_l int-list-item__btn int-list-item__btn_long" data-target="open-pop-up" data-action="assign-form" data-assign-type="all">
+							{{ mixins.icon('point-at') }}
+							<span>Assign form to all members</span>
+						</a>
+					</div>
+					<button type="button" class="int-list-item__remove-btn" data-target="open-pop-up" data-action="delete-list-item"></button>
+				</div>
+			</li>
+
+
+			{% import "data/data.html" as data %}
+			{% for item in data.users %}
+			<!-- begin user item -->
+
+			<li class="int-list-item int-list__item" data-target="int-list-item" data-name="{{item.name}}">
+				<div class="int-list-item__wrapper" data-target="users-view-forms">
+					<div class="int-list-item__left" data-target="user-open-forms">
+						<div class="int-list-item__heading">
+							<div class="int-list-item__heading-logo" style="background-image: url(img/profile-image.jpg)"></div>
+							<a href="#" class="int-list-item__heading-name int-list-item__heading-name_user">{{item.name}}</a>
+						</div>
+						<div class="int-list-item__units">
+							<div class="int-list-item__units-number {% if (item.number == '0') %}int-list-item__units-number_zero{% endif %}">{{item.number}}</div>
+							<div class="int-list-item__units-text">forms</div>
+						</div>
+					</div>
+						<div class="int-list-item__right">
+						<a href="#" class="button button_middle-blue button_m int-list-item__btn" data-target="open-pop-up" data-action="assign-form" data-assign-type="single">
+							{{ mixins.icon('point-at') }}
+							<span>Assign form</span>
+						</a>
+					</div>
+					<button type="button" class="int-list-item__remove-btn" data-target="open-pop-up" data-action="delete-list-item"></button>
+				</div>
+				<div class="int-list-item__forms" data-target="int-list-forms">
+					<!--begin table -->
+					<div class="forms-table forms-table_no-border-rad forms-table_no-shadow" data-target="forms-table">
+						{% for row in item.forms %}
+						<!-- begin row -->
+						<div class="forms-table__row forms-table__row_users" data-target="forms-table-row" data-selected="false">
+
+							<!-- begin row left -->
+
+							<div class="forms-table__left forms-table__left_users">		
+							
+
+								<!-- begin cells name and purpose -->
+
+								<div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+
+									<!-- begin name cell -->
+
+									<div class="forms-table__cell forms-table__cell_name">
+										<div class="forms-table__cell-content forms-table__cell-content_name">{{row.name}}</div>
+									</div>
+									
+									<!-- end name cell -->
+
+									<!-- begin purpose cell -->
+
+									<div class="forms-table__cell forms-table__cell_purpose">
+										<div class="forms-table__cell-content forms-table__cell-content_purpose">{{row.purpose}}</div>
+									</div>
+
+									<!-- end purpose cell -->
+
+								</div>
+
+								<!-- end cells name and purpose -->
+
+							</div>
+
+							<!-- end row left -->
+
+							<!-- begin row right -->
+
+							<div class="forms-table__right forms-table__right_users">
+
+								<!-- begin cells description and dates -->
+								
+								<div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates forms-table__collapsed-cells_desc-dates-users">
+
+									<!-- begin description cell -->
+
+									<div class="forms-table__cell forms-table__cell_desc forms-table__cell_desc-users">
+										<div class="forms-table__cell-content forms-table__cell-content_desc"><p>{{row.description}}</p></div>
+									</div>
+
+									<!-- end description cell -->
+									
+									<!-- begin dates cell -->
+
+									<div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates forms-table__collapsed-cells_dates-users">
+										
+										<!-- begin first date cell -->
+
+										<div class="forms-table__cell forms-table__cell_date-1">
+											<div class="forms-table__cell-content forms-table__cell-content_date-1">
+												<span class="table-date-title">Creation Date</span>
+												<span class="table-date">{{row.creationDate}}</span>
+											</div>
+										</div>
+
+										<!-- end first date cell -->
+										
+										<!-- begin second date cell -->
+										<div class="forms-table__cell forms-table__cell_date-2">
+											<div class="forms-table__cell-content forms-table__cell-content_date-2">
+												<span  class="table-date-title">Commit Date</span>
+												<span class="table-date">{{row.commitDate}}</span>
+										</div>
+										</div>
+
+										<!-- end second date cell -->
+
+									</div>
+
+									<!-- end dates cell -->
+
+								</div>
+								
+								<!-- end cells description and dates -->
+
+								<!-- begin fee cell -->
+
+								<div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-users">
+									<div class="forms-table__cell-content forms-table__cell-content_fee forms-table__cell-content_fee">
+									<span class="fee {% if row.feeClass %}fee_{{row.feeClass}}{% endif %}">{{row.fee}}</span>
+								</div>
+								</div>
+
+								<!-- end fee cell -->
+
+								<!-- begin status cell -->
+
+								<div class="forms-table__cell forms-table__cell_status forms-table__cell_status-users">
+									<div class="forms-table__cell-content forms-table__cell-content_status">
+										<div class="form-status form-status_{{row.statusClass}} forms-table__form-status">{{ row.status | safe }}</div>
+									</div>
+								</div>
+
+								
+							
+								<!-- end status cell -->						
+
+							</div>
+
+							<!-- end row right -->	
+
+						</div>
+						<!-- end row -->
+						{% endfor %}
+					</div>
+					<!--end table -->
+
+				</div>
+			</li>
+
+			<!-- end user item -->
+
+			{% endfor %}
+		</ul>
+	
+		<!-- end users list -->
+		</div>
+
+		<!-- end interface content holder -->
+
+	</div>
+
+	<!-- end interface container -->
+</div>
+<div class="page-overlay" data-target="page-overlay">
+	<div class="page-pop-up" data-target="pop-up-body">
+		<div class="page-pop-up__content" data-target="pop-up-content"></div>	
+		<button type="button" class="page-pop-up__close-btn" data-target="pop-up-close"></button>
+	</div>	
+</div>
+
+<div class="popups-html" data-target="pop-up-templates">
+	{% include "partials/interface-page/_popups-delete.html" %}
+	{% include "partials/interface-page/_popups-choose-user.html" %}
+	{% include "partials/interface-page/_popups-table.html" %}
+	{% include "partials/interface-page/_popups-add-user.html" %}
+</div>			
+</form>
+
+	{% include "partials/interface-page/_footer.html" %}
+</div>
+{% endblock %}

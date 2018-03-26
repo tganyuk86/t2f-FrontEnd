@@ -1,0 +1,134 @@
+@import standard-components/all
+
++font(SegoeUI, 'segoeui')
++font(SegoeUILight, 'segoeuil')
++font(SegoeUIBold, 'segoeuib')
++font(SegoeUISl, 'segoeuil')
+
+body
+	font-family: "Segoe UI", SegoeUISl, sans-serif
+	line-height: 1.2
+	color: #525459
+
+.is-invisible
+	display: none
+
+.lp-container
+	margin: 0 auto
+	max-width: 1200px
+	position: relative
+	z-index: 1
+	height: 100%
+	padding: 0 20px
+	+r(1041)
+		max-width: 100%
+	+r(360)
+		padding: 0 30px
+
+.heading-1
+	font-size: 48px
+	font-weight: 700
+	font-family: "Segoe UI", SegoeUIBold, sans-serif
+	+r(1041)
+		font-size: 36px
+	+r(377)
+		font-size: 18px
+
+.heading-2
+	font-size: 36px
+	font-weight: 700
+	font-family: "Segoe UI", SegoeUIBold, sans-serif
+	+r(1041)
+		font-size: 30px
+	+r(377)
+		font-size: 18px
+		
+.circle
+	+circle(50px, 3px, purple)
+
+.circle
+	&_composite
+		+circle(1200px, 1px, rgba(255,255,255,.15))	
+		&::before			
+			+circle(900px, 1px, rgba(255,255,255,.15))
+		&::after
+			+circle(1500px, 1px, rgba(255,255,255,.15))
+		&::before, &::after
+			content: ''
+	&_xs
+		+circle(16px, 4px, #846db1)	
+	&_sm
+		+circle(24px, 6px, rgba(34,105,195,.33))
+	&_m
+		+circle(120px, 6px, rgba(34,105,195,.33))
+	&_l
+		+circle(160px, 6px, rgba(34,105,195,.33))
+	&_xl
+		+circle(240px, 6px, rgba(34,105,195,.33))
+	&_xxl
+		+circle(400px, 6px, rgba(34,105,195,.33))
+
+.icon-right-arrow
+	transform: scale(-1,1)
+
+.image-preview
+	padding-top: 10px
+	position: relative
+	&__image
+		display: block
+		width: 140px
+		height: 140px
+		border-radius: 50%		
+		+cover
+		+r(460)
+			margin: 0 auto
+		label
+			display: block
+			height: 100%
+			border-radius: 50%
+			cursor: pointer			
+	&__load-status
+		position: absolute
+		bottom: -34px
+		left: 0
+		+r(460)
+			left: 40px
+	+r(460)
+		padding-top: 0
+		margin-top: -10px
+	.input-error-message
+		top: auto
+		bottom: -35px
+		right: auto
+		left: 15px
+		+r(450)
+			bottom: -20px
+			left: 50%
+			transform: translateX(-50%)
+
+.image-load-status
+	width: 210px
+	height: 20px
+	&__status-track
+		position: absolute
+		top: 8px
+		left: 1px
+		width: 160px
+		height: 8px
+		border-radius: 4px
+		border: 1px solid #3f92cc
+	&__bar
+		height: 100%
+		background-color: #3f92cc
+		border-radius: 4px
+	&__text
+		position: absolute
+		top: 0
+		right: 0
+		span
+			&:nth-of-type(2)
+				font-size: 10px
+				margin-left: 5px
+	&.is-invisible
+		display: none
+

@@ -1,0 +1,229 @@
+.input-text
+	display: block
+	width: 100%
+	color: #525459
+	background-color: transparent
+	border-bottom: 1px solid #dadce2
+	font-size: 16px
+	padding: 8px 0 5px	
+	&_s
+		max-width: 240px
+	&:invalid
+		box-shadow: none
+	+r(734)
+		font-size: 14px
+	&::placeholder
+		color: #858891
+	&:hover
+		cursor: pointer
+	&:focus
+		border-color: #3f92cc
+	&[type="password"]
+		font: small-caption
+		font-size: 16px
+		color: #b6b8bd
+		height: 32px
+		&::placeholder
+			font-size: 16px
+			color: #858891
+			+r(735)
+				font-size: 14px				
+		&.is-active
+			font-size: 0
+			height: 32px
+.input-text
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus,
+	&:-webkit-autofill:active
+		-webkit-box-shadow: 0 0 0px 1000px #f8f9f9 inset
+	&[type="password"]
+		color: #b6b8bd
+		&:-webkit-autofill,
+		&:-webkit-autofill:hover,
+		&:-webkit-autofill:focus,
+		&:-webkit-autofill:active
+			-webkit-text-fill-color: #b6b8bd
+	&_entry-page
+		&:-webkit-autofill,
+		&:-webkit-autofill:hover,
+		&:-webkit-autofill:focus,
+		&:-webkit-autofill:active
+			-webkit-box-shadow: 0 0 0px 1000px #fff inset
+		+r(735)
+			color: #fff
+			border-color: rgba(255,255,255,.7)
+		&:-webkit-autofill,
+		&:-webkit-autofill:hover,
+		&:-webkit-autofill:focus,
+		&:-webkit-autofill:active
+			+r(735)
+				-webkit-text-fill-color: #fff
+				-webkit-box-shadow: 0 0 0px 1000px #afc0fb inset
+		&::placeholder
+			+r(735)
+				color: rgba(255,255,255,.7)
+		&[type="password"]
+			+r(735)
+				color: #fff
+			&:-webkit-autofill,
+			&:-webkit-autofill:hover,
+			&:-webkit-autofill:focus,
+			&:-webkit-autofill:active
+				+r(735)
+					-webkit-text-fill-color: #fff
+			&::placeholder
+				+r(735)
+					color: rgba(255,255,255,.7)
+		&:focus
+			+r(735)
+				border-color: #fff
+
+
+.input-text:-webkit-autofill
+  content: "\feff"
+
+.input-placeholder
+	position: absolute
+	top: -22px
+	left: 0
+	font-size: 14px
+	font-weight: 400
+	color: #3f92cc
+	+r(450)
+		font-size: 10px
+		top: -13px
+
+.input-error-message
+	position: absolute
+	top: -20px
+	right: 0
+	background-color: #f25d70
+	color: #fff
+	font-size: 12px
+	font-weight: 400
+	border-radius: 5px
+	padding: 4px 13px 6px 10px
+	display: none
+	+r(450)
+		padding: 2px 7px 2px 6px
+		top: -12px
+		right: 5px		
+		font-size: 10px
+	&::after
+		content: ''
+		position: absolute
+		bottom: -8px
+		right: 14px
+		width: 0
+		height: 0
+		border-top: 4px solid #f25d70
+		border-left: 4px solid #f25d70
+		border-bottom: 4px solid transparent
+		border-right: 4px solid transparent
+		+r(450)
+			bottom: -4px
+			right: 11px
+			border-top: 2px solid #f25d70
+			border-left: 2px solid #f25d70
+			border-bottom: 2px solid transparent
+			border-right: 2px solid transparent
+
+	&.is-active
+		display: block
+
+.input-file-load
+	display: none
+
+
+.input-text::-ms-clear
+	display: none
+	width : 0
+	height: 0
+.input-text::-ms-reveal
+	display: none
+	width : 0
+	height: 0
+
+
+.input-search
+	display: block
+	border: 1px solid #e8e8e8
+	border-radius: 10px
+	padding-left: 16px
+	padding-right: 16px
+	height: 40px
+	line-height: 40px
+	position: relative
+	cursor: pointer
+	&__icon	
+		position: absolute
+		top: -1px
+		left: 10px
+		width: 40px
+		height: 40px
+		border-radius: 10px
+		transition: left 0.5s ease
+		.icon-magnifying-glass
+			fill: #858891
+			width: 16px
+			height: 18px
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+	&__field
+		display: block
+		font-size: 14px
+		line-height: 40px
+		color: #525459
+		font-weight: 400
+		margin-left: 38px
+		width: calc(100% - 40px)
+		cursor: pointer	
+		background-color: transparent
+		&::placeholder
+			color: #858891
+		&::-webkit-search-decoration,
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-results-button,
+		&::-webkit-search-results-decoration
+			display: none
+	&.is-active
+		.input-search
+			&__icon
+				left: calc(100% - 39px)
+				background-color: #699ad2
+				.icon-magnifying-glass
+					fill: #fff
+			&__field
+				margin-left: 5px
+	&_responsive
+		+r(990)
+			z-index: 2
+			width: 40px
+			float: right
+			background-color: #f9f9fb
+			transition: width 0.5s ease
+			right: 0
+			.input-search
+				&__icon
+					left: auto
+					right: -1px
+					background-color: #699ad2
+					.icon-magnifying-glass
+						fill: #fff
+				&__field
+					width: 0
+		+r(540)
+			transition: width 0.25s ease, right 0.25s ease 0.25s
+		&.is-active
+			+r(990)
+				width: 100%
+			.input-search__field
+				width: calc(100% - 40px)
+			+r(540)
+				transition: right 0.25s ease, width 0.5s ease 0.25s
+				position: absolute
+				right: -200px
+				width: calc(100% + 200px)

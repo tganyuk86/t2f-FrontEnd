@@ -1,0 +1,14 @@
+	<!-- begin delete list item pop-up content -->
+	<div data-target-content="delete-list-item" data-pop-up-size="sm">
+		<div class="popup-modal-msg page-pop-up__modal" data-target="pop-up-prompt-msg">
+			<div class="popup-modal-msg__heading popup-modal-msg__heading_sm">Are you sure you want to delete {% if (page=='teams') %}the team{% elif (page=='users') %}user{% endif %}?</div>		
+			<div class="popup-modal-msg__btn-holder">
+				<button type="button" class="button button_sm button_turquoise" data-target="pop-up-cancel">No</button>
+				<button type="submit" class="button button_sm button_middle-blue-gray" data-target="pop-up-action">Yes</button>
+			</div>			
+		</div>
+		<div class="popup-modal-msg page-pop-up__success-msg" data-target="pop-up-success-msg">
+			<div class="popup-modal-msg__heading popup-modal-msg__heading_no-pad">{% if (page=='teams') %}Team{% elif (page=='users') %}User{% endif %} "<span data-target="removed-item-name"></span>" was deleted.</div>
+		</div>
+	</div>
+	<!-- end delete list item pop-up content -->

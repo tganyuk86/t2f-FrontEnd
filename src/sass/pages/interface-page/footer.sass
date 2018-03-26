@@ -1,0 +1,173 @@
+.footer
+	background-color: #e8e9f1
+	position: fixed
+	z-index: 1
+	bottom: 0
+	left: 0
+	right: 0
+	padding: 5px 40px
+	height: 36px
+	line-height: 30px
+	text-align: center
+	font-size: 0
+	pointer-events: none
+	+clr
+	+r(640)
+		height: 60px
+		padding: 0 10px
+	&__left
+		float: left		
+		+r(640)
+			float: none
+			margin-top: 27px
+			display: inline-block
+	&__right
+		float: right		
+		+r(640)
+			float: none
+			margin-top: 27px
+			display: inline-block	
+	&__center
+		position: absolute
+		left: 50%
+		transform: translateX(-50%)
+		+r(910)
+			position: static
+			float: right
+			transform: none
+			margin-right: 17px
+		+r(640)
+			position: absolute
+			float: none
+			left: 50%
+			transform: translateX(-50%)
+			margin-right: 0
+			top: 5px
+	+r(1041)
+		padding: 5px 25px
+
+.scale-text
+	font-size: 0
+	&__item
+		display: inline-block
+		position: relative		
+		&::after
+			content: '|'
+			position: absolute
+			top: -2px
+			right: 0
+			font-size: 12px
+			font-weight: 200
+		&:last-child
+			&::after
+				display: none
+				+r(910)
+					display: block
+				+r(640)
+					display: none
+
+	&__btn
+		color: #999ba2
+		font-size: 14px
+		font-weight: 700
+		text-decoration: none
+		margin: 0 28px
+		pointer-events: auto
+		transition: all 0.25s ease
+		&:hover
+			color: #525459
+			text-decoration: none
+		+r(910)
+			margin: 0 19px
+		span
+			font-weight: 400
+			position: relative
+			top: -1px
+			left: 1px
+
+.about-list
+	font-size: 0
+	&__item
+		display: inline-block
+		position: relative
+		margin-right: 80px
+		+r(910)
+			margin-right: 33px
+		+r(640)
+			margin-right: 18px
+		+r(356)
+			margin-right: 5px
+		&:not(:last-child)
+			&::after
+				content: '|'
+				position: absolute
+				top: -2px
+				right: -38px
+				font-size: 12px
+				font-weight: 200
+				+r(910)
+					right: -16px
+				+r(640)
+					right: -9px
+				+r(356)
+					right: -4px
+		&:last-child
+			margin-right: 0
+		+r(640)
+			&:first-child
+				&::before
+					content: '|'
+					position: absolute
+					font-size: 12px
+					font-weight: 200
+					top: -2px
+					left: -9px
+		+r(356)
+			&:first-child
+				&::before
+					left: -4px
+	&__ref
+		font-size: 14px
+		font-weight: 400
+		color: #858891
+		text-decoration: none
+		pointer-events: auto
+		transition: all 0.25s ease
+		&[href]:hover
+			text-decoration: none
+			color: #3f92cc
+		+r(640)
+			font-size: 10px
+		
+
+.copyright
+	text-decoration: none
+	pointer-events: auto
+	&:hover
+		text-decoration: none
+		svg, span
+			color: #3f92cc
+			fill: #3f92cc
+	+r(640)
+		margin-right: 18px
+	+r(356)
+		margin-right: 5px
+	svg, span
+		font-size: 14px
+		font-weight: 400
+		fill: #858891
+		color: #858891
+		transition: all 0.25s ease
+		+r(640)
+			font-size: 10px
+	svg
+		width: 30px
+		height: 18px
+		margin-right: 4px
+		position: relative
+		top: 1px
+		left: -6px
+		+r(640)
+			width: 24px
+			height: 12px
+			margin-right: 0

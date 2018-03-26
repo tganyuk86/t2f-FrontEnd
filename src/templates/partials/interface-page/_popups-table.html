@@ -1,0 +1,267 @@
+<!-- begin assign form pop-up content -->
+<div data-target-content="assign-form"  data-pop-up-size="l">
+	<div class="popup-modal-msg page-pop-up__modal" data-target="pop-up-prompt-msg">
+		<div class="popup-modal-msg__caption popup-modal-msg__caption_table">Choose form</div>
+			<div class="popup-modal-msg__search-panel">	
+				<div class="popup-modal-msg__search-wrapper">
+					<span class="input-search" data-target="input-search-wrapper">
+						<span class="input-search__icon" data-target="input-search-icon">
+							{{ mixins.icon('magnifying-glass') }}
+						</span>
+						<input type="search" class="input-search__field" placeholder="Search" data-target="input-search-field" />
+					</span>
+				</div>
+			</div>
+			<div class="popup-modal-msg__forms-table-holder">
+				<div class="forms-table" data-target="forms-table" data-select="forms" data-select-name="forms" data-select-multiple="true">
+			
+					<!-- begin row -->
+
+					<div class="forms-table__row forms-table__row_heading forms-table__row_bg forms-table__row_pop-up">
+
+						<!-- begin row left -->
+
+						<div class="forms-table__left forms-table__left_pop-up">
+		
+							<!-- begin select cell -->
+
+							<div class="forms-table__cell forms-table__cell_select">
+								<a href="#" class="select-row-btn select-row-btn_select-all" data-target="select-row-all" data-select-all="forms"></a>
+								<span class="forms-table__column-name forms-table__column-name_select-all">All</span>
+							</div>
+
+							<!-- end select cell -->
+
+							<!-- begin cells name and purpose -->
+
+							<div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+
+								<!-- begin name cell -->
+
+								<div class="forms-table__cell forms-table__cell_name">
+									<a href="#" class="forms-table__column-name forms-table__column-name_form-name forms-table__column-name_filter" data-target="table-filter">Form Name</a>
+								</div>
+								
+								<!-- end name cell -->
+
+								<!-- begin purpose cell -->
+
+								<div class="forms-table__cell forms-table__cell_purpose">
+									<a href="#" class="forms-table__column-name forms-table__column-name_purpose forms-table__column-name_filter" data-target="table-filter">
+										{{ mixins.icon('target') }}
+										<span>Purpose</span>
+									</a>
+								</div>
+
+								<!-- end purpose cell -->
+
+							</div>
+
+							<!-- end cells name and purpose -->
+
+						</div>
+
+						<!-- end row left -->
+
+						<!-- begin row right -->
+
+						<div class="forms-table__right forms-table__right_pop-up">
+
+							<!-- begin cells description and dates -->
+							
+							<div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates">
+
+								<!-- begin description cell -->
+
+								<div class="forms-table__cell forms-table__cell_desc">
+									<a href="#" class="forms-table__column-name forms-table__column-name_desc forms-table__column-name_filter" data-target="table-filter">
+										{{ mixins.icon('signature') }}
+										<span>Description</span>
+									</a>
+								</div>
+
+								<!-- end description cell -->
+								
+								<!-- begin dates cell -->
+
+								<div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+									
+									<!-- begin first date cell -->
+
+									<div class="forms-table__cell forms-table__cell_date-1">
+										<a href="#" class="forms-table__column-name forms-table__column-name_date-1 forms-table__column-name_filter" data-target="table-filter">
+											{{ mixins.icon('calendar') }}
+											<span>Creation Date</span>
+										</a>
+									</div>
+
+									<!-- end first date cell -->
+									
+									<!-- begin second date cell -->
+									<div class="forms-table__cell forms-table__cell_date-2 orms-table__cell_date-2-pop-up">
+										<a href="#" class="forms-table__column-name forms-table__column-name_date-2 forms-table__column-name_filter" data-target="table-filter">
+											{{ mixins.icon('alarm-clock') }}
+											<span>Commit Date</span>
+										</a>
+									</div>
+
+									<!-- end second date cell -->
+
+								</div>
+
+								<!-- end dates cell -->
+
+							</div>
+							
+							<!-- end cells description and dates -->
+
+							<!-- begin fee cell -->
+
+							<div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
+								<span class="forms-table__column-name forms-table__column-name_fee">Fee</span>
+							</div>
+
+							<!-- end fee cell -->
+							
+						</div>
+
+						<!-- end row right -->
+
+					</div>
+					<div class="forms-table-scroll-area scrollbar-inner" data-target="table-scroll-area">
+					{% for item in data.formData %}
+						{% set counter = ( counter | default(0) ) + 1 %}
+
+						<!-- begin row -->
+					
+						<div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="{{counter}}" data-select-option-type="toggle">
+
+							<!-- begin row left -->
+
+							<div class="forms-table__left forms-table__left_pop-up">
+			
+								<!-- begin select cell -->
+
+								<div class="forms-table__cell forms-table__cell_select">
+									<div class="forms-table__cell-content">
+										<a href="#" class="select-row-btn" data-target="select-row"></a>
+									</div>
+								</div>
+
+								<!-- end select cell -->
+
+								<!-- begin cells name and purpose -->
+
+								<div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+
+									<!-- begin name cell -->
+
+									<div class="forms-table__cell forms-table__cell_name">
+										<div class="forms-table__cell-content forms-table__cell-content_name">{{item.name}}</div>
+									</div>
+									
+									<!-- end name cell -->
+
+									<!-- begin purpose cell -->
+
+									<div class="forms-table__cell forms-table__cell_purpose">
+										<div class="forms-table__cell-content forms-table__cell-content_purpose">{{item.purpose}}</div>
+									</div>
+
+									<!-- end purpose cell -->
+
+								</div>
+
+								<!-- end cells name and purpose -->
+
+							</div>
+
+							<!-- end row left -->
+
+							<!-- begin row right -->
+
+							<div class="forms-table__right forms-table__right_pop-up">
+
+								<!-- begin cells description and dates -->
+								
+								<div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+
+									<!-- begin description cell -->
+
+									<div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+										<div class="forms-table__cell-content forms-table__cell-content_desc"><p>{{item.description}}</p></div>
+									</div>
+
+									<!-- end description cell -->
+									
+									<!-- begin dates cell -->
+
+									<div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+										
+										<!-- begin first date cell -->
+
+										<div class="forms-table__cell forms-table__cell_date-1">
+											<div class="forms-table__cell-content_date-1-title">Creation Date</div>
+											<div class="forms-table__cell-content forms-table__cell-content_date-1">{{item.creationDate}}</div>
+										</div>
+
+										<!-- end first date cell -->
+										
+										<!-- begin second date cell -->
+										<div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
+											<div class="forms-table__cell-content_date-2-title">Commit Date</div>
+											<div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">{{item.commitDate}}</div>
+										</div>
+
+										<!-- end second date cell -->
+
+									</div>
+
+									<!-- end dates cell -->
+
+								</div>
+								
+								<!-- end cells description and dates -->
+
+								<!-- begin fee cell -->
+
+								<div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
+									<div class="forms-table__cell-content forms-table__cell-content_fee">
+									<span class="fee fee_pop-up {% if item.feeClass %}fee_{{item.feeClass}}{% endif %}">{{item.fee}}</span>
+								</div>
+								</div>
+
+								<!-- end fee cell -->
+
+								
+							</div>
+
+							<!-- end row right -->
+							
+							<a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a>
+
+						</div>
+					
+						<!-- end row -->
+
+					{% endfor %}
+					</div>
+				</div>
+
+			<!-- end flex table -->
+			</div>
+			<div class="popup-modal-msg__btn-holder">
+				<button type="submit" class="button button_middle-blue button_m" data-target="pop-up-action" data-action="send-forms" disabled>
+					{{ mixins.icon('point-at') }}
+					<span>Assign form</span>
+				</button>
+			</div>
+	</div>
+	<div class="popup-modal-msg page-pop-up__success" data-target="pop-up-success-msg">
+		<div class="popup-modal-msg__heading popup-modal-msg__heading_np">Forms were sent<span data-target="forms-sent-to"></span>.</div>
+		<div class="popup-modal-msg__desc popup-modal-msg__desc_w455">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.</p>
+		</div>
+	</div>
+</div>
+<!-- end assign form pop-up content -->

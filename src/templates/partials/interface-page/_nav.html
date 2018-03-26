@@ -1,0 +1,17 @@
+
+{% import "data/data.html" as data %}
+<!-- begin side-navigation -->
+<nav class="side-nav" data-target="responsive-menu-elem">
+	<ul class="side-nav-list">
+		{% for item in data.navItems %}
+		<li class="side-nav-list__item">
+			<a href="{{item.link}}" class="side-nav-list__link {% if (item.name == menuPage)%}is-active{% endif %}">
+				{{ mixins.icon(item.icon) }}
+				<span>{{item.name}}</span>
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+</nav>
+
+<!-- end side-navigation -->

@@ -1,0 +1,46 @@
+.hamburger-btn
+	width: 30px
+	height: 30px
+	position: relative
+	display: block
+	display: none
+	top: 12px
+	z-index: 1
+	+r(640)
+		display: block
+	&.is-responsive
+		.hamburger
+			background-color: transparent
+			&::before
+				transform: rotate(-45deg)
+				top: 0
+
+			&::after
+				transform: rotate(45deg)
+				top: 0
+	&_blue
+		background-color: #699ad2
+		border-radius: 5px 0px 0px 5px
+		
+.hamburger
+	display: block
+	width: 30px
+	height: 2px
+	background-color: #fff
+	position: absolute
+	top: 50%
+	transform: translateY(-50%)
+	&::before, &::after
+		transition: all 0.25s ease
+		content: ''
+		width: 30px
+		height: 2px
+		background-color: #fff
+		position: absolute
+		left: 0
+	&::before
+		top: -6px
+	&::after
+		top: 6px
+	&_blue
+		left: 16px

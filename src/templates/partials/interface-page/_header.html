@@ -1,0 +1,24 @@
+<header class="header">
+	<a href="#" class="header__logo">{% include "partials/True2Forms_logo_black.svg" %}</a>
+	<a href="#" class="button button_dark-blue button_upgrade header__btn" data-target="responsive-menu-elem">{{ mixins.icon('magic-wand')}}<span>Upgrade now</span></a>
+	<a href="#" class="hamburger-btn hamburger-btn_blue header__hamburger-btn" data-target="page-menu-toggle">
+		<span class="hamburger hamburger_blue"></span>
+	</a>
+	<div class="account-data header__account-data" data-target="header-account-data">
+		<div class="account-data__notifications">
+			<a href="#" class="account-data__notification-link">{{ mixins.icon('alarm-bell')}}<span class="account-data__notification-number is-active">8</span></a>	
+		</div>
+		<div class="profile account-data__profile" data-target="user-profile">
+			<a href="#" class="profile__image" style="background-image: url(img/profile-image.jpg)" data-target="account-menu-toggle">
+			</a>
+			<a href="#" class="profile__nickname" data-target="account-menu-toggle">Nickname</a>
+			<div class="header-overlay" data-target="header-overlay"></div>
+			<ul class="profile__menu-list" data-target="account-menu">
+				<li class="profile__menu-list-item profile__menu-list-item_nickname">Nickname</li>
+				<li class="profile__menu-list-item"><a href="settings.html" class="profile__menu-list-link">{{ mixins.icon('settings') }}<span>Account settings</span></a></li>
+				<li class="profile__menu-list-item"><a href="index.html" class="profile__menu-list-link">{{ mixins.icon('logout') }}<span>Logout</span></a></li>
+			</ul>
+		</div>		
+	</div>
+
+</header>

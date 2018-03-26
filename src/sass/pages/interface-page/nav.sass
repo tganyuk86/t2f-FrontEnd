@@ -1,0 +1,109 @@
+.side-nav
+	position: fixed
+	z-index: 10
+	top: 140px
+	+r(1383)
+		top: 110px
+	+r(660)
+		top: 60px
+		right: -210px
+		width: 210px
+		bottom: 60px
+		background-color: #699ad2
+		transition: right 0.25s ease
+	&.is-responsive
+		right: 0
+		.side-nav-list__link
+			border-radius: 0
+		
+				
+		
+.side-nav-list
+	max-width: 150px
+	+r(660)
+		max-width: 100%
+	&__item
+		position: relative
+		height: 60px
+		&:not(:last-child)
+			margin-bottom: 1px		
+	&__link
+		display: block
+		padding: 20px
+		background-color: #699ad2
+		border-radius: 0px 5px 5px 0px
+		color: #fff
+		text-decoration: none
+		font-size: 0
+		position: absolute
+		width: 60px
+		height: 60px
+		transition: width 0.5s ease
+		&:hover
+			color: #fff
+		+r(660)
+			width: 100%
+			padding-left: 30px
+			transition: background-color 0.5s ease
+		svg
+			fill: #fff
+			&.icon-man-user
+				fill: none
+				stroke: #fff
+				stroke-width: 20px
+				height: 20px
+				width: 19px
+				position: relative
+			&.icon-shelter
+				width: 20px
+				height: 18px
+				position: relative
+				top: 1px
+				left: -1px
+			&.icon-check-list
+				width: 18px
+				height: 20px
+			&.icon-settings
+				width: 20px
+				height: 20px
+			&.icon-envelope
+				width: 20px
+				height: 21px
+			&.icon-problem
+				width: 20px
+				height: 20px
+				+r(660)
+					+ span
+						top: 27px
+		svg, span
+			display: inline-block
+			vertical-align: middle
+			font-size: 16px
+		span
+			position: absolute
+			top: 20px
+			left: 58px
+			opacity: 0
+			transition: opacity 0.25s ease
+			pointer-events: none
+			+r(660)
+				opacity: 1
+				margin-left: 10px
+		&.is-active
+			background-color: #2169c2
+			box-shadow: inset 0 0 24px rgba(0, 49, 110, 0.54)
+			+r(660)
+				background-color: #699ad2
+				box-shadow: none
+		&:hover
+			width: 140px
+			+r(660)
+				width: 100%
+				background-color: #2169c2
+				box-shadow: inset 0 0 24px rgba(0, 49, 110, 0.54)
+			svg
+				margin-right: 20px
+				+r(660)
+					margin-right: 0
+			span
+				opacity: 1

@@ -1,0 +1,52 @@
+{% import "data/data.html" as data %}
+		<!-- begin interface action panel -->
+
+		<div class="int-action-panel">
+			<div class="int-action-panel__left">
+				{% for item in data.actionPanel %}
+				 {% if (item.name == page)%}
+					<div class="int-action-panel__item int-action-panel__item_top">
+						{{ item.firstBtn | safe}}
+					</div>
+					<div class="int-action-panel__item int-action-panel__item_top">
+						{{ item.secondBtn | safe}}
+					</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+			<div class="int-action-panel__right">
+				<div class="int-action-panel__item int-action-panel__item_search">
+					<span class="input-search input-search_responsive" data-target="input-search-wrapper">
+						<span class="input-search__icon" data-target="input-search-icon">
+							{{ mixins.icon('magnifying-glass') }}
+						</span>
+						<input type="search" class="input-search__field" placeholder="Search" data-target="input-search-field" />
+					</span>
+				</div>
+				<div class="int-action-panel__item int-action-panel__item_filter">
+					<div class="form-status-filter">
+						<a href="#" class="form-status-filter__btn" data-target="filter-toggle-btn">Display</a>
+						<div class="filter-overlay" data-target="filter-overlay"></div>
+						<ul class="form-status-list form-status-filter__form-status-list" data-target="filter-list">
+							<li class="form-status-list__item">
+								<a href="#" class="form-status-list__btn form-status-list__btn_draft" data-target="filter-list-item">Draft</a>
+							</li>
+							<li class="form-status-list__item">
+								<a href="#" class="form-status-list__btn form-status-list__btn_commited" data-target="filter-list-item">Committed</a>
+							</li>
+							<li class="form-status-list__item">
+								<a href="#" class="form-status-list__btn form-status-list__btn_in-use" data-target="filter-list-item">In Use</a>
+							</li>
+							<li class="form-status-list__item">
+								<a href="#" class="form-status-list__btn form-status-list__btn_archived" data-target="filter-list-item">Archived</a>
+							</li>
+							<li class="form-status-list__item">
+								<a href="#" class="form-status-list__btn form-status-list__btn_assigned" data-target="filter-list-item">Assigned</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- end interface action panel -->

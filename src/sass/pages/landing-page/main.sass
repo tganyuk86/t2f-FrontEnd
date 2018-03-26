@@ -1,0 +1,331 @@
+.lp-main
+	position: relative
+	min-height: 800px
+	padding-top: 168px
+	overflow-x: hidden
+	padding-bottom: 380px
+	+r(1041)
+		min-height: 700px
+		padding-top: 140px
+	+r(1015)
+		padding-top: 160px
+		padding-bottom: 40%
+	+r(377)
+		padding-top: 100px
+		padding-bottom: 110px
+		min-height: 340px
+	&__heading-1		
+		color: #fff
+		text-align: center
+		max-width: 740px
+		margin: 0 auto 30px
+		+r(1041)
+			margin-bottom: 20px
+		+r(377)
+			margin-bottom: 8px
+	&__desc
+		color: #fff
+		font-size: 18px
+		font-weight: 400
+		max-width: 780px
+		margin: 0 auto
+		text-align: center
+		line-height: 30px
+		+r(377)
+			font-size: 12px
+			line-height: 14px
+	&__background
+		position: absolute
+		min-width: 1920px
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		overflow: hidden
+		z-index: -1
+		left: 50%
+		transform: translateX(-50%)
+
+
+.lp-content-wrapper
+	background-color: #fff
+	padding-bottom: 25px
+	position: relative
+	&__background
+		overflow: hidden
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: calc(100% + 50px)
+		z-index: 1
+
+
+.lp-section
+	position: relative
+	font-size: 0
+	margin-bottom: 50px
+	overflow: hidden
+	display: flex
+	align-items: center
+	z-index: 2
+	+r(1383)
+		margin-bottom: 133px
+	+r(1041)
+		margin-bottom: 110px
+	+r(1015)
+		margin-bottom: 47px
+	+r(540)
+		margin-bottom: 52px
+	&:first-of-type
+		+r(1015)
+			margin-top: -5px
+		+r(377)
+			margin-top: 0
+			padding-top: 23px
+	&:last-of-type
+		+r(1383)
+			margin-bottom: 0
+		+r(1041)
+			margin-bottom: 45px
+		+r(1015)
+			margin-bottom: 25px
+		+r(540)
+			margin-bottom: 34px
+	&:nth-of-type(odd)
+		flex-direction: row
+		+r(1015)
+			flex-direction: column
+		.lp-section__text-content-inner
+			position: relative
+			float: left
+			margin-left: 350px
+			+r(1900)
+				margin-left: 0
+				position: relative
+				float: right
+				margin-right: 72px
+			+r(1290)
+				margin-right: 0
+			+r(1130)
+				margin-right: -45px
+			+r(1041)
+				margin-right: 43px
+			+r(1015)
+				float: none
+				width: 500px
+				margin-bottom: 45px
+				padding-left: 35px
+				padding-right: 35px
+			+r(540)
+				width: 100%
+			+r(377)
+				padding-left: 29px
+				padding-right: 29px
+				margin-bottom: 40px
+		.lp-section__image-holder-inner
+			position: absolute
+			right: -50px
+			+r(1900)
+				position: relative
+				left: 152px
+				float: left
+			+r(1383)
+				left: 65px
+			+r(1041)
+				left: 0
+			+r(1015)
+				float: right
+				right: 0
+				margin-right: -40px
+			+r(540)
+				margin-right: -20px
+		.lp-section__image-bg
+			position: absolute
+			right: 472px
+			+r(1900)
+				position: absolute
+				left: -325px
+			+r(1041)
+				left: -285px
+			+r(1015)
+				left: auto
+				right: -10px
+				top: 30px
+			+r(540)
+				top: 86px
+				right: -256px
+	&:nth-of-type(even)
+		flex-direction: row-reverse
+		+r(1015)
+			flex-direction: column
+		.lp-section__text-content-inner
+			position: relative
+			float: right
+			margin-right: 355px
+			+r(1900)
+				margin-right: 0
+				position: relative
+				float: left
+				margin-left: 69px
+			+r(1290)
+				margin-left: 0
+			+r(1130)
+				margin-left: -45px
+			+r(1041)
+				margin-left: 49px
+			+r(1015)
+				margin-left: 0
+				float: none					
+				width: 500px
+				margin-bottom: 45px
+				padding-right: 35px
+				padding-left: 35px
+			+r(540)
+				width: 100%
+			+r(377)
+				padding-left: 29px
+				padding-right: 29px
+				margin-bottom: 40px
+		.lp-section__image-holder-inner
+			position: absolute
+			left: -50px
+			+r(1900)
+				left: auto
+				position: absolute
+				right: 152px
+				float: right
+			+r(1383)
+				right: 64px
+			+r(1041)
+				right: 0
+			+r(1015)
+				margin-right: -40px
+			+r(540)
+				margin-right: -20px
+		.lp-section__image-bg
+			position: absolute
+			left: 472px
+			transform: scale(-1, 1)
+			+r(1900)
+				left: auto
+				position: absolute
+				right: -311px
+			+r(1383)
+				right: -303px
+			+r(1041)
+				right: -295px
+				top: 56px
+			+r(1015)
+				transform: none
+				left: auto
+				right: -75px
+				top: 56px
+			+r(540)
+				top: 80px
+				right: -255px
+		.lp-section-image-bg__h
+			background-color: #846db1
+		.lp-section-image-bg__h_w
+			background-color: #fff
+	&:nth-of-type(3n + 1)
+		.lp-section__image-bg
+			display: block
+	&__text-content, &__image-holder
+		width: 50%
+		+r(1015)
+			width: 100%
+	&__text-content
+		position: relative
+		z-index: 3
+		+clr
+		&-inner
+			margin-bottom: 165px			
+			width: 530px
+			+r(1383)
+				margin-bottom: 152px
+			+r(1041)
+				width: 430px
+				margin-bottom: 148px
+			+r(540)
+				width: 100%
+	&__image-holder
+		position: relative
+		height: 650px
+		+r(1383)
+			height: 550px
+		+r(1041)
+			height: 430px
+		+r(540)
+			height: 223px
+		&-inner
+			width: 849px
+			height: 566px
+			background-image: url(../img/laptop.png)
+			+cover
+			position: relative
+			top: 0
+			z-index: 3
+			+r(1383)
+				top: 15px
+				width: 679px
+				height: 455px
+			+r(1041)
+				top: 0
+				width: 544px
+				height: 362px
+			+r(540)
+				width: 299px
+				height: 199px
+	&__image
+		left: 42px
+		position: absolute
+		top: 42px
+		width: 765px
+		height: 480px
+		background-size: cover
+		background-position: left top
+		background-repeat: no-repeat
+		+r(1383)
+			width: 616px
+			height: 386px
+			left: 30px
+			top: 34px
+		+r(1041)
+			width: 491px
+			height: 308px
+			top: 25px
+			left: 25px
+		+r(540)
+			width: 270px
+			height: 170px
+			top: 12px
+			left: 12px
+		&-bg
+			position: absolute
+			top: 68px
+			z-index: 2
+			display: none
+			+r(1383)
+				top: 85px
+			+r(1041)
+				top: 27px
+	&__heading-2
+		margin-bottom: 30px
+		+r(377)
+			margin-bottom: 9px
+	&__desc
+		color: #525459
+		font-size: 18px
+		font-weight: 400
+		line-height: 30px
+		text-align: left
+		+r(1041)
+			font-size: 16px
+			line-height: 30px
+		+r(1015)
+			margin-left: 5px
+		+r(377)
+			font-size: 12px
+			line-height: 14px
+			margin-left: 0

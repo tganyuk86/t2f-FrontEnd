@@ -1,0 +1,119 @@
+
+
+.status-circle-composition
+	position: relative
+	left: 5px
+	top: 11px
+	+r(1310)
+		left: 11px
+	+r(480)
+		display: none
+	&__circle
+		position: absolute
+		top: -13px
+		border-radius: 50%
+		width: 24px
+		height: 24px
+		&_1
+			top: -14px
+			left: -4px
+			background-color: #f5ad94
+		&_2
+			left: 4px
+			top: -17px
+			background-color: #82c47d
+			border: 2px solid #fff
+			width: 29px
+			height: 29px
+		&_3
+			top: -17px
+			left: 13px
+			background-color: #74c4c3
+			font-weight: 700
+			font-size: 14px
+			text-align: center
+			color: #fefeff
+			line-height: 24px
+			border: 2px solid #fff
+			width: 29px
+			height: 29px
+
+.form-status
+	display: inline-block
+	width: 120px
+	height: 24px
+	border-radius: 3px
+	font-size: 14px
+	font-weight: 700
+	color: #fff
+	text-align: center
+	line-height: 24px
+	text-decoration: none
+	&_draft
+		background-color: #f5ad94
+	&_committed
+		background-color: #74c4c3
+	&_in-use
+		background-color: #82c47d
+	&_archived
+		background-color: #fa7e8a
+	&_assigned
+		background-color: #b18cc1
+
+
+
+
+
+
+.select-row-btn
+	display: block
+	font-size: 0
+	position: relative
+	width: 24px
+	height: 24px
+	border-radius: 50%
+	border: 2px solid #e8ebf4
+	transition: all 0.25s ease
+	&:hover
+		border-color: #699ad2
+		
+	&_select-all
+		+r(1310)
+			top: -10px
+		+r(480)
+			top: -6px
+	&.is-selected
+		background-image: linear-gradient(45deg, #4a7bd5 0%, #8b73da 100%)
+		border: none
+		&::before
+			content: ''
+			position: absolute
+			top: 8px
+			left: 7px
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'><path fill='%23ffffff' d='m.3,14c-0.2-0.2-0.3-0.5-0.3-0.7s0.1-0.5 0.3-0.7l1.4-1.4c0.4-0.4 1-0.4 1.4,0l.1,.1 5.5,5.9c0.2,0.2 0.5,0.2 0.7,0l13.4-13.9h0.1v-8.88178e-16c0.4-0.4 1-0.4 1.4,0l1.4,1.4c0.4,0.4 0.4,1 0,1.4l0,0-16,16.6c-0.2,0.2-0.4,0.3-0.7,0.3-0.3,0-0.5-0.1-0.7-0.3l-7.8-8.4-.2-.3z'/></svg>");
+			background-size: 10px 10px
+			background-repeat: no-repeat
+			width: 100%
+			height: 100%
+	&__desc
+		display: inline-block
+		vertical-align: middle
+		font-size: 14px
+		text-decoration: none
+		color: #858891
+		margin-left: 10px
+
+
+
+.price
+	position: relative
+	color: #3f92cc
+	&::before
+		content: ''
+		top: 9px
+		left: -13px
+		position: absolute
+		width: 6px
+		height: 6px
+		background-color: #699ad2
+		border-radius: 50%

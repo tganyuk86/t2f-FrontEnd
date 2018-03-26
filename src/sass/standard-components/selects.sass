@@ -1,0 +1,223 @@
+.form-select
+	width: 120px
+	position: relative
+	+r(735)
+		width: 105px
+	&__selected
+		display: block
+		border-bottom: 1px solid #dadce2
+		position: relative
+		+arrow-down(15px, 3px, 6px)
+		+r(734)
+			border-color: rgba(255,255,255,.7)
+	&__select-list-holder
+		position: absolute
+		width: 120px		
+		max-height: 168px
+		z-index: 1
+		background-color: #fff
+		display: none
+		+r(734)
+			width: 105px
+			background-color: #95C4FC
+		&.is-open
+			display: block
+			border-bottom: 1px solid #dadce2
+	select
+		display: none
+
+		
+.select-with-input
+	font-size: 0
+	&__left, &__right
+		display: inline-block
+		vertical-align: bottom
+	&__left
+		margin-right: 44px;
+		+r(734)
+			width: 130px
+			margin-right: 0
+	&__right
+		width: 235px
+		+r(734)
+			width: calc(100% - 130px)
+		&_maximized
+			width: calc(100% - 164px)
+
+
+.select-list
+	&__value
+		display: block
+		position: relative
+		cursor: pointer
+		padding: 7px 6px
+		font-size: 0
+		&:hover
+			color: #3f92cc
+	&__image
+		display: inline-block
+		vertical-align: middle
+		width: 22px
+		height: 16px
+		background-position: center center
+		background-repeat: no-repeat
+		background-size: cover
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.33)
+	&__text
+		display: inline-block
+		vertical-align: middle
+		font-size: 16px
+		margin-left: 12px
+		position: relative
+		top: -2px
+		+r(734)
+			color: #525459
+	
+.form-select-selected
+	&__option
+		@extend .select-list__value
+	&__image
+		@extend .select-list__image
+	&__text
+		@extend .select-list__text
+		+r(734)
+			color: #fff
+.select-list-holder.scroll-wrapper
+	.scroll-element.scroll-y
+		width: 6px
+	.scroll-element_track
+		background-color: transparent !important
+		box-shadow: none !important
+	.scroll-bar
+		background-color: #a6c4e6 !important
+		border-radius: 2px !important
+		box-shadow: inset 0 0 3.6px 0.4px rgba(1, 22, 47, 0.2) !important
+
+.form-status-filter
+	position: relative
+	width: 100%
+	&__btn
+		text-align: left
+		display: block
+		height: 40px
+		box-shadow: 0 2px 9px rgba(33, 33, 38, 0.08)
+		background-color: #fff
+		position: relative
+		color: #3f92cc
+		cursor: pointer
+		text-decoration: none
+		font-size: 14px
+		line-height: 40px
+		padding-left: 18px
+		padding-right: 15px
+		border-radius: 10px
+		z-index: 1
+		+arrow-down(19px, 15px, 18px)
+		&:hover
+			color: #3f92cc
+			text-decoration: none
+		&.is-active
+			z-index: 11
+			border-radius: 10px 10px 0 0
+	&__form-status-list
+		position: absolute
+		z-index: 2
+
+
+.form-status-list
+	background-color: #fff
+	box-shadow: 0 2px 9px rgba(33, 33, 38, 0.08)
+	border-radius: 0 0 10px 10px
+	width: 100%
+	border-top: 1px solid #e8ebf4 
+	padding-top: 20px
+	display: none
+	z-index: 11
+	text-align: left
+	&__item
+		padding: 0 20px 15px
+	&__btn
+		display: block
+		position: relative
+		color: #858891
+		font-size: 14px
+		font-weight: 400
+		text-decoration: none
+		padding-left: 30px
+		&:hover
+			text-decoration: none
+			color: #52545a
+		&::before
+			content: ''
+			position: absolute
+			width: 16px
+			height: 16px
+			border: 2px solid #ebedf5
+			border-radius: 50%
+			left: 0
+			top: 0
+			transition: all 0.25s ease
+		&.is-selected
+			color: #52545a
+			&::before
+				background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'><path fill='%23ffffff' d='m.3,14c-0.2-0.2-0.3-0.5-0.3-0.7s0.1-0.5 0.3-0.7l1.4-1.4c0.4-0.4 1-0.4 1.4,0l.1,.1 5.5,5.9c0.2,0.2 0.5,0.2 0.7,0l13.4-13.9h0.1v-8.88178e-16c0.4-0.4 1-0.4 1.4,0l1.4,1.4c0.4,0.4 0.4,1 0,1.4l0,0-16,16.6c-0.2,0.2-0.4,0.3-0.7,0.3-0.3,0-0.5-0.1-0.7-0.3l-7.8-8.4-.2-.3z'/></svg>")
+				background-position: 2px 2px
+				background-size: 8px 10px
+				background-repeat: no-repeat
+		&_draft
+			&:hover
+				&::before
+					border-color: #f5ad94
+			&.is-selected
+				&::before
+					border-color: #f5ad94
+					background-color: #f5ad94
+		&_commited
+			&:hover
+				&::before
+					border-color: #74c4c3
+			&.is-selected
+				&::before
+					border-color: #74c4c3
+					background-color: #74c4c3
+		&_in-use
+			&:hover
+				&::before
+					border-color: #82c47d
+			&.is-selected
+				&::before
+					border-color: #82c47d
+					background-color: #82c47d
+		&_archived			
+			&:hover				
+				&::before
+					border-color: #fa7e8a 
+			&.is-selected
+				&::before
+					border-color: #fa7e8a
+					background-color: #fa7e8a
+		&_assigned
+			&:hover
+				&::before
+					border-color: #b18cc1
+			&.is-selected
+				&::before
+					border-color: #b18cc1
+					background-color: #b18cc1
+
+
+.filter-overlay
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background-color: rgba(9,22,48,.25)
+	z-index: 10
+	display: none
+	&.is-active
+		display: block
+
+
+.generated-select
+	display: none

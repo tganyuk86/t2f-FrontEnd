@@ -1,0 +1,137 @@
+.int-main
+	background-color: #f9f9fb
+	min-height: 100vh
+	+r(1480)
+		padding-left: 7%
+		padding-right: 3%
+	+r(1310)
+		padding-left: 8%
+		padding-right: 2.5%
+	+r(970)
+		padding-left: 11%
+		padding-right: 3%
+	+r(660)
+		padding-left: 15px
+		padding-right: 15px
+	
+
+
+.int-container
+	padding-top: 140px
+	padding-bottom: 136px
+	max-width: 1400px
+	margin: 0 auto
+	+r(1460)
+		padding-top: 110px
+		padding-bottom: 66px
+		max-width: 1226px
+	+r(640)
+		padding-bottom: 90px
+	+r(480)
+		padding-top: 80px
+
+.int-action-panel
+	padding-bottom: 17px
+	position: relative
+	z-index: 2
+	+clr
+	+r(990)
+		padding-bottom: 20px
+	+r(540)
+		padding-bottom: 10px
+	&__left
+		float: left
+		font-size: 0
+		position: relative
+		+r(540)
+			float: none
+			width: 100%
+			text-align: center
+			padding-bottom: 5px
+	&__right
+		display: flex
+		justify-content: flex-end
+		float: right
+		font-size: 0
+		padding-left: 10px
+		width: 51%
+		text-align: right
+		+r(1310)
+			width: 46%
+		+r(990)
+			width: calc(100% + 5px)
+			padding-right: 0
+			position: absolute
+			padding-left: 0
+			left: -5px
+		+r(788)
+			justify-content: flex-start
+		+r(540)
+			justify-content: flex-end
+			position: static
+			float: none
+			width: 100%
+	&__item
+		display: inline-block
+		vertical-align: middle
+		position: relative
+		&:not(:last-child)
+			padding-right: 10px
+			+r(990)
+				padding-right: 5px
+			+r(355)
+				padding-right: 0
+				display: block
+		&_search
+			max-width: 410px
+			width: 100%
+			+clr
+			+r(990)
+				max-width: 100%
+			+r(788)
+				width: 460px
+			+r(540)
+				position: absolute
+				right: 200px
+				width: calc(100% - 200px)
+		&_filter
+			max-width: 200px
+			width: 100%
+			+r(788)
+				width: calc(100% - 455px)
+			+r(640)
+				width: calc(100% - 340px)
+			+r(540)
+				width: 200px
+				min-width: 200px
+		&_top
+			+r(540)
+				width: calc(50% - 2px)
+			+r(357)
+				width: calc(50% - 1px)
+	&__button
+		position: relative
+		z-index: 1
+		.icon-user + span
+			margin-left: 12px
+			+r(640)
+				margin-left: 5px
+		.icon-user
+			+r(640)
+				width: 16px
+				height: 16px
+		.icon-add
+			left: -2px
+			+r(640)
+				width: 16px
+				height: 16px
+				left: 4px
+		+r(640)
+			width: 160px
+			span
+				font-size: 12px
+		+r(540)
+			width: 100%
+		+r(377)
+			width: 160px
+			margin-bottom: 5px

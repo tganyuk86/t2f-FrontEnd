@@ -1,0 +1,100 @@
+---
+title: True2forms - Better forms better fun
+menuPage: Users
+page: teams
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+{% extends "layouts/_layout.html" %}
+	{% include "partials/interface-page/_header.html" %}
+
+	{% include "partials/interface-page/_nav.html" %}
+<div class="page-interface scrollbar-inner" data-target="interface-page">
+	<form>
+<div class="int-main">
+
+
+	<!-- begin interface container -->
+	<div class="int-container">
+
+		<!-- begin interface action bar -->
+
+		{% include "partials/interface-page/_action-panel.html" %}
+
+		<!-- end interface action bar -->
+		
+		<!-- begin interface content holder -->
+		<div class="int-content-holder">
+
+		<!-- begin users list -->
+
+		<ul class="int-list">
+			{% import "data/data.html" as data %}
+			{% for item in data.teams %}
+			<!-- begin user item -->
+
+			<li class="int-list-item int-list__item" data-target="int-list-item" data-name="{{item.name}}">
+				<div class="int-list-item__wrapper">
+					<a href="users.html" class="int-list-item__link"></a>
+					<div class="int-list-item__left">
+						<div class="int-list-item__heading">
+							<div class="int-list-item__heading-logo" style="background-image: url({{item.logo}})"></div>
+							<span class="int-list-item__heading-name">{{item.name}}</span>
+						</div>
+						<div class="int-list-item__units">
+							<div class="int-list-item__units-number {% if (item.number == '0') %}int-list-item__units-number_zero{% endif %}">{{item.number}}</div>
+							<div class="int-list-item__units-text">members</div>
+						</div>
+					</div>
+					<div class="int-list-item__right">
+						<div class="int-list-item__info">
+							<a href="#" class="int-list-item__info-icon" data-target="open-pop-up" data-action="more-info">{{ mixins.icon('information-symbol') }}</a>
+							<div class="int-list-item__info-desc" data-target="int-list-more">
+								<div class="int-list-item__info-desc-inner" data-target="int-list-more-info">
+									{{item.description | safe}}
+								</div>
+							</div>
+						</div>	
+						<button type="button" class="button button_middle-blue button_m int-list-item__btn" data-target="open-pop-up" data-action="assign-form" data-assign-type="single">
+							{{ mixins.icon('point-at') }}
+							<span>Assign form</span>
+						</button>
+					</div>
+					<button type="button" class="int-list-item__remove-btn" data-target="open-pop-up" data-action="delete-list-item"></button>
+				</div>
+			</li>
+
+			<!-- end user item -->
+
+			{% endfor %}
+		</ul>
+	
+		<!-- end users list -->
+		</div>
+
+		<!-- end interface content holder -->
+
+	</div>
+
+	<!-- end interface container -->
+</div>
+<div class="page-overlay" data-target="page-overlay">
+	<div class="page-pop-up" data-target="pop-up-body">
+		<div class="page-pop-up__content" data-target="pop-up-content"></div>
+		<button type="button" class="page-pop-up__close-btn" data-target="pop-up-close"></button>
+	</div>	
+</div>
+
+<div class="popups-html" data-target="pop-up-templates">
+	{% include "partials/interface-page/_popups-delete.html" %}
+	{% include "partials/interface-page/_popups-table.html" %}
+	{% include "partials/interface-page/_popups-add-user.html" %}	
+</div>		
+
+
+	
+</form>
+	{% include "partials/interface-page/_footer.html" %}
+</div>
+{% endblock %}

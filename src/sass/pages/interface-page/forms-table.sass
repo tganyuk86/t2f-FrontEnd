@@ -1,0 +1,748 @@
+.forms-table
+	border-radius: 10px
+	box-shadow: 0 2px 9px rgba(33, 33, 38, 0.08)
+	background-color: #fff
+	cursor: default
+	&_no-border-rad
+		border-radius: 0 0 5px 0
+	&_no-shadow
+		box-shadow: none
+	&__row
+		display: flex
+		align-items: center
+		justify-content: space-between
+		position: relative
+		padding-left: 4%
+		padding-right: 4.3%
+		height: 80px
+		border-left: 4px solid transparent
+		+r(1480)
+			padding-left: 3%
+			padding-right: 3.5%
+		+r(1310)
+			padding-left: 3.5%
+			padding-right: 3.3%
+		+r(990)
+			align-items: flex-start
+			height: auto
+			padding: 19px 5.5%
+		+r(480)
+			padding-left: 4%
+			padding-right: 5%
+			padding-top: 12px
+			padding-bottom: 18px
+			flex-direction: column
+		+r(1)
+			background-color: #fff
+		&_no-pad
+			padding-left: 0
+			padding-right: 0
+		&_pop-up
+			+r(1310)
+				padding-left: 4.5%
+				padding-right: 7%
+				&::after
+					left: 4.5%
+					right: 7%
+			+r(990)
+				padding-left: 6.5%
+				padding-right: 6.5%
+				&::after
+					left: 6.5%
+					right: 6.5%
+			+r(700)
+				padding-top: 12px
+				padding-bottom: 18px
+			+r(460)
+				padding-left: 10.5%
+		&_users.forms-table__row
+			padding-left: 201px
+			&::before
+				display: none			
+			+r(1480)
+				padding-left: 174px
+				padding-right: 4.3% 
+			+r(1310)
+				padding-left: 40px
+				padding-right: 20px
+			+r(990)
+				padding-top: 22px
+				padding-bottom: 22px
+				padding-right: 55px
+			+r(730)
+				flex-direction: column
+				padding-left: 25px
+				padding-right: 40px
+			+r(460)
+				padding-left: 10px
+				padding-top: 10px
+			&:hover
+				cursor: default
+				background-color: transparent
+				&::after
+					background-color: #e8ebf4
+					left: 201px
+					right: 4.3%
+					+r(1480)
+						left: 174px
+						right: 4.3%
+					+r(1310)
+						left: 40px
+						right: 20px
+					+r(990)
+						right: 55px
+					+r(730)
+						left: 25px
+						right: 40px
+					+r(460)
+						left: 10px
+						right: 40px
+			&::after, &.is-selected::after
+				left: 201px
+				+r(1480)
+					left: 174px
+					right: 4.3%
+				+r(1310)
+					left: 40px
+					right: 20px
+				+r(990)
+					right: 55px
+				+r(730)
+					left: 25px
+					right: 40px
+				+r(460)
+					left: 10px
+					right: 40px
+		&_bg.forms-table__row_heading
+			background-color: #f9f9fb
+			&:hover
+				background-color: #f9f9fb
+			&::after
+				display: none
+		&::after
+			content: ''
+			position: absolute
+			bottom: -1px
+			left: 4%
+			right: 4.3%	
+			height: 1px
+			background-color: #e8ebf4
+			z-index: 1
+			+r(1480)
+				left: 3%
+				right: 3.5%
+			+r(1310)
+				left: 3.5%
+				right: 3.3%
+			+r(990)
+				left: 5.5%
+				right: 5.5%
+			+r(480)
+				left: 4%
+				right: 5%
+		&:hover, &.is-selected
+			cursor: pointer
+			background-color: #eef7ff
+			.select-row-btn
+				border-color: #699ad2
+			&::after
+				background-color: #fff
+				right: 0
+				left: -4px
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				background-color: #fff
+				left: -4px
+				right: 0
+				height: 1px
+				z-index: 1
+		&:last-child
+			&:hover
+				border-radius: 0 0 10px 10px
+				&::after
+					display: none
+			&.is-selected
+				border-radius: 0
+				&::after
+					display: none
+		&_heading
+			&::before
+				display: none
+			+r(990)
+				height: 80px
+				align-items: center
+			+r(480)
+				height: 60px
+			&:hover, &.is-selected
+				cursor: default
+				background-color: transparent
+				.select-row-btn
+					border-color: #e8ebf4
+					&:hover
+						border-color: #699ad2
+				&::after
+					background-color: #e8ebf4
+					left: 4%
+					right: 4.3%	
+		&.is-selected
+			border-left: 4px solid #699ad2
+			background-color: #eef7ff
+		&_pop-up
+			padding-left: 4.5%
+			padding-right: 2.6%
+			&::after, &.is-selected::after
+				left: 4.5%
+				right: 2.6%
+	&__right
+		display: flex
+		align-items: center
+		justify-content: space-between
+		max-width: 900px
+		width: 100%
+		+r(1480)
+			max-width: 822px
+		+r(1310)
+			max-width: 78%
+		+r(990)
+			align-items: flex-start
+			max-width: 67.5%
+		+r(730)
+			max-width: 66%
+			padding-top: 36px
+		+r(480)
+			max-width: 100%
+			padding-top: 0
+		&_pop-up
+			max-width: 750px
+			+r(1480)
+				max-width: 675px
+			+r(1310)
+				max-width: 74%
+				svg.icon-alarm-clock
+					left: -3px
+					top: 3px
+				svg.icon-calendar
+					top: 0
+					left: -2px
+			+r(990)
+				max-width: 61%
+		&_users
+			+r(1310)
+				max-width: 86.5%
+				justify-content: center
+			+r(990)
+				max-width: 74.5%
+			+r(730)
+				max-width: 100%	
+				padding-top: 10px
+	&__left
+		display: flex
+		align-items: center
+		justify-content: space-between
+		max-width: 350px
+		width: 100%
+		+r(1480)
+			max-width: 295px
+		+r(1310)
+			max-width: 19.3%
+		+r(990)
+			max-width: 28.3%
+		+r(730)
+			max-width: 33%
+		+r(480)
+			max-width: 100%
+			justify-content: flex-start
+		&_users
+			max-width: 310px
+			+r(1480)
+				max-width: 250px
+			+r(1310)
+				max-width: 14%
+			+r(990)
+				max-width: 23.3%
+			+r(730)
+				max-width: 100%
+				.forms-table__collapsed-cells_name-purpose
+					position: relative
+					left: -2px				
+		&_pop-up
+			+r(1310)
+				max-width: 22.5%
+			+r(990)
+				max-width: 34.3%
+	&__collapsed-cells
+		display: flex
+		align-items: center
+		justify-content: space-between
+		&_name-purpose
+			max-width: 280px
+			width: 100%
+			+r(1480)
+				max-width: 245px
+			+r(1310)
+				flex-direction: column
+				max-width: 115px
+			+r(510)
+				max-width: 120px
+		&_dates
+			max-width: 310px
+			width: 100%
+			+r(1480)
+				max-width: 275px
+			+r(1310)
+				flex-direction: column
+				max-width: 135px
+			+r(730)
+				flex-direction: row
+				justify-content: space-between
+				max-width: 100%
+		&_dates-users
+			+r(1310)
+				flex-direction: row
+				max-width: 282px
+			+r(730)
+				justify-content: flex-start
+				.forms-table__cell_date-1,
+				.forms-table__cell_date-2
+					margin-left: 0
+					margin-right: 0
+					width: 50%
+					max-width: 50%
+			+r(460)
+				.table-date
+					font-size: 12px
+		&_desc-dates
+			max-width: 645px
+			width: 100%
+			+r(1480)
+				max-width: 590px
+			+r(1310)
+				max-width: 450px
+			+r(990)
+				align-items: flex-start
+				flex-direction: column-reverse
+			+r(730)
+				display: none
+				padding-top: 15px
+				//width: 80%
+				width: 100%
+				padding-left: 36px
+				margin: 0 auto
+		&_desc-dates-users
+			+r(1310)
+				max-width: 585px
+			+r(730)
+				display: flex
+				width: 100%
+				padding-left: 0
+
+	&__cell
+		text-align: left
+		position: relative
+		&_select
+			width: 40px
+			+r(1480)
+				width: 25px
+			+r(990)
+				padding-top: 4px
+			+r(730)
+				margin-right: 10px
+			&-users
+				display: none
+				+r(550)
+					display: block	
+		&_name
+			width: 130px
+			+r(1480)
+				width: 115px
+		&_purpose				
+			width: 120px
+			+r(1480)
+				width: 105px
+			+r(1310)
+				width: 115px
+		&_desc
+			width: 305px
+			+r(1480)
+				width: 290px
+			+r(990)
+				width: 100%
+				display: none
+				padding-top: 12px
+				padding-right: 40px
+			+r(730)
+				display: block
+				padding-right: 0
+			&-users
+				+r(990)
+					display: flex
+		&_date-1
+			width: 140px
+			+r(1480)
+				width: 125px
+			+r(1310)
+				width: 135px
+			+r(730)
+				max-width: 140px
+				width: 100%
+				//margin-left: 3%
+		&_date-2
+			width: 140px
+			+r(1480)
+				width: 125px
+			+r(1310)
+				width: 135px
+			+r(730)
+				max-width: 140px
+				width: 100%
+				//margin-right: 3%			
+			&-pop-up
+				+r(1480)
+					width: 120px
+		&_fee
+			width: 65px
+			+r(1480)
+				width: 50px
+			+r(990)
+				position: absolute
+				right: 34%
+				top: 32px
+			+r(730)
+				right: auto
+				left: 50%
+				transform: translateX(-50%)
+			+r(480)
+				top: 22px
+				transform: none
+				left: auto
+				right: 26.5%
+			&-pop-up
+				+r(990)
+					right: 20%
+				+r(730)
+					transform: none
+					left: 66%
+				+r(460)
+					left: auto
+					right: 19.5%
+			&-users
+				display: none
+				+r(730)
+					//display: block
+					top: 33px
+				+r(480)
+					top: 30px
+		&_status
+			width: 120px
+			+r(990)
+				position: absolute
+				right: 12.5%
+				top: 32px
+			+r(480)
+				top: 22px
+				right: 16.5%
+				width: 24px
+			&-users
+				+r(1310)
+					position: relative
+					left: 5%
+				+r(1130)
+					left: 10px
+				+r(990)
+					position: absolute
+					left: auto
+					right: 8.5%
+				+r(730)
+					top: 33px
+				+r(480)
+					top: 22px
+					right: 135px
+					.form-status
+						width: 120px
+						span
+							display: inline
+		&_select-users
+			
+	&__toggle-btn
+		position: absolute
+		display: block
+		right: 38px
+		top: 26px
+		width: 20px
+		height: 20px
+		+arrow-down(15px, 6px, 10px)
+		display: none
+		z-index: 1
+		&::before, &::after
+			background-color: #9fa1a7
+		&.is-active
+			&::before, &::after
+				background-color: #699ad2
+			&::before
+				right: 10px
+			&::after
+				right: 6px
+		+r(990)
+			display: block
+		+r(730)
+			right: 6%
+		+r(480)
+			right: 5% 
+			top: 15px
+		&_pop-up
+			+r(990)
+				right: 62px
+			+r(460)
+				right: 12%
+	&__column-name
+		font-size: 0
+		font-weight: 400
+		color: #858891
+		text-decoration: none		
+		display: block
+		float: left
+		position: relative
+		top: 2px
+		&:hover
+			color: #858891
+			text-decoration: none
+		svg
+			display: inline-block
+			vertical-align: bottom
+			fill: #858891
+			margin-right: 10px
+		span
+			display: inline-block
+			vertical-align: bottom
+			font-size: 14px
+		.icon-target
+			width: 18px
+			height: 18px
+		.icon-signature
+			width: 20px
+			height: 20px
+		.icon-calendar
+			width: 19px
+			height: 20px
+			+r(1310)
+				position: relative
+				top: -2px
+		.icon-alarm-clock
+			width: 21px
+			height: 20px
+			+r(1310)
+				position: relative
+				top: 2px
+				margin-right: 9px
+		&_desc
+			+r(990)
+				display: none
+		&_filter
+			+arrow-down(8px, -17px, -13px)
+			&::before, &::after
+				background-color: #9fa1a7
+			&:hover
+				&::before, &::after
+					background-color: #3f92cc
+			&.is-flipped
+				&::before
+					right: -13px
+				&::after
+					right: -17px
+		&_select-all
+			position: absolute
+			top: 6px
+			left: 34px
+			font-size: 14px
+			+r(1480)
+				font-size: 12px
+				top: 28px
+				left: 8px
+			+r(1310)
+				top: 18px
+			+r(480)
+				top: 25px
+				left: 6px
+		&_form-name
+			font-size: 14px
+			+r(480)
+				font-size: 13px
+				position: relative
+				top: 7px				
+		&_purpose
+			&::before, &::after
+				top: 10px
+			+r(480)
+				display: none
+		&_desc
+			&::before, &::after
+				top: 12px
+		&_date-1
+			&::before, &::after
+				top: 12px
+			&::before
+				right: -18px
+			&::after
+				right: -14px
+			&.is-flipped
+				&::before
+					right: -14px
+				&::after
+					right: -18px		
+		&_date-2
+			&::before, &::after
+				top: 12px
+			&::before
+				right: -20px
+			&::after
+				right: -16px
+			&.is-flipped
+				&::before
+					right: -16px
+				&::after
+					right: -20px
+		&_fee
+			color: #3f92cc
+			font-size: 14px
+			&:hover
+				color: #3f92cc
+			+r(480)
+				font-size: 12px
+			&-pop-up
+				+r(990)
+					left: 20px
+		&_status
+			font-size: 14px
+			left: 55px
+			+r(1310)
+				left: 62px
+			+r(480)
+				font-size: 12px
+				left: -5px
+
+	&__cell-content
+		font-size: 16px
+		font-weight: 400
+		&_name
+			text-decoration: none
+			color: #3f92cc
+			+r(1480)
+				font-size: 14px
+				position: relative
+				top: 3px
+			+r(990)
+				padding-bottom: 5px
+			+r(480)
+				font-size: 13px
+				padding-bottom: 0
+		&_purpose
+			+r(1480)
+				font-size: 14px
+				position: relative
+				top: 3px
+			+r(480)
+				font-size: 12px
+		&_desc
+			color: #858891
+			font-size: 14px
+			position: relative
+			line-height: 18px	
+			&::before
+				content: ''
+				position: absolute
+				background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 14.588 14.588"><path style="fill:%23999ba2;" d="M0.631,10.539l4,4.049h-4V10.539z M13.171,1.56l-0.774-0.774c-0.854-0.854-2.056-1.042-2.681-0.417 L8.48,1.604l3.872,3.872l1.234-1.236C14.212,3.616,14.025,2.416,13.171,1.56z M1.631,9.588l3.979,4.044l6.021-7.044l-4-4 L1.631,9.588z"/></svg>')
+				top: 2px
+				left: 0
+				width: 11px
+				height: 12px
+				transform: scale(-1,1)
+				background-repeat: no-repeat
+			>:first-child
+				text-indent: 18px
+				overflow: hidden
+				text-overflow: ellipsis
+				margin-bottom: 0
+			+r(480)
+				font-size: 12px
+				line-height: 14px
+		&_date-1, &_date-2
+			font-size: 14px
+			padding-top: 5px
+			+r(730)
+				font-size: 12px
+				padding-top: 0
+			&-title
+				font-size: 14px
+				color: #858891
+				font-weight: 400
+				display: none
+				+r(730)
+					display: block
+				+r(480)
+					font-size: 12px
+		&_status
+			+r(990)
+				margin-top: -5px
+	&__form-status
+		+r(480)
+			width: 24px
+			line-height: 24px
+			span
+				display: none
+.fee
+	color: #3f92cc
+	position: relative
+	left: 10px
+	+r(480)
+		font-size: 12px
+	&::before
+		content: ''
+		position: absolute
+		width: 6px
+		height: 6px
+		border-radius: 50%
+		background-color: #699ad2
+		left: -20px
+		top: 9px
+		+r(480)
+			top: 6px
+			left: -15px
+	&::after
+		content: '$'
+		position: absolute
+		font-size: 16px
+		color: #3f92cc
+		left: -8px
+		top: 1px
+		+r(480)
+			font-size: 13px
+			top: 0
+	&_na
+		color: #52545a
+		left: 1px
+		&::before, &::after
+			display: none
+	&_pop-up
+		left: 0
+		&:not(.fee_na)
+			left: 10px
+		+r(480)
+			&:not(.fee_na)
+				left: 7px
+
+.table-date-title
+	display: block
+	color: #858891
+	font-size: 12px
+	font-weight: 400
+	position: relative
+	top: -5px
+.table-date
+	display: block
+	color: #52545a
+	font-size: 14px
+	font-weight: 400
+	position: relative
+	top: -2px

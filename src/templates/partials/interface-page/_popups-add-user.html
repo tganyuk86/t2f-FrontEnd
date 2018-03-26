@@ -1,0 +1,54 @@
+<!-- begin add list item pop-up content -->
+<div data-target-content="add-list-item"  data-pop-up-size="m">
+	<div class="popup-modal-msg popup-modal-msg_m page-pop-up__modal-msg " data-target="pop-up-prompt-msg">
+		<div class="popup-modal-msg__caption">{% if (page=='teams') %}Add team{% elif (page=='users') %}Invite User{% endif %}</div>
+		<div class="popup-modal-msg__desc-holder">
+			<div class="popup-modal-msg__desc scrollbar-inner" data-target="scrollable">				
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.</p>
+			</div>		
+		</div>
+		
+		<div class="popup-modal-msg__input-holder popup-modal-msg__input-holder_mt">
+
+			{% if (page=='teams') %}
+			<div class="popup-modal-msg__input-wrapper">
+				<input type="text" name="team-name" class="input-text" placeholder="Team name" value="Superteam" />
+				<span class="input-error-message">Invalid text</span>
+			</div>
+			<div class="popup-modal-msg__input-wrapper">
+				<input type="email" name="email" class="input-text" placeholder="Email" value="Bertram@mail.com" />
+				<span class="input-error-message">Invalid email</span>
+			</div>
+
+			{% elif (page=='users') %}
+			<div class="popup-modal-msg__input-wrapper">
+				<input type="email" name="email" class="input-text" placeholder="Email" value="Superteam@mail.com" />
+				<span class="input-error-message">Invalid email</span>
+			</div>				
+			<div class="popup-modal-msg__input-wrapper">
+				<input type="text" name="team-name" class="input-text" placeholder="Name" />
+				<span class="input-error-message">Invalid text</span>
+			</div>
+			{% endif %}
+							
+		</div>
+		<div class="popup-modal-msg__btn-holder">
+			{% if (page=='teams') %}
+			<button type="submit" class="button button_blue-green" data-target="pop-up-action" data-action="add-list-item">
+				{{ mixins.icon('user') }}
+				<span>Add team</span>
+			</button>
+			{% elif (page=='users') %}
+			<button type="submit" class="button button_dark-purple" data-target="pop-up-action" data-action="add-list-item">
+						{{ mixins.icon('add') }}
+				<span>Send an invitation</span>
+			</button>
+			{% endif %}
+		</div>
+	</div>
+	<div class="popup-modal-msg page-pop-up__success-msg" data-target="pop-up-success-msg">
+		<div class="popup-modal-msg__heading popup-modal-msg__heading_no-pad">Invitation sent.</div>
+	</div>
+</div>
+
+<!-- end add list item pop-up content -->

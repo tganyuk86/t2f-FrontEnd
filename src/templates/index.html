@@ -1,0 +1,143 @@
+---
+title: True2forms - Better forms better fun
+subtitles: ['Better forms, better fun', 'Payments', 'Tracking', 'Notifications (SMS, etc)', 'Easy to start']
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	<!-- begin header -->
+	<header class="lp-header">
+		<div class="lp-header__left">
+			<a href="#" class="lp-header__logo">{% include "partials/True2Forms_logo_white.svg" %}</a>
+		</div>
+		<div class="lp-header__right">
+			<ul data-target="responsive-menu-elem" class="lp-nav">
+				<li class="lp-nav__item"><a href="#" class="lp-nav__link">About</a></li>
+				<li class="lp-nav__item"><a href="#" class="lp-nav__link">Contact</a></li>
+				<li class="lp-nav__item"><a href="login.html" class="lp-nav__link">Login</a></li>
+				<li class="lp-nav__item"><a href="sign-up.html" class="lp-nav__link">Signup</a></li>			
+			</ul>
+			<a href="#" class="hamburger-btn lp-header__hamburger-btn" data-target="page-menu-toggle"><span class="hamburger"></span></a>
+		</div>
+	</header>
+	<!--end header -->
+
+	<!-- begin main section -->
+	<section class="lp-main">
+		<div class="lp-container">
+			<h1 class="heading-1 lp-main__heading-1">Lorem ipsum dolor sit amet</h1>
+			<div class="lp-main__desc">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at dapibus felis. Nulla fringilla consectetur lacus. Duis sed tempus dolor. Mauris venenatis vehicula augue, quis malesuada lacus </p>
+			</div>
+		</div>		
+		<div class="lp-main-background lp-main__background">
+			{% include "partials/landing-page/hero_bg.svg" %}
+			<div class="lp-main-background__up"></div>
+			<div class="circle circle_composite lp-main-background__circle-composite"></div>
+			<div class="circle circle_xs lp-main-background__circle-xs-purple lp-main-background__circle-xs-purple_first"></div>
+			<div class="circle circle_xs lp-main-background__circle-xs-purple lp-main-background__circle-xs-purple_second"></div>
+			<div class="circle circle_sm lp-main-background__circle-sm-blue"></div>
+			<div class="circle circle_l lp-main-background__circle-l"></div>
+			<div class="circle circle_xl lp-main-background__circle-xl"></div>
+		</div>
+	</section>
+	<!-- end main section -->	
+	
+	<!-- begin content -->
+	<div class="lp-content-wrapper">
+		<!-- begin gadgets block -->
+		<div class="lp-gadgets-block">
+			<div class="lp-gadgets-block__wrapper">
+				<div class="lp-gadgets-block__holder">
+					<div class="lp-gadgets-block__laptop">
+						<div class="lp-gadgets-block__laptop-image" style="background-image: url(img/laptop_screen.jpg)"></div>
+					</div>
+					<div class="lp-gadgets-block__laptop-bottom"></div>
+					<div class="lp-gadgets-block__mobile">
+						<div class="lp-gadgets-block__mobile-image" style="background-image: url(img/mobile_screen.jpg)"></div>
+					</div>
+					<div class="lp-gadgets-block__shadow"></div>
+					<div class="circle circle_m lp-gadgets-block__circle"></div>
+				</div>				
+			</div>	
+		</div>
+		<!-- end gadgets block -->
+
+		<!-- begin sections -->
+		
+		{% for i in range (1, 6) -%}
+		<!-- begin section -->
+		<section class="lp-section">
+			<div class="lp-section__text-content">
+				<div class="lp-section__text-content-inner">
+					<h2 class="heading-2 lp-section__heading-2">{{ subtitles[i - 1] }}</h2>
+					<div class="lp-section__desc">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis magna odio, posuere non massa eget, mollis imperdiet nisi. Donec sed sapien eget neque fermentum sollicitudin. Duis scelerisque fringilla lorem, ac tincidunt neque tempus non.</p>						
+					</div>
+				</div>
+			</div>
+			<div class="lp-section__image-holder">
+				<div class="lp-section__image-holder-inner">
+					<div class="lp-section__image" style="background-image: url(img/screen_mockup_{{i}}.jpg)"></div>
+				</div>
+				<div class="lp-section-image-bg lp-section__image-bg">
+					<div class="lp-section-image-bg__h lp-section-image-bg__h_1"></div>
+					<div class="lp-section-image-bg__h lp-section-image-bg__h_2"></div>
+					<div class="lp-section-image-bg__h lp-section-image-bg__h_3"></div>
+					<div class="lp-section-image-bg__v"></div>
+					<div class="lp-section-image-bg__h lp-section-image-bg__h_w  lp-section-image-bg__h_w1"></div>
+					<div class="lp-section-image-bg__h lp-section-image-bg__h_w  lp-section-image-bg__h_w2"></div>
+				</div>
+			</div>
+			
+		</section>
+		<!-- end section -->
+		{%- endfor %}
+
+		<!-- end sections -->
+		<div class="lp-content-wrapper__background">
+			<div class="lp-content-wrapper-background">
+				<div class="circle circle_sm lp-content-wrapper-background__circle-sm-blue"></div>
+				<div class="circle circle_xs lp-content-wrapper-background__circle-xs-purple-first"></div>
+				<div class="circle circle_xs lp-content-wrapper-background__circle-xs-purple-second"></div>
+				<div class="circle circle_xs lp-content-wrapper-background__circle-xs-purple-third"></div>
+				<div class="circle circle_m lp-content-wrapper-background__circle-m"></div>
+				<div class="circle circle_l lp-content-wrapper-background__circle-l"></div>
+				<div class="circle circle_xxl lp-content-wrapper-background__circle-xxl"></div>
+				{% include "partials/landing-page/oval.svg" %}				
+			</div>			
+		</div>
+
+	</div>	
+	<!-- end content -->
+
+	<!-- begin footer -->
+	<footer class="lp-footer">
+		<div class="lp-container">
+			<div class="lp-footer__desc">
+				<p>Have any questions? Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+			</div>
+			<div class="btn-wrapper">
+				<a href="#" class="button button_purple button_question">{{mixins.icon('question')}}<span>Help</span></a>
+			</div>
+		</div>		
+		<div class="lp-footer__bottom">
+			<a href="http://heidep.com/" target="_blank" class="lp-footer__copyright">{{mixins.icon('cloud')}}<span>Created by Heidep</span></a>
+			<ul class="lp-footer__about">
+				<li class="lp-footer__about-item"><a href="#" class="lp-footer__about-link">About</a></li>
+				<li class="lp-footer__about-item"><a href="#" class="lp-footer__about-link">Contact</a></li>
+				<li class="lp-footer__about-item"><a href="#" class="lp-footer__about-link">Term and conditions</a></li>
+				<li class="lp-footer__about-item"><span href="#" class="lp-footer__about-link">&copy; True2Forms 2017</span></li>
+			</ul>
+		</div>
+		<div class="lp-footer__background">
+			<div class="lp-footer-background">
+				<div class="circle circle_composite lp-footer-background__circle-composite"></div>
+				<div class="circle circle_sm lp-footer-background__circle-sm"></div>
+				<div class="circle circle_xl lp-footer-background__circle-xl"></div>
+			</div>
+		</div>		
+	</footer>
+	<!-- end footer -->
+{% endblock %}

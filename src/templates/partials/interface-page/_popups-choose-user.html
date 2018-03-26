@@ -1,0 +1,97 @@
+<!-- begin add list item pop-up content -->
+<div data-target-content="choose-user" data-pop-up-size="md">
+		<div class="popup-modal-msg page-pop-up__modal" data-target="pop-up-prompt-msg">
+				<div class="popup-modal-msg__caption" data-target="hidden-step-2">Choose User Lorem Ipsum</div>
+				<div class="select-user-block-wrapper" data-select="users" data-select-name="users" data-select-multiple="true">
+					<div class="popup-modal-msg__top-panel {% if page == 'forms' %}popup-modal-msg__top-panel_forms{% endif %}" data-target="hidden-step-2">
+						<div class="popup-modal-msg__top-panel-left">
+							<div class="popup-modal-msg__search-input-wrapper">
+								<span class="input-search" data-target="input-search-wrapper">
+									<span class="input-search__icon" data-target="input-search-icon">
+										{{ mixins.icon('magnifying-glass') }}
+									</span>
+									<input type="search" class="input-search__field" placeholder="Search" data-target="input-search-field" />
+								</span>
+							</div>
+						</div>
+						{% if (page == 'users') %}				
+						<div class="popup-modal-msg__top-panel-right">
+							<button type="button" class="button button_dark-purple button_m" data-target="open-pop-up" data-action="add-list-item">
+									{{ mixins.icon('add') }}
+								<span>Invite user</span>
+							</button>
+						</div>
+						{% endif %}
+					</div>
+					<div class="select-user-block {% if page == 'forms' %}select-user-block_forms{% endif %}" data-target="select-user-block">
+						<div class="select-user-block__left {% if page == 'forms' %}select-user-block__left_forms{% endif %}" data-target="users-select-s1">
+							<div class="select-user-block__select-all  {% if page == 'forms' %}select-user-block__select-all_forms{% endif %}">
+								<a href="#" class="select-row-btn select-user-block__select-all-btn" data-target="select-all-users" data-select-all="users"></a>
+								<span>All</span>
+							</div>
+							<div class="choose-user-scroll-area-wrapper">
+								<div class="choose-user-list-scroll-area scrollbar-inner" data-target="choose-user-scroll-area">
+									<ul class="choose-user-list">
+										{% for i in range(0,5) %}
+										{% for item in data.selectUser %}
+											<li class="choose-user-list__item" >
+												<a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="{{item.name}}" data-user-id="{{item.name + i}}" data-select-option="users" data-select-option-value="{{item.name + i}}" data-select-option-type="toggle">
+													<span class="user-line__select-btn">
+														<span class="select-row-btn"></span>
+													</span>
+													<span class="user-line__user">
+														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
+														<span class="user-line__name">{{item.name}}</span>
+													</span>
+												</a>
+											</li>
+										{% endfor %}
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="select-user-block__right" data-target="users-select-s2">
+							
+							<button type="button" class="select-user-back" data-target="select-user-previous">
+								{{ mixins.icon('left-arrow') }}
+								<span>Back</span>
+							</button>
+							<div class="select-chosen-users select-user-block__select-chosen-users">
+								<div class="select-chosen-users__caption">You chose these users lorem ipsum:</div>
+								<div class="choose-user-list-scroll-area choose-user-list-scroll-area_right scrollbar-inner" data-target="choose-user-scroll-area">
+									<ul class="chosen-users-list" data-target="selected-users-list">
+										<!-- begin markup for selected user -->
+										<li class="chosen-users-list__item" data-target="selected-user">
+											<span class="chosen-users-list__user">
+												<span class="chosen-users-list__user-img" style="background-image: url(img/profile-image.jpg)" data-target="selected-user-image"></span>
+												<span class="chosen-users-list__user-name" data-target="selected-user-name"></span>
+											</span>
+											<button type="button" class="chosen-users-list__remove-btn" data-target="cancel-selection"  data-select-option="users" data-select-option-value="{{item.name + i}}" data-select-option-type="remove"></button>
+										</li>
+										<!-- end markup for selected user -->
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="popup-modal-msg__btn-holder">
+					<button type="submit" class="button button_middle-blue button_m assign-btn" data-target="pop-up-action" disabled>
+						{{ mixins.icon('point-at') }}
+						<span>Assign form</span>
+					</button>
+					<button type="button" class="button button_middle-blue button_m next-step" data-target="select-user-next" disabled>
+						{{ mixins.icon('left-arrow') }}
+						<span>Next</span>
+					</button>
+				</div>
+		</div>
+		<div class="popup-modal-msg page-pop-up__success" data-target="pop-up-success-msg">
+			<div class="popup-modal-msg__heading popup-modal-msg__heading_sm-pad">Forms were sent.</div>
+			<div class="popup-modal-msg__desc">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.</p>
+			</div>
+		</div>
+	</div>
+<!-- end add list item pop-up content -->

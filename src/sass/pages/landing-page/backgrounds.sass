@@ -1,0 +1,422 @@
+.lp-main-background	
+	background-image: linear-gradient(62deg, #8ec5fc 0%, #bea2ff 100%)
+	&__up
+		width: 905px
+		height: 728px
+		top: -200px
+		left: -200px
+		border-radius: 50%
+		position: absolute
+		z-index: -1
+		background-image: radial-gradient(rgb(198, 217, 251) 0%, rgba(198, 217, 251, 0) 70%)
+	&__left
+		position: absolute
+		bottom: -120px
+		left: 0
+		+r(785)
+			bottom: -180px
+		+r(377)
+			bottom: -57px
+			left: 374px
+			width: 835px
+			height: 376px
+	&__circle-composite
+		left: 50%
+		transform: translateX(-50%)
+		top: 220px
+		border-color: rgba(255,255,255,0.2)
+		+r(1041)
+			top: 118px
+			width: 1200px
+			height: 1200px
+		+r(377)
+			top: 50px
+			width: 600px
+			height: 600px
+		&::before
+			left: 53%
+			transform: translateX(-53%)
+			top: 148px
+			border-color: rgba(255,255,255,0.2)
+			+r(377)
+				top: 75px
+				width: 450px
+				height: 450px
+		&::after
+			left: 50%
+			transform: translateX(-50%)
+			top: -155px
+			border-color: rgba(255,255,255,0.2)
+			+r(377)
+				top: -75px
+				width: 750px
+				height: 750px
+	&__circle-xs-purple
+		border-color: #846db1
+		&_first
+			top: 106px
+			right: 572px
+			+r(1041)
+				top: 95px
+			+r(785)
+				right: 618px
+				top: 119px
+			+r(377)
+				right: 883px
+				top: 70px
+				border-width: 2px
+				width: 8px
+				height: 8px
+		&_second
+			top: 677px
+			right: 126px
+			+r(785)
+				top: 410px
+				right: 855px
+	&__circle-sm-blue
+		border-color: #2269c3
+		top: 427px
+		left: 358px
+		+r(785)
+			top: 352px
+			left: 627px
+		+r(377)
+			top: 210px
+			left: 824px
+			width: 12px
+			height: 12px
+			border-width: 2px
+	&__circle-l
+		top: 468px
+		left: -55px
+		+r(785)
+			top: 64px
+			left: 448px
+		+r(377)
+			top: 101px
+			left: 733px
+			width: 80px
+			height: 80px
+			border: 2px solid #7e9bfd
+	&__circle-xl
+		border-color: #c7affe
+		top: 150px
+		right: -55px
+		+r(785)
+			top: 255px
+			right: 397px
+		+r(377)
+			border-width: 2px
+			top: 206px
+			right: 769px
+			width: 120px
+			height: 120px
+
+
+
+
+
+
+.lp-content-wrapper-background
+	position: absolute
+	top: 0
+	left: 50%
+	width: 1920px
+	height: calc(100% + 50px)
+	transform: translateX(-50%)
+	+r(1383)
+		width: 1366px
+	+r(1041)
+		width: 1024px
+	+r(1015)
+		width: 100%
+	+r(540)
+		width: 540px
+	&__circle-sm-blue
+		border-color: #2269c3
+		top: 1156px
+		right: 210px
+		+r(1383)
+			top: 1000px
+			right: 129px
+		+r(1041)
+			top: 802px
+			right: 85px
+		+r(1015)
+			top: 884px
+			right: 153px
+		+r(540)
+			right: 164px
+			top: 508px
+			border-width: 2px
+			width: 12px
+			height: 12px
+	&__circle-xs-purple-first
+		border-color: #846db1
+		top: 1543px
+		right: 573px
+		+r(1383)
+			top: 1483px
+			right: 296px
+		+r(1041)
+			top: 1135px
+			right: 245px
+		+r(1015)
+			right: auto
+			top: 1377px
+			left: 118px
+		+r(540)
+			top: 766px
+			left: 98px
+			border-width: 2px
+			width: 12px
+			height: 12px
+	&__circle-xs-purple-second
+		border-color: #846db1
+		top: 2381px
+		right: 211px
+		+r(1383)
+			top: 2187px
+			right: 184px
+		+r(1041)
+			top: 1847px
+			right: 85px
+		+r(1015)
+			top: 1663px
+			right: 87px
+		+r(540)
+			top: 1490px
+			right: 113px
+			border-width: 2px
+			width: 16px
+			height: 16px
+	&__circle-xs-purple-third
+		border-color: #846db1
+		bottom: 82px
+		left: 50%
+		transform: translateX(-50%)
+		+r(540)
+			border-width: 2px
+	&__circle-m
+		border-color: #ad9dce
+		top: 1550px
+		right: -80px
+		+r(1383)
+			top: 1295px
+			right: -67px
+		+r(1041)
+			top: 1106px
+			right: -95px
+		+r(1015)
+			top: 1045px
+			right: -46px
+		+r(540)
+			top: 778px
+			right: 104px
+			border-width: 2px
+	&__circle-l
+		border-color: #7e9bfd
+		top: 1486px
+		left: 512px
+		+r(1383)
+			top: 1386px
+			left: 237px
+		+r(1041)
+			top: 1095px
+			left: 66px
+		+r(1015)
+			top: 1187px
+			left: -115px
+		+r(540)
+			display: none
+	&__circle-xxl
+		opacity: 0.4
+		border-color: #ad9dce
+		top: 2151px
+		left: -120px
+		+r(1383)
+			top: 2039px
+			left: -226px
+		+r(1041)
+			top: 1720px
+		+r(1015)
+			top: 2013px
+			left: -294px
+		+r(540)
+			top: 1128px
+			left: 37px
+			border-width: 2px
+			width: 200px
+			height: 200px
+	&__oval
+		position: absolute
+		bottom: 53px
+		left: 50%
+		transform: translateX(-50%)
+		fill: #fff
+		z-index: -1
+
+
+.lp-section-image-bg
+	width: 800px
+	height: 580px
+	opacity: 0.04
+	+r(1041)
+		height: 370px
+	+r(540)
+		height: 137px
+	&__h
+		position: relative
+		width: 754px
+		height: 116px
+		background-color: #3f92cc
+		border-radius: 58px
+		z-index: 1
+		+r(1383)
+			height: 94px
+		+r(1041)
+			height: 74px
+		+r(540)
+			height: 27px
+		&_1
+			top: 0
+			left: 0
+			+r(1383)
+				left: 5px
+			+r(540)
+				left: 91px
+		&_2
+			top: 115px
+			left: 161px
+			+r(1383)
+				top: 94px
+				left: 132px
+			+r(1041)
+				top: 74px
+				left: 107px
+			+r(540)
+				top: 27px
+				left: 193px
+		&_3
+			top: 232px
+			left: 258px
+			width: 1200px
+			+r(1383)
+				top: 182px
+				left: 211px
+			+r(1041)
+				top: 148px
+				left: 169px
+			+r(540)
+				top: 56px
+				left: 215px
+				width: 262px
+		&_w
+			background-color: #fff
+			position: absolute
+		&_w1
+			top: 116px
+			left: -362px
+			+r(1383)
+				top: 94px
+				left: -440px
+			+r(1041)
+				top: 74px
+				left: -500px
+			+r(540)
+				top: 27px
+				left: -508px
+		&_w2
+			top: 347px
+			left: -364px
+			+r(1383)
+				top: 280px
+				left: -440px
+			+r(1041)
+				top: 222px
+				left: -500px
+			+r(540)
+				top: 81px
+				left: -508px
+				height: 29px
+	&__v
+		position: absolute
+		top: 0
+		left: 333px
+		width: 255px
+		height: 580px
+		background-color: #3f92cc
+		z-index: -1
+		+r(1383)
+			left: 278px
+			height: 465px
+		+r(1041)
+			left: 225px
+			height: 370px
+		+r(540)
+			height: 137px
+			width: 122px
+
+.lp-footer-background
+	width: 1920px
+	height: 100%
+	position: relative
+	left: 50%
+	transform: translateX(-50%)
+	&__circle-xl
+		top: -70px
+		left: -135px
+		+r(1383)
+			left: 158px
+		+r(1041)
+			top: -63px
+			left: 281px
+		+r(785)
+			top: -135px
+			left: 475px
+		+r(540)
+			top: 243px
+			left: 640px
+			border-width: 2px
+			border-color: #2269c3
+	&__circle-sm
+		border-color: #2269c3
+		top: 200px
+		right: 396px
+		+r(1041)
+			right: 510px
+			top: auto
+			bottom: 90px
+		+r(785)
+			right: 612px
+			bottom: 128px
+		+r(540)
+			right: 846px
+			bottom: 134px
+			border-width: 2px
+			border-color: #2269c3
+	&__circle-composite
+		top: -880px
+		position: absolute
+		left: 342px
+		+r(540)
+			top: -574px
+			width: 800px
+			height: 800px
+			left: 560px
+		&::before
+			top: 148px
+			left: 160px
+			+r(540)
+				top: 51px
+				width: 650px
+				height: 650px
+				left: 74px
+		&::after
+			top: -152px
+			left: -151px
+			+r(540)
+				top: -9px
+				width: 900px
+				height: 900px
+				left: -50px

@@ -1,0 +1,404 @@
+---
+title: True2forms - Better forms better fun
+page: Settings
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+{% extends "layouts/_layout.html" %}
+	{% include "partials/interface-page/_header.html" %}
+	{% include "partials/interface-page/_nav.html" %}
+	<div class="page-interface scrollbar-inner" data-target="interface-page">
+		<div class="ps-container-wrapper">
+			<!-- begin ps-container -->
+			<div class="ps-container">
+				<!-- begin ps-container__inner -->
+				<div class="ps-container__inner">
+					<!-- begin ps-container__left-1-3 -->
+					<div class="ps-container__left-1-3">
+						<form action="settings.html" class="ps-form" data-target="form" novalidate>
+							<div class="ps-form-inner">
+								<fieldset>
+									<div class="ps-form-inner__fieldset">
+										<div class="ps-form-inner__row">
+											<input type="text" name="league-team-name" class="input-text" placeholder="League / Team name" value="Superteam" required />
+											<span class="input-error-message">Wrong league</span>
+										</div>
+										<div class="ps-form-inner__row">
+											<input type="text" name="first-name" class="input-text" placeholder="First name" value="Bertram" />
+											<span class="input-error-message">Wrong name</span>
+										</div>
+										<div class="ps-form-inner__row">
+											<input type="text" name="last-name" class="input-text" placeholder="Last name" value="Dunson" />
+											<span class="input-error-message">Wrong name</span>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="ps-form-inner__fieldset">
+										<h2 class="ps-form-inner__heading">Address</h2>
+										<div class="ps-form-inner__row">
+											<input type="text" name="street" class="input-text" placeholder="Street" />
+											<span class="input-error-message">Wrong name</span>
+										</div>
+										<div class="ps-form-inner__row">
+											<input type="text" name="city" class="input-text" placeholder="City" />
+											<span class="input-error-message">Wrong name</span>
+										</div>
+										<div class="ps-form-inner__row">
+											<input type="text" name="postal-zip" class="input-text" placeholder="Postal/zip" />
+											<span class="input-error-message">Wrong name</span>
+										</div>
+										<div class="ps-form-inner__row">
+											<input type="text" name="state-prov" class="input-text" placeholder="State / Prov" />
+											<span class="input-error-message">Wrong name</span>
+										</div>
+										<div class="ps-form-inner__row">
+											<input type="text" name="country" class="input-text" placeholder="Country" />
+											<span class="input-error-message">Wrong name</span>
+										</div>
+									</div>
+								</fieldset>		
+								<div class="map-wrapper" data-target="map">
+									<a href="#" class="map-wrapper__view-toggle" data-target="map-view" data-open="Open map" data-hide="Hide map">{{ mixins.icon('geolocation') }}<span>Open map</span></a>
+									<div id="map" class="map-wrapper__map"></div>
+	
+								</div>
+								<div class="ps-container__bottom">
+									<fieldset>
+										<h2 class="ps-form-inner__heading">Phone number</h2>									
+										<div class="ps-form-inner__row ps-form-inner__row_select">
+											<div class="select-with-input">
+												<div class="select-with-input__left">
+	
+														<!-- begin  custom select -->
+											<div class="form-select" data-target="js-select" data-select="phone-prefix" data-select-name="phone-prefix" data-select-multiple="false">
+												
+												<span class="form-select-selected form-select__selected" data-target="js-select-toggle">
+													<span class="form-select-selected__option"  data-target="js-selected-option">
+														<span class="form-select-selected__image" style="background-image: url(img/flag.jpg)" data-target="js-select-selected-image"></span>
+														<span class="form-select-selected__text" data-target="js-select-selected-text">+120</span>
+													</span>
+												</span>
+												<div class="form-select__select-list-holder select-list-holder scrollbar-inner" data-target="js-select-holder">
+													<ul class="select-list" data-target="js-select-list">
+														{% for i in range(0, 20) -%}
+														<li class="select-list__option" data-target="js-select-option" data-select-option="phone-prefix" data-select-option-value="+{{120 + i}}" data-select-option-type="add">
+															<span class="select-list__value">
+																<span class="select-list__image" style="background-image: url(img/flag.jpg)" data-target="js-select-image"></span>
+																<span class="select-list__text"
+																data-target="js-select-text">+{{120 + i}}</span>
+															</span>
+														</li>
+														{% endfor %}
+													</ul>
+												</div>
+											</div>
+											<!-- end  custom select -->
+
+												</div>
+												<div class="select-with-input__right select-with-input__right_maximized">
+													<input type="tel" name="phone" class="input-text" placeholder="Phone number"  />
+													<span class="input-error-message">Invalid phone number</span>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+									<div class="ps-form-inner__btn-wrapper">
+										<button type="submit" name="update" class="button button_blue">
+											{{ mixins.icon('rotate') }}
+											<span>Update</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- end ps-container__left-1-3 -->
+
+					<!-- begin ps-container__right-2-3 -->
+					<div class="ps-container__right-2-3">
+						<!-- begin ps-container__left-1-2 -->
+						<div class="ps-container__left-1-2">
+							<h2 class="ps-form-inner__heading">Change password</h2>
+							<form action="settings.html" class="ps-form" data-target="form" novalidate>
+								<div class="ps-form-inner">
+									<div class="ps-form-inner__row">
+										<input type="password" name="current-password" class="input-text" placeholder="Enter your current password *" />
+										<span class="input-error-message">Wrong name</span>
+									</div>
+									<div class="ps-form-inner__row">
+										<input type="password" name="new-password" class="input-text" placeholder="Enter new password" data-target="password-enter" />
+										<span class="input-error-message">Password should be longer than 6 characters</span>
+									</div>
+									<div class="ps-form-inner__row">
+										<input type="password" name="prepeat-new-password" class="input-text" data-target="password-repeat" placeholder="Repeat new password" />
+										<span class="input-error-message">Passwords don't match</span>
+									</div>
+									<div class="ps-form-inner__btn-wrapper">
+										<button type="submit" name="change-password" class="button button_blue">
+											{{ mixins.icon('shuffle') }}
+											<span>Change password</span>
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- end ps-container__left-1-2 -->
+
+						<!-- begin ps-container__right-1-2 -->
+						<div class="ps-container__right-1-2">
+							<h2 class="ps-form-inner__heading">Picture</h2>
+							<form action="settings.html" data-target="form" novalidate>
+								<div class="ps-form-inner">
+									<div class="ps-form-inner__row">
+										<div class="image-preview">
+											<div class="image-preview__image" style="background-image: url(img/profile-image_big.jpg)" data-target="profile-image">
+												<label for="profile-image"></label>
+											</div>
+											<div class="image-load-status image-preview__load-status is-invisible" data-target="profile-image-load-status">
+												<div class="image-load-status__status-track">
+													<div class="image-load-status__bar" data-target="profile-image-bar"></div>
+												</div>
+												<div class="image-load-status__text"><span data-target="profile-image-status-text">67</span><span>%</span></div>		
+											</div>
+											<span class="input-error-message">Image not uploaded</span>
+										</div>
+
+									</div>
+									<div class="ps-form-inner__btn-wrapper">
+										<label for="profile-image">
+											<span class="button button_blue">
+												<input id="profile-image" type="file" accept="image/*" name="profile-image" class="input-file-load" data-target="image-upload" data-related="profile-image" />
+												{{ mixins.icon('crop') }}
+												<span>Change picture</span>
+											</span>
+										</label>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- end ps-container__right-1-2 -->
+					</div>
+					<!-- end ps-container__right-2-3 -->
+
+				</div>
+				<!-- end ps-container__inner -->
+				<div class="delete-account">
+					<a href="#" class="delete-account__link">Delete account (de-activate)</a>
+				</div>
+			</div>
+			<!-- end ps-container -->
+		</div>
+	
+	</div>
+	
+	
+	{% include "partials/interface-page/_footer.html" %}
+	<script>
+
+		//image uploading example
+
+		document.querySelector('[data-target="image-upload"]').onchange = function() {
+			var previewBox = document.querySelector('[data-target="' + this.dataset.related + '"]');
+	        var statusBar = document.querySelector('[data-target="' + this.dataset.related + '-bar"]');
+	        var statusTrack = document.querySelector('[data-target="' + this.dataset.related + '-load-status"]');
+	        var statusText = document.querySelector('[data-target="' + this.dataset.related + '-status-text"]');
+	        var errorMessage = previewBox.parentNode.getElementsByClassName('input-error-message')[0];
+	        errorMessage.classList.remove('is-active');
+	        console.log(errorMessage);
+			
+	        if (!this.files.length) {
+	          return false;
+	        }
+
+	        var file = this.files[0];
+	         if (!/^image/.test(file.type)) {
+	          console.log('not image!');
+	          return false;
+	        }
+
+	        
+	        this.parentNode.classList.add('is-disabled');
+	        this.disabled = true;
+	        statusTrack.classList.remove('is-invisible');
+	        var self = this;
+
+	        var data = new FormData();
+	        data.append('SelectedFile', file);
+
+	        var xhr = new XMLHttpRequest();
+
+	        xhr.onreadystatechange = function () {
+	            if (xhr.readyState !== 4) {
+	                return;
+	            }
+
+	            if (xhr.status !== 200) {
+	            	errorMessage.classList.add('is-active');
+	            	errorMessage.textContent = xhr.responseText;
+	            } else {
+	                try {
+	                    var response = JSON.parse(xhr.responseText);
+	                } catch (error) {
+	                    var response = {
+	                        status: 'Uknown error',
+	                        data: xhr.responseText
+	                    };
+	                }
+	                console.log(response.status + ': ' + response.data);
+	                if ('success' === response.status) {
+	                    previewBox.style.backgroundImage = 'url(' + response.path + ')';
+	                } else {
+	                	errorMessage.classList.add('is-active');
+	            		errorMessage.textContent = response.data;
+	                }
+	            }
+
+	            self.parentNode.classList.remove('is-disabled');
+	            self.disabled = false;
+	            statusTrack.classList.add('is-invisible');
+	            statusBar.style.width = 0;
+	        }
+
+	        xhr.upload.addEventListener('progress', function (event) {
+	            var loadStatus = event.loaded / event.total * 100;
+	            statusText.textContent = Math.floor(loadStatus);            
+	            statusBar.style.width = loadStatus + '%';
+	        });
+
+	        xhr.open('POST', 'upload.php');
+	        xhr.send(data);
+
+	    }
+
+
+	   window.addEventListener('resize', initMap);
+
+	  //Gooogle maps
+	  function initMap() {
+
+	  	var styledMapType = new google.maps.StyledMapType(
+            [
+              {elementType: 'geometry', stylers: [{hue: '#4758a5'}] },
+              {elementType: 'labels.text.fill', stylers: [{color: '#526987'}]},
+              {elementType: 'labels.icon', stylers: [{hue: '#4758a5'}, {saturation: -80}]},
+            
+               {
+              	featureType: 'road',
+              	elementType: 'geometry',
+              	stylers: [{saturation: -70}]
+              },
+              {
+              	featureType: 'landscape.man_made',
+              	elementType: 'geometry.fill',
+              	stylers: [{saturation: -50}]
+              },              
+               {
+              	featureType: 'poi',
+              	elementType: 'geometry.fill',
+              	stylers: [{saturation: -100}]
+              }, 
+
+              {
+              	featureType: 'poi.park',
+              	elementType: 'geometry.fill',
+              	stylers: [{color: '#c1cbd9'}, {saturation: 0}]
+              },
+               {
+              	featureType: 'water',
+              	elementType: 'geometry.fill',
+              	stylers: [{color: '#cad3df'}]
+              },                
+
+              {
+              	featureType: 'landscape.man_made',
+              	elementType: 'geometry.stroke',
+              	stylers: [{color: '#e5e9ef'}]
+              },
+              {
+              	featureType: 'road.highway',
+              	elementType: 'geometry.fill',
+              	stylers: [{color: '#ced6e1'}]
+              },
+              {
+              	featureType: 'road.highway',
+              	elementType: 'geometry.stroke',
+              	stylers: [{color: '#a9b8cb'}]
+              } 
+            ]);
+
+
+
+
+        var coords = new google.maps.LatLng(42.350753, -71.067668);
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: coords,
+          disableDefaultUI: true
+        });
+
+       map.mapTypes.set('map', styledMapType);
+       map.setMapTypeId('map');
+
+        var markerDesc = '<span>Stuart Street</span>';
+        var markerSize = {
+        	width: null,
+        	height: null,
+        	labelTop: 0,
+        	labelLeft: 0
+        };
+        if (window.innerWidth > 460) {
+        	markerSize.width = '56px';
+        	markerSize.height = '57px';
+        	markerSize.labelTop = 85;
+        	markerSize.labelLeft = 45;
+        } else {
+        	markerSize.width = '37px';
+        	markerSize.height = '50px';
+        	markerSize.labelTop = 70;
+        	markerSize.labelLeft = 35;
+        }
+
+        var icon = 'data:image/svg+xml;utf-8,<svg x="0px" y="0px" width="' + markerSize.width + '" height="' + markerSize.height + '" viewBox="0 0 54.757 54.757" xmlns="http://www.w3.org/2000/svg"><linearGradient id="linear-gradient" gradientUnits="userSpaceOnUse" gradientTransform="rotate(105)"><stop  offset="0%" stop-color="%238b73da"/><stop offset="100%" stop-color="%234a7bd5"/></linearGradient><path fill="url(#linear-gradient)" d="M40.94,5.617C37.318,1.995,32.502,0,27.38,0c-5.123,0-9.938,1.995-13.56,5.617c-6.703,6.702-7.536,19.312-1.804,26.952 L27.38,54.757L42.721,32.6C48.476,24.929,47.643,12.319,40.94,5.617z M27.557,26c-3.859,0-7-3.141-7-7s3.141-7,7-7s7,3.141,7,7 S31.416,26,27.557,26z"/></svg>';
+
+
+  
+
+
+       	var marker = new google.maps.Marker({
+          position: coords,
+          map: map,
+          title: 'Stuart Street',         
+          icon: {
+          	url: icon,
+            origin: new google.maps.Point(0, 0),
+	        anchor: new google.maps.Point(parseInt(markerSize.width) / 2, parseInt(markerSize.height)),
+	        //scaledSize: new google.maps.Size(100, 100),
+	        labelOrigin: new google.maps.Point(markerSize.labelTop, markerSize.labelLeft)
+          },
+          label: {
+          	text: 'Stuart street',
+          	color: '#3f92cc',
+          	fontSize: '16px',
+          	fontFamily: 'SegoeUI, sans-serif',
+          	fontWeight: '700',
+          	x: '0',
+        	y: '0'
+          }
+        });
+        marker.addListener('click', function() {
+         
+        });
+      }
+
+
+
+
+	</script>
+
+
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArZLt6StXVf1goVwoS604y1VE14s9HPBk=&callback=initMap">
+    </script>
+{% endblock %}

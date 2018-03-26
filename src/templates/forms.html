@@ -1,0 +1,311 @@
+---
+title: True2forms - Better forms better fun
+menuPage: Forms
+page: forms
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+{% extends "layouts/_layout.html" %}
+	{% include "partials/interface-page/_header.html" %}
+
+	{% include "partials/interface-page/_nav.html" %}
+
+<div class="page-interface scrollbar-inner" data-target="interface-page">
+<form>
+<div class="int-main">
+	<!-- begin interface container -->
+	<div class="int-container">
+		
+		{% include "partials/interface-page/_action-panel.html" %}
+		
+		<!-- begin interface content holder -->
+		<div class="int-content-holder">
+
+		<!-- begin forms table -->
+
+			<div class="forms-table" data-target="forms-table" data-select="forms" data-select-name="forms" data-select-multiple="true">
+				
+				<!-- begin row -->
+
+				<div class="forms-table__row forms-table__row_heading">
+
+					<!-- begin row left -->
+
+					<div class="forms-table__left">
+	
+						<!-- begin select cell -->
+
+						<div class="forms-table__cell forms-table__cell_select">
+							<a href="#" class="select-row-btn select-row-btn_select-all" data-target="select-row-all" data-select-all="forms"></a>
+							<span class="forms-table__column-name forms-table__column-name_select-all">All</span>
+						</div>
+
+						<!-- end select cell -->
+
+						<!-- begin cells name and purpose -->
+
+						<div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+
+							<!-- begin name cell -->
+
+							<div class="forms-table__cell forms-table__cell_name">
+								<a href="#" class="forms-table__column-name forms-table__column-name_form-name forms-table__column-name_filter" data-target="table-filter">Form Name</a>
+							</div>
+							
+							<!-- end name cell -->
+
+							<!-- begin purpose cell -->
+
+							<div class="forms-table__cell forms-table__cell_purpose">
+								<a href="#" class="forms-table__column-name forms-table__column-name_purpose forms-table__column-name_filter" data-target="table-filter">
+									{{ mixins.icon('target') }}
+									<span>Purpose</span>
+								</a>
+							</div>
+
+							<!-- end purpose cell -->
+
+						</div>
+
+						<!-- end cells name and purpose -->
+
+					</div>
+
+					<!-- end row left -->
+
+					<!-- begin row right -->
+
+					<div class="forms-table__right">
+
+						<!-- begin cells description and dates -->
+						
+						<div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates">
+
+							<!-- begin description cell -->
+
+							<div class="forms-table__cell forms-table__cell_desc">
+								<a href="#" class="forms-table__column-name forms-table__column-name_desc forms-table__column-name_filter" data-target="table-filter">
+									{{ mixins.icon('signature') }}
+									<span>Description</span>
+								</a>
+							</div>
+
+							<!-- end description cell -->
+							
+							<!-- begin dates cell -->
+
+							<div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+								
+								<!-- begin first date cell -->
+
+								<div class="forms-table__cell forms-table__cell_date-1">
+									<a href="#" class="forms-table__column-name forms-table__column-name_date-1 forms-table__column-name_filter" data-target="table-filter">
+										{{ mixins.icon('calendar') }}
+										<span>Creation Date</span>
+									</a>
+								</div>
+
+								<!-- end first date cell -->
+								
+								<!-- begin second date cell -->
+								<div class="forms-table__cell forms-table__cell_date-2">
+									<a href="#" class="forms-table__column-name forms-table__column-name_date-2 forms-table__column-name_filter" data-target="table-filter">
+										{{ mixins.icon('alarm-clock') }}
+										<span>Commit Date</span>
+									</a>
+								</div>
+
+								<!-- end second date cell -->
+
+							</div>
+
+							<!-- end dates cell -->
+
+						</div>
+						
+						<!-- end cells description and dates -->
+
+						<!-- begin fee cell -->
+
+						<div class="forms-table__cell forms-table__cell_fee">
+							<span class="forms-table__column-name forms-table__column-name_fee">Fee</span>
+						</div>
+
+						<!-- end fee cell -->
+
+						<!-- begin status cell -->
+
+						<div class="forms-table__cell forms-table__cell_status">
+							<span class="status-circle-composition">
+								<span class="status-circle-composition__circle status-circle-composition__circle_1"></span>
+								<span class="status-circle-composition__circle status-circle-composition__circle_2"></span>
+								<span class="status-circle-composition__circle status-circle-composition__circle_3">S</span>
+							</span>
+							<span class="forms-table__column-name forms-table__column-name_status">Status</span>
+						</div>
+
+						<!-- end status cell -->						
+
+					</div>
+
+					<!-- end row right -->
+
+				</div>
+
+				{% import "data/data.html" as data %}
+
+				{% for item in data.formData %}
+					 {% set counter = ( counter | default(0) ) + 1 %}
+
+				<!-- begin row -->
+
+				<div class="forms-table__row" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="{{counter}}" data-select-option-type="toggle">
+
+					<!-- begin row left -->
+
+					<div class="forms-table__left">
+	
+						<!-- begin select cell -->
+
+						<div class="forms-table__cell forms-table__cell_select">
+							<div class="forms-table__cell-content">
+								<a href="#" class="select-row-btn" data-target="select-row"></a>
+							</div>
+						</div>
+
+						<!-- end select cell -->
+
+						<!-- begin cells name and purpose -->
+
+						<div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+
+							<!-- begin name cell -->
+
+							<div class="forms-table__cell forms-table__cell_name">
+								<div class="forms-table__cell-content forms-table__cell-content_name">{{item.name}}</div>
+							</div>
+							
+							<!-- end name cell -->
+
+							<!-- begin purpose cell -->
+
+							<div class="forms-table__cell forms-table__cell_purpose">
+								<div class="forms-table__cell-content forms-table__cell-content_purpose">{{item.purpose}}</div>
+							</div>
+
+							<!-- end purpose cell -->
+
+						</div>
+
+						<!-- end cells name and purpose -->
+
+					</div>
+
+					<!-- end row left -->
+
+					<!-- begin row right -->
+
+					<div class="forms-table__right">
+
+						<!-- begin cells description and dates -->
+						
+						<div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+
+							<!-- begin description cell -->
+
+							<div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+								<div class="forms-table__cell-content forms-table__cell-content_desc"><p>{{item.description}}</p></div>
+							</div>
+
+							<!-- end description cell -->
+							
+							<!-- begin dates cell -->
+
+							<div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+								
+								<!-- begin first date cell -->
+
+								<div class="forms-table__cell forms-table__cell_date-1">
+									<div class="forms-table__cell-content_date-1-title">Creation Date</div>
+									<div class="forms-table__cell-content forms-table__cell-content_date-1">{{item.creationDate}}</div>
+								</div>
+
+								<!-- end first date cell -->
+								
+								<!-- begin second date cell -->
+								<div class="forms-table__cell forms-table__cell_date-2">
+									<div class="forms-table__cell-content_date-2-title">Commit Date</div>
+									<div class="forms-table__cell-content forms-table__cell-content_date-2">{{item.commitDate}}</div>
+								</div>
+
+								<!-- end second date cell -->
+
+							</div>
+
+							<!-- end dates cell -->
+
+						</div>
+						
+						<!-- end cells description and dates -->
+
+						<!-- begin fee cell -->
+
+						<div class="forms-table__cell forms-table__cell_fee">
+							<div class="forms-table__cell-content forms-table__cell-content_fee">
+							<span class="fee {% if item.feeClass %}fee_{{item.feeClass}}{% endif %}">{{item.fee}}</span>
+						</div>
+						</div>
+
+						<!-- end fee cell -->
+
+						<!-- begin status cell -->
+
+						<div class="forms-table__cell forms-table__cell_status">
+							<div class="forms-table__cell-content forms-table__cell-content_status">
+								<div class="form-status form-status_{{item.statusClass}} forms-table__form-status">{{ item.status | safe}}</div>
+							</div>
+						</div>
+
+						
+					
+						<!-- end status cell -->						
+
+					</div>
+
+					<!-- end row right -->
+					
+					<a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a>
+
+				</div>
+
+				<!-- end row -->
+
+				{% endfor %}
+			</div>
+
+		<!-- end forms table -->
+		</div>
+
+		<!-- end interface content holder -->
+
+	</div>
+
+	<!-- end interface container -->
+</div>
+<div class="page-overlay" data-target="page-overlay">
+	<div class="page-pop-up scrollbar-inner" data-target="pop-up-body">
+		<div class="page-pop-up__content" data-target="pop-up-content"></div>	
+		<button type="button" class="page-pop-up__close-btn" data-target="pop-up-close"></button>
+	</div>	
+</div>
+<div class="popups-html" data-target="pop-up-templates">
+	{% include "partials/interface-page/_popups-choose-user.html" %}
+</div>	
+</form>
+
+	{% include "partials/interface-page/_footer.html" %}
+
+	
+</div>
+{% endblock %}

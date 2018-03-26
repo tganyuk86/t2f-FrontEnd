@@ -1,0 +1,256 @@
+.ps-container-wrapper
+	background-color: #f9f9f8
+	padding-top: 155px
+	padding-bottom: 536px
+	position: relative
+	+r(1480)
+		padding-top: 138px
+	+r(1041)
+		padding-top: 134px
+	+r(785)
+		padding-bottom: 0
+		padding-top: 125px
+	+r(377)
+		padding-top: 100px
+.ps-container
+	max-width: 1400px
+	margin: 0 auto
+	+clr
+	+r(1480)
+		max-width: 1366px
+	&__inner
+		+clr
+	&__left-1-3
+		float: left
+		width: 33.33333333%
+		padding-right: 4.65%
+		+clr
+		+r(1480)
+			width: 40%
+			padding-left: 9%
+			padding-right: 1.5%
+		+r(1240)
+			width: 51%
+			padding-left: 11.5%
+			padding-right: 0
+		+r(785)
+			float: none
+			width: 100%
+			padding-left: 24.5%
+			padding-right: 23.5%
+		+r(460)
+			padding-left: 30px
+			padding-right: 30px
+	&__right-2-3
+		float: right
+		width: 66.6666666%
+		padding-top: 10px
+		+clr
+		+r(1480)
+			width: 60%
+			padding-left: 1.5%
+		+r(1240)
+			width: 49%
+			padding-right: 3%
+			padding-left: 3%
+		+r(785)
+			float: none
+			width: 100%
+			padding-left: 24.5%
+			padding-right: 23.5%
+		+r(460)
+			padding-left: 30px
+			padding-right: 30px
+	&__left-1-2
+		float: left
+		width: 50%
+		padding-left: 3.5%
+		padding-right: 3.5%
+		+r(1480)
+			width: 60%
+			padding-right: 6.5%
+		+r(1240)
+			float: none
+			width: 100%
+		+r(785)
+			padding-left: 0
+			padding-right: 0
+	&__right-1-2
+		float: right
+		width: 50%
+		padding-left: 7%
+		+r(1480)
+			width: 40%
+			padding-left: 2%
+		+r(1240)
+			float: none
+			padding-top: 58px
+			width: 100%
+			padding-left: 3.5%
+		+r(785)
+			padding-left: 0
+			padding-right: 0
+			padding-top: 79px
+		+r(460)
+			padding-top: 52px
+			text-align: center
+	&__bottom
+		+r(785)
+			margin-bottom: 67px
+		+r(460)
+			margin-bottom: 40px
+.ps-form-inner
+	&__row
+		margin-top: 35px
+		padding-bottom: 13px
+		position: relative
+		.input-placeholder
+			font-weight: 700
+		+r(460)
+			margin-top: 25px
+			padding-bottom: 10px
+		&_select
+			margin-top: 7px
+			.input-placeholder
+				display: none
+			.select-list-holder
+				background-color: #f9f9f8
+			+r(460)
+				margin-top: 7px
+	&__fieldset
+		padding-bottom: 60px
+		+r(460)
+			padding-bottom: 25px
+	&__heading
+		font-size: 16px
+		font-weight: 700
+		color: #3f92cc
+		+r(460)
+			font-size: 13px
+	&__btn-wrapper
+		padding-top: 45px
+		+r(460)
+			padding-top: 30px
+			text-align: center
+
+.delete-account
+	height: 120px
+	width: 50%
+	position: relative
+	+r(1480)
+		height: 100px
+	+r(785)
+		height: 152px
+	+r(640)
+		width: 100%
+	&__link
+		color: #858891
+		font-size: 12px
+		font-weight: 400
+		text-decoration: none
+		position: absolute
+		top: -13px
+		right: 50px
+		&:hover
+			color: #3f92cc
+			text-decoration: none
+		+r(1480)
+			right: -88px
+		+r(1041)
+			right: -205px
+		+r(785)
+			top: auto
+			bottom: 58px
+			right: auto
+			left: 49%
+		+r(640)
+			left: 50%
+			transform: translateX(-50%)
+			bottom: 90px
+
+
+.map-wrapper
+	height: 536px
+	text-align: center
+	color: #fff
+	font-size: 50px
+	position: absolute
+	bottom: 36px
+	left: 0
+	right: 0
+	+r(785)
+		height: 0
+		margin-left: -47%
+		margin-right: -45%
+		position: relative
+		bottom: 0
+		&.is-active
+			height: 300px
+			margin-bottom: 55px
+	+r(460)
+		margin-top: 25px
+		margin-left: -30px
+		margin-right: -30px
+		&.is-active
+			height: 400px
+			margin-bottom: 37px
+	&__view-toggle
+		font-size: 14px
+		font-weight: 700
+		text-decoration: none
+		color: #3f92cc
+		position: absolute
+		right: 23.5%
+		top: -60px
+		display: none
+		&:hover
+			color: #3f92cc
+			text-decoration: none
+		svg
+			fill: #3f92cc
+			width: 22px
+			height: 15px
+		+r(785)
+			display: block
+		+r(460)
+			top: -46px
+			right: 32px
+	&__map
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		overflow: hidden
+		+cover
+	&__map-frame
+		width: 100%
+		height: 100%
+
+.map-location-point
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	font-size: 0
+	cursor: pointer
+	svg, span
+		display: inline-block
+		vertical-align: bottom
+		font-size: 16px
+	svg
+		width: 54px
+		height: 57px
+		+r(460)
+			width: 37px
+			height: 50px
+	span
+		color: #3f92cc
+		font-weight: 700
+		position: relative
+		left: -5px
+		top: -6px
+
+.js-custom-croll
+	max-height: 100vh
+	overflow: hidden

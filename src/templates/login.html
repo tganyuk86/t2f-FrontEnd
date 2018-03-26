@@ -1,0 +1,77 @@
+---
+title: True2forms - Better forms better fun
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	<!-- begin content -->
+	<div class="entry-page">
+		<div class="entry-page__container">
+			<div class="entry-form-holder">
+				<div class="entry-form-holder__left">
+					<div class="entry-form-holder-bg-left entry-form-holder__bg-left">
+						<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_rounded-rect-first"></div>
+						<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_transparent-rect-first">
+							<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_circle-upper-sq-1"></div>
+							<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_circle-upper-border-1"></div>
+							<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_circle-lower-border-1"></div>
+							<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_circle-lower-sq-1"></div>
+							<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_border-right-1"></div>
+						</div>
+						<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_rounded-rect-second"></div>
+						<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_transparent-rect-second">
+							<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_circle-upper-sq-2"></div>
+							<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_circle-upper-border-2"></div>
+							<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_circle-lower-border-2"></div>
+							<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_circle-lower-sq-2"></div>
+							<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_border-right-2"></div>
+						</div>
+						<div class="entry-form-holder-bg-left__item entry-form-holder-bg-left__item_right-border"></div>
+					</div>
+				</div>
+				<div class="entry-form-holder__right">
+					<form action="settings.html" class="entry-form" data-target="form" novalidate>
+						<div class="entry-form-content entry-form__content">
+							<h1 class="entry-form-content__h1 entry-form-content__h1_login">Login</h1>
+							<div class="entry-form-content__desc">
+								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+							</div>
+						</div>						
+						<div class="entry-form-inner entry-form-inner_login">
+							<div class="entry-form-inner__left">
+								<div class="entry-form-inner__row entry-form-inner__row_login">
+									<input type="text" name="login" class="input-text input-text_entry-page" placeholder="Name or email *" required />
+									<span class="input-error-message">Wrong name</span>
+								</div>
+								<div class="entry-form-inner__row entry-form-inner__row_pass .entry-form-inner__row_login">
+									<input type="password" name="password" class="input-text input-text_entry-page" placeholder="Password *" data-target="password-enter" required />
+									<span class="input-error-message">Password should be longer than 6 characters</span>
+								</div>
+							</div>
+						</div>
+						<div class="entry-form-confirm entry-form__confirm">
+							<div class="entry-form-confirm__left">
+								<div class="entry-form-confirm__left-link">
+									<a href="#" class="entry-form-confirm__link entry-form-confirm__link_left">Forgot password</a>
+								</div>								
+							</div>
+							<div class="entry-form-confirm__btn-wrapper">
+								<button class="button button_blue button_submit entry-form-confirm__btn" type="submit" disabled>{{mixins.icon('security')}}<span>Login</span></button>
+								<span class="entry-form-confirm__text">Don't have an account? <a href="login.html" class="entry-form-confirm__link entry-form-confirm__link_right">Create</a></span>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="entry-page__footer">
+				<ul class="nav-bottom">
+					<li class="nav-bottom__item"><a href="http://heidep.com/" target="_blank" class="nav-bottom__link">{{mixins.icon('cloud')}}<span>Created by Heidep</span></a></li>
+					<li class="nav-bottom__item"><a href="#" class="nav-bottom__link">Term and conditions</a></li>
+					<li class="nav-bottom__item"><a href="#" class="nav-bottom__link">&copy; True2Forms 2017</a></li>
+				</ul>
+			</div>
+		</div>		
+	</div>
+	<!-- end content -->
+{% endblock %}

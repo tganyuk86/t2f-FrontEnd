@@ -1,0 +1,187 @@
+.lp-gadgets-block
+	height: 325px
+	position: relative
+	z-index: 2
+	+r(1366)
+		height: 342px
+	+r(1041)
+		height: 310px
+	+r(1015)
+		height: 0
+		padding-top: 25%
+	+r(377)
+		padding-top: 90px
+	&__wrapper
+		overflow: hidden
+		+r(1366)
+			height: 342px
+			top: -100px
+		+r(1041)
+			height: 0
+		+r(377)
+			position: absolute
+			height: 290px
+			top: -100px
+			width: 100%
+	&__holder
+		position: absolute
+		top: -365px
+		left: 50%
+		transform: translateX(-50%)
+		height: 690px
+		width: 1150px
+		overflow: hidden
+		+r(1150)
+			width: 100%	
+		+r(1041)
+			top: -384px
+		+r(1015)
+			height: 265%
+			top: -147%
+		+r(377)
+			top: 0
+			height: 290px
+			width: 360px
+			overflow: visible
+	&__laptop			
+		position: absolute
+		top: 0
+		left: 156px
+		width: 727px
+		height: 485px
+		z-index: 1
+		background-image: url(../img/laptop.png)
+		+cover
+		+r(1041)
+			left: 134px
+		+r(1015)
+			left: 13.5%
+			width: 69.5%
+			height: 67%
+			background-size: contain
+		+r(377)
+			left: 68px
+			width: 203px
+			height: 135px
+	&__laptop-bottom			
+		position: absolute
+		bottom: 155px
+		left: 0
+		width: 1036px
+		height: 53px
+		z-index: 3
+		background-image: url(../img/laptop_bottom.png)
+		+cover
+		+r(1041)
+			left: -20px
+		+r(1015)
+			left: 0.5%
+			bottom: 25%
+			width: 88.54166667%
+			height: 7.8%
+			background-position: left center
+		+r(377)
+			left: 25px
+			bottom: 144px
+			width: 292px
+			height: 15px
+	&__mobile
+		position: absolute
+		top: 132px
+		left: 768px
+		width: 258px
+		height: 413px
+		z-index: 3
+		background-image: url(../img/mobile.png)
+		+cover
+		+r(1041)
+			left: 746px
+		+r(1015)
+			top: 18.5%
+			left: 72%
+			width: 22.5%
+			height: 57.5%
+		+r(377)
+			top: 35px
+			left: 237px
+			width: 72px
+			height: 115px
+	&__shadow
+		position: absolute
+		bottom: 210px
+		left: 145px
+		width: 755px
+		opacity: 0.3
+		box-shadow: 0 55px 160px 41px rgba(0,0,0,.8)
+		z-index: 2
+		+r(1015)
+			left: 6%
+			bottom: 36.5%
+			width: 83%
+		+r(785)
+			left: 6%
+			bottom: 38.5%
+			width: 83%
+			box-shadow: 0 55px 56px 25px rgba(0,0,0,.8)
+		+r(490)
+			left: 6%
+			bottom: 47.5%
+			width: 83%
+			box-shadow: 0 55px 56px 25px rgba(0,0,0,.8)			
+		+r(377)
+			box-shadow: 0 0 282px 33px rgba(0,0,0,.8)
+			left: 91px
+			bottom: 220px
+			width: 150px
+	&__laptop-image
+		position: absolute
+		top: 36px
+		left: 35px
+		width: 658px
+		height: 411px
+		+cover
+		+r(1015)
+			top: 9%
+			left: 6%
+			width: 88%
+			height: 84%
+		+r(377)
+			top: 10px
+			left: 9px
+			width: 183px
+			height: 114px
+	&__mobile-image
+		position: absolute
+		top: 32px
+		left: 46px
+		width: 190px
+		height: 339px
+		+cover
+		+r(1015)
+			top: 8%
+			left: 16%
+			width: 78%
+			height: 83%
+		+r(377)
+			top: 11px
+			left: 13px
+			width: 53px
+			height: 94px
+	&__circle
+		border-color: #ad9dce
+		bottom: 281px
+		left: 938px
+		+r(1041)
+			left: 55px
+			bottom: 261px
+		+r(1015)
+			left: 7%
+			bottom: 36%
+			width: 15%
+			height: 23%
+		+r(377)
+			left: 44px
+			bottom: 167px
+			width: 60px
+			height: 60px
+			border-width: 2px
