@@ -30,4 +30,8 @@ nbproject
 _tmp
 node_modules
 bower_components
+<<<<<<< HEAD
 build/js/app.js
+=======
+build
+>>>>>>> 59290623fc118cfbd4e542201f923e8092eeb3be
