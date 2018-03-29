@@ -8,7 +8,10 @@ var dropdownFilter = {
     });
 
     var listItems = $('[data-target="filter-list-item"]');
-   
+    listItems.click(function(event) {
+      event.preventDefault();
+      self.initListItem($(this));
+    });
 
     $(window).resize(function() {
 	    if ($(window).width() > 660) {
@@ -34,8 +37,10 @@ var dropdownFilter = {
         		elem.parent().find('[data-target="filter-overlay"]').fadeIn();
       		}
     	}
+  },
+  initListItem: function(elem) {
+    elem.toggleClass('is-selected');
   }
-  
 };
 
 module.exports = dropdownFilter;

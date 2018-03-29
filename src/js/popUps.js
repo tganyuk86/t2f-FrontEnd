@@ -144,8 +144,8 @@ var popUps = {
       self.initPopUpOpen($(this));
     });
 
-    elem.find('[data-target="checkbox-group"]').each(function() {
-      selects.initCheckboxGroup($(this));
+    elem.find('[data-select]').each(function() {
+      selects.generateSelect($(this));
     });
     
     elem.find('[data-target="table-scroll-area"]').scrollbar();

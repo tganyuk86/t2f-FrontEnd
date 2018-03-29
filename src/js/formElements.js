@@ -39,10 +39,10 @@ var formElems = {
       elem.parent().find('.input-error-message').addClass('is-active');
     }
 
-    this.checkRequiredFields(elem);
-    elem.on('input', function() {
-      self.checkRequiredFields($(this), self.checkErrorFields($(this)));      
-    });
+    // this.checkRequiredFields(elem);
+    // elem.on('input', function() {
+    //   self.checkRequiredFields($(this), self.checkErrorFields($(this)));      
+    // });
 
   },
   initPlaceholder: function(elem) {
@@ -88,13 +88,15 @@ var formElems = {
      
   	});
 
-    elem.on('keypress', function(event) {
-      if (event.which === 13) {
-        //..do search
-        target.removeClass('is-active');
-        $(this).blur();
-      }
-    });
+    // elem.on('keypress', function(event) {
+    //   if (event.which === 13) {
+    //     //..do search
+    //     target.removeClass('is-active');
+    //     $(this).blur();
+    //   }
+    // });
+
+    elem.on('keyup', runSearch);
 
     target.click(function() {
       target.addClass('is-active');

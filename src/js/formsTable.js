@@ -1,6 +1,7 @@
 var formsTable = {
   init: function() {
     var self = this;
+    window.formsTable = this;
     $('[data-target="forms-table"]').each(function() {
       self.initTable($(this));
     });
@@ -24,11 +25,18 @@ var formsTable = {
   initTable: function(elem) {
     var self = this;
     var rows = elem.find('[data-target="forms-table-row"]');
-    var checkBtns = rows.find('[data-target="input-checkbox"]');
     var selectAllBtn =  elem.find('[data-target="select-row-all"]');
 
     elem.find('[data-target="table-filter"]').click(function() {
       $(this).toggleClass('is-flipped');
+      if($(this).hasClass('is-flipped'))
+      {
+        orderDir = 'asc';
+      }else{
+        orderDir = 'desc';
+      }
+      orderBy = $(this).attr('data-col-name');
+      updateTable();
     });
 
     elem.find('[data-target="expand-row-btn"]').click(function(event) {
@@ -36,6 +44,62 @@ var formsTable = {
       event.stopPropagation();
       self.toggleHiddenCellsView($(this));
     });
+
+
+
+    if (elem.closest('[data-target="int-list-forms"]').length) {
+      return;
+    }
+
+    this.attachRowEvents(elem);
+  },
+  attachRowEvents: function(elem) {
+    var self = this;
+    var rows = elem.find('[data-target="forms-table-row"]');
+    var selectAllBtn =  elem.find('[data-target="select-row-all"]');
+
+    rows.click(function(event) {
+      event.preventDefault();
+      if ($(this).hasClass('is-selected')) {
+        self.unselectRow($(this));
+        self.checkSelectedRows(elem);
+      } else {
+        self.selectRow($(this));
+        self.checkSelectedRows(elem);
+      }
+      
+    });
+
+    selectAllBtn.click(function(event) {
+      event.preventDefault();
+      $(this).toggleClass('is-selected');
+      if ($(this).hasClass('is-selected')) {
+        rows.each(function() {
+          self.selectRow($(this));
+          self.checkSelectedRows(elem);
+        });
+      } else {
+        rows.each(function() {
+          self.unselectRow($(this));
+          self.checkSelectedRows(elem);
+        });
+      }
+      
+    });
+
+
+    
+  },
+
+  selectRow: function(elem) {
+    elem.addClass('is-selected');
+    elem.find('[data-target="select-row"]').addClass('is-selected');
+    elem.attr('data-selected', true);   
+  },
+  unselectRow: function(elem) {
+    elem.removeClass('is-selected');
+    elem.find('[data-target="select-row"]').removeClass('is-selected');
+    elem.attr('data-selected', false);
   },
   toggleHiddenCellsView: function(elem) {
     elem.toggleClass('is-active');
@@ -88,6 +152,27 @@ var formsTable = {
       
     }
   },
+  checkSelectedRows: function(elem) {
+    var targetBtn = elem.closest('[data-target="pop-up-content"]').find('[data-target="pop-up-action"][data-action="send-forms"]');
+    if (!targetBtn.length) {      
+      targetBtn = $('[data-target="open-pop-up"][data-action="choose-user"]');
+    }
+    var selectedRows = false;
+
+    elem.find('[data-target="forms-table-row"]').each(function() {
+      if ($(this).hasClass('is-selected')) {
+        selectedRows = true;
+        return false;
+      }
+    });
+
+    if (selectedRows) {
+      targetBtn.prop('disabled', false);
+    } else {
+      targetBtn.prop('disabled', true);
+    }
+  }
+
 };
 
 
