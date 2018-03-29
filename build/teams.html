@@ -154,13 +154,15 @@
                   <div class="int-action-panel__item int-action-panel__item_filter">
                     <div class="form-status-filter"> <a href="#" class="form-status-filter__btn" data-target="filter-toggle-btn">Display</a>
                       <div class="filter-overlay" data-target="filter-overlay"></div>
-                      <ul class="form-status-list form-status-filter__form-status-list" data-target="filter-list">
-                        <li class="form-status-list__item"> <a href="#" class="form-status-list__btn form-status-list__btn_draft" data-target="filter-list-item">Draft</a> </li>
-                        <li class="form-status-list__item"> <a href="#" class="form-status-list__btn form-status-list__btn_commited" data-target="filter-list-item">Committed</a> </li>
-                        <li class="form-status-list__item"> <a href="#" class="form-status-list__btn form-status-list__btn_in-use" data-target="filter-list-item">In Use</a> </li>
-                        <li class="form-status-list__item"> <a href="#" class="form-status-list__btn form-status-list__btn_archived" data-target="filter-list-item">Archived</a> </li>
-                        <li class="form-status-list__item"> <a href="#" class="form-status-list__btn form-status-list__btn_assigned" data-target="filter-list-item">Assigned</a> </li>
-                      </ul>
+                      <div data-target="checkbox-group" data-target-name="status-filter" data-select-type="multiple">
+                        <ul class="form-status-list form-status-filter__form-status-list" data-target="filter-list">
+                          <li class="form-status-list__item"> <span class="form-status-list__btn form-status-list__btn_draft" data-target="filter-list-item" data-checkbox-anchor>Draft<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="Draft" name="status-filter[]" data-target="input-checkbox" /></label></span>                            </li>
+                          <li class="form-status-list__item"> <span class="form-status-list__btn form-status-list__btn_commited" data-target="filter-list-item" data-checkbox-anchor>Committed<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="Committed" name="status-filter[]" data-target="input-checkbox" /></label></span>                            </li>
+                          <li class="form-status-list__item"> <span class="form-status-list__btn form-status-list__btn_in-use" data-target="filter-list-item" data-checkbox-anchor>In Use<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="In Use" name="status-filter[]" data-target="input-checkbox" /></label></span>                            </li>
+                          <li class="form-status-list__item"> <span class="form-status-list__btn form-status-list__btn_archived" data-target="filter-list-item" data-checkbox-anchor>Archived<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="Archived" name="status-filter[]" data-target="input-checkbox" /></label></span>                            </li>
+                          <li class="form-status-list__item"> <span class="form-status-list__btn form-status-list__btn_assigned" data-target="filter-list-item" data-checkbox-anchor>Assigned<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="Assigned" name="status-filter[]" data-target="input-checkbox" /></label></span>                            </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -425,13 +427,14 @@
                   </div>
                 </div>
                 <div class="popup-modal-msg__forms-table-holder">
-                  <div class="forms-table" data-target="forms-table" data-select="forms" data-select-name="forms" data-select-multiple="true">
+                  <!-- begin forms table -->
+                  <div class="forms-table" data-target="forms-table">
                     <!-- begin row -->
                     <div class="forms-table__row forms-table__row_heading forms-table__row_bg forms-table__row_pop-up">
                       <!-- begin row left -->
                       <div class="forms-table__left forms-table__left_pop-up">
                         <!-- begin select cell -->
-                        <div class="forms-table__cell forms-table__cell_select"> <a href="#" class="select-row-btn select-row-btn_select-all" data-target="select-row-all" data-select-all="forms"></a> <span class="forms-table__column-name forms-table__column-name_select-all">All</span> </div>
+                        <div class="forms-table__cell forms-table__cell_select"> <button type="button" class="select-row-btn select-row-btn_select-all" data-target="check-all" data-related="selected-forms-users"></button> <span class="forms-table__column-name forms-table__column-name_select-all">All</span>                          </div>
                         <!-- end select cell -->
                         <!-- begin cells name and purpose -->
                         <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
@@ -491,569 +494,571 @@
                       <!-- end row right -->
                     </div>
                     <div class="forms-table-scroll-area scrollbar-inner" data-target="table-scroll-area">
-                      <!-- begin row -->
-                      <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="1" data-select-option-type="toggle">
-                        <!-- begin row left -->
-                        <div class="forms-table__left forms-table__left_pop-up">
-                          <!-- begin select cell -->
-                          <div class="forms-table__cell forms-table__cell_select">
-                            <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                          </div>
-                          <!-- end select cell -->
-                          <!-- begin cells name and purpose -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                            <!-- begin name cell -->
-                            <div class="forms-table__cell forms-table__cell_name">
-                              <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
+                      <div data-target="checkbox-group" data-target-name="selected-forms-users" data-select-type="multiple">
+                        <!-- begin row -->
+                        <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="1" name="selected-forms-users[]" data-target="input-checkbox" /></label>
+                          <!-- begin row left -->
+                          <div class="forms-table__left forms-table__left_pop-up">
+                            <!-- begin select cell -->
+                            <div class="forms-table__cell forms-table__cell_select">
+                              <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
                             </div>
-                            <!-- end name cell -->
-                            <!-- begin purpose cell -->
-                            <div class="forms-table__cell forms-table__cell_purpose">
-                              <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
-                            </div>
-                            <!-- end purpose cell -->
-                          </div>
-                          <!-- end cells name and purpose -->
-                        </div>
-                        <!-- end row left -->
-                        <!-- begin row right -->
-                        <div class="forms-table__right forms-table__right_pop-up">
-                          <!-- begin cells description and dates -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                            <!-- begin description cell -->
-                            <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                              <div class="forms-table__cell-content forms-table__cell-content_desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.</p>
+                            <!-- end select cell -->
+                            <!-- begin cells name and purpose -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                              <!-- begin name cell -->
+                              <div class="forms-table__cell forms-table__cell_name">
+                                <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
                               </div>
-                            </div>
-                            <!-- end description cell -->
-                            <!-- begin dates cell -->
-                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                              <!-- begin first date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-1">
-                                <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                              <!-- end name cell -->
+                              <!-- begin purpose cell -->
+                              <div class="forms-table__cell forms-table__cell_purpose">
+                                <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
                               </div>
-                              <!-- end first date cell -->
-                              <!-- begin second date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
-                                <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">December 12, 2017</div>
+                              <!-- end purpose cell -->
+                            </div>
+                            <!-- end cells name and purpose -->
+                          </div>
+                          <!-- end row left -->
+                          <!-- begin row right -->
+                          <div class="forms-table__right forms-table__right_pop-up">
+                            <!-- begin cells description and dates -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                              <!-- begin description cell -->
+                              <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                                <div class="forms-table__cell-content forms-table__cell-content_desc">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.</p>
+                                </div>
                               </div>
-                              <!-- end second date cell -->
-                            </div>
-                            <!-- end dates cell -->
-                          </div>
-                          <!-- end cells description and dates -->
-                          <!-- begin fee cell -->
-                          <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
-                            <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up fee_na">N/A</span> </div>
-                          </div>
-                          <!-- end fee cell -->
-                        </div>
-                        <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
-                      <!-- end row -->
-                      <!-- begin row -->
-                      <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="2" data-select-option-type="toggle">
-                        <!-- begin row left -->
-                        <div class="forms-table__left forms-table__left_pop-up">
-                          <!-- begin select cell -->
-                          <div class="forms-table__cell forms-table__cell_select">
-                            <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                          </div>
-                          <!-- end select cell -->
-                          <!-- begin cells name and purpose -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                            <!-- begin name cell -->
-                            <div class="forms-table__cell forms-table__cell_name">
-                              <div class="forms-table__cell-content forms-table__cell-content_name">Form Name</div>
-                            </div>
-                            <!-- end name cell -->
-                            <!-- begin purpose cell -->
-                            <div class="forms-table__cell forms-table__cell_purpose">
-                              <div class="forms-table__cell-content forms-table__cell-content_purpose">Registration</div>
-                            </div>
-                            <!-- end purpose cell -->
-                          </div>
-                          <!-- end cells name and purpose -->
-                        </div>
-                        <!-- end row left -->
-                        <!-- begin row right -->
-                        <div class="forms-table__right forms-table__right_pop-up">
-                          <!-- begin cells description and dates -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                            <!-- begin description cell -->
-                            <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                              <div class="forms-table__cell-content forms-table__cell-content_desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.</p>
+                              <!-- end description cell -->
+                              <!-- begin dates cell -->
+                              <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                                <!-- begin first date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-1">
+                                  <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                                </div>
+                                <!-- end first date cell -->
+                                <!-- begin second date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
+                                  <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">December 12, 2017</div>
+                                </div>
+                                <!-- end second date cell -->
                               </div>
+                              <!-- end dates cell -->
                             </div>
-                            <!-- end description cell -->
-                            <!-- begin dates cell -->
-                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                              <!-- begin first date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-1">
-                                <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                            <!-- end cells description and dates -->
+                            <!-- begin fee cell -->
+                            <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
+                              <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up fee_na">N/A</span> </div>
+                            </div>
+                            <!-- end fee cell -->
+                          </div>
+                          <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
+                        <!-- end row -->
+                        <!-- begin row -->
+                        <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="2" name="selected-forms-users[]" data-target="input-checkbox" /></label>
+                          <!-- begin row left -->
+                          <div class="forms-table__left forms-table__left_pop-up">
+                            <!-- begin select cell -->
+                            <div class="forms-table__cell forms-table__cell_select">
+                              <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                            </div>
+                            <!-- end select cell -->
+                            <!-- begin cells name and purpose -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                              <!-- begin name cell -->
+                              <div class="forms-table__cell forms-table__cell_name">
+                                <div class="forms-table__cell-content forms-table__cell-content_name">Form Name</div>
                               </div>
-                              <!-- end first date cell -->
-                              <!-- begin second date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
-                                <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">May 12, 2017</div>
+                              <!-- end name cell -->
+                              <!-- begin purpose cell -->
+                              <div class="forms-table__cell forms-table__cell_purpose">
+                                <div class="forms-table__cell-content forms-table__cell-content_purpose">Registration</div>
                               </div>
-                              <!-- end second date cell -->
+                              <!-- end purpose cell -->
                             </div>
-                            <!-- end dates cell -->
+                            <!-- end cells name and purpose -->
                           </div>
-                          <!-- end cells description and dates -->
-                          <!-- begin fee cell -->
-                          <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
-                            <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up ">80</span> </div>
-                          </div>
-                          <!-- end fee cell -->
-                        </div>
-                        <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
-                      <!-- end row -->
-                      <!-- begin row -->
-                      <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="3" data-select-option-type="toggle">
-                        <!-- begin row left -->
-                        <div class="forms-table__left forms-table__left_pop-up">
-                          <!-- begin select cell -->
-                          <div class="forms-table__cell forms-table__cell_select">
-                            <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                          </div>
-                          <!-- end select cell -->
-                          <!-- begin cells name and purpose -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                            <!-- begin name cell -->
-                            <div class="forms-table__cell forms-table__cell_name">
-                              <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
-                            </div>
-                            <!-- end name cell -->
-                            <!-- begin purpose cell -->
-                            <div class="forms-table__cell forms-table__cell_purpose">
-                              <div class="forms-table__cell-content forms-table__cell-content_purpose">Medical</div>
-                            </div>
-                            <!-- end purpose cell -->
-                          </div>
-                          <!-- end cells name and purpose -->
-                        </div>
-                        <!-- end row left -->
-                        <!-- begin row right -->
-                        <div class="forms-table__right forms-table__right_pop-up">
-                          <!-- begin cells description and dates -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                            <!-- begin description cell -->
-                            <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                              <div class="forms-table__cell-content forms-table__cell-content_desc">
-                                <p>Lorem ipsum dolor sit amet.</p>
+                          <!-- end row left -->
+                          <!-- begin row right -->
+                          <div class="forms-table__right forms-table__right_pop-up">
+                            <!-- begin cells description and dates -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                              <!-- begin description cell -->
+                              <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                                <div class="forms-table__cell-content forms-table__cell-content_desc">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.</p>
+                                </div>
                               </div>
-                            </div>
-                            <!-- end description cell -->
-                            <!-- begin dates cell -->
-                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                              <!-- begin first date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-1">
-                                <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                              <!-- end description cell -->
+                              <!-- begin dates cell -->
+                              <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                                <!-- begin first date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-1">
+                                  <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                                </div>
+                                <!-- end first date cell -->
+                                <!-- begin second date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
+                                  <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">May 12, 2017</div>
+                                </div>
+                                <!-- end second date cell -->
                               </div>
-                              <!-- end first date cell -->
-                              <!-- begin second date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
-                                <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">December 12, 2017</div>
+                              <!-- end dates cell -->
+                            </div>
+                            <!-- end cells description and dates -->
+                            <!-- begin fee cell -->
+                            <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
+                              <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up ">80</span> </div>
+                            </div>
+                            <!-- end fee cell -->
+                          </div>
+                          <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
+                        <!-- end row -->
+                        <!-- begin row -->
+                        <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="3" name="selected-forms-users[]" data-target="input-checkbox" /></label>
+                          <!-- begin row left -->
+                          <div class="forms-table__left forms-table__left_pop-up">
+                            <!-- begin select cell -->
+                            <div class="forms-table__cell forms-table__cell_select">
+                              <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                            </div>
+                            <!-- end select cell -->
+                            <!-- begin cells name and purpose -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                              <!-- begin name cell -->
+                              <div class="forms-table__cell forms-table__cell_name">
+                                <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
                               </div>
-                              <!-- end second date cell -->
-                            </div>
-                            <!-- end dates cell -->
-                          </div>
-                          <!-- end cells description and dates -->
-                          <!-- begin fee cell -->
-                          <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
-                            <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up fee_na">N/A</span> </div>
-                          </div>
-                          <!-- end fee cell -->
-                        </div>
-                        <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
-                      <!-- end row -->
-                      <!-- begin row -->
-                      <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="4" data-select-option-type="toggle">
-                        <!-- begin row left -->
-                        <div class="forms-table__left forms-table__left_pop-up">
-                          <!-- begin select cell -->
-                          <div class="forms-table__cell forms-table__cell_select">
-                            <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                          </div>
-                          <!-- end select cell -->
-                          <!-- begin cells name and purpose -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                            <!-- begin name cell -->
-                            <div class="forms-table__cell forms-table__cell_name">
-                              <div class="forms-table__cell-content forms-table__cell-content_name">Some Long Name</div>
-                            </div>
-                            <!-- end name cell -->
-                            <!-- begin purpose cell -->
-                            <div class="forms-table__cell forms-table__cell_purpose">
-                              <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
-                            </div>
-                            <!-- end purpose cell -->
-                          </div>
-                          <!-- end cells name and purpose -->
-                        </div>
-                        <!-- end row left -->
-                        <!-- begin row right -->
-                        <div class="forms-table__right forms-table__right_pop-up">
-                          <!-- begin cells description and dates -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                            <!-- begin description cell -->
-                            <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                              <div class="forms-table__cell-content forms-table__cell-content_desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.</p>
+                              <!-- end name cell -->
+                              <!-- begin purpose cell -->
+                              <div class="forms-table__cell forms-table__cell_purpose">
+                                <div class="forms-table__cell-content forms-table__cell-content_purpose">Medical</div>
                               </div>
+                              <!-- end purpose cell -->
                             </div>
-                            <!-- end description cell -->
-                            <!-- begin dates cell -->
-                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                              <!-- begin first date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-1">
-                                <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                            <!-- end cells name and purpose -->
+                          </div>
+                          <!-- end row left -->
+                          <!-- begin row right -->
+                          <div class="forms-table__right forms-table__right_pop-up">
+                            <!-- begin cells description and dates -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                              <!-- begin description cell -->
+                              <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                                <div class="forms-table__cell-content forms-table__cell-content_desc">
+                                  <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
                               </div>
-                              <!-- end first date cell -->
-                              <!-- begin second date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
-                                <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">May 12, 2017</div>
+                              <!-- end description cell -->
+                              <!-- begin dates cell -->
+                              <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                                <!-- begin first date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-1">
+                                  <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                                </div>
+                                <!-- end first date cell -->
+                                <!-- begin second date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
+                                  <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">December 12, 2017</div>
+                                </div>
+                                <!-- end second date cell -->
                               </div>
-                              <!-- end second date cell -->
+                              <!-- end dates cell -->
                             </div>
-                            <!-- end dates cell -->
-                          </div>
-                          <!-- end cells description and dates -->
-                          <!-- begin fee cell -->
-                          <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
-                            <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up ">240</span> </div>
-                          </div>
-                          <!-- end fee cell -->
-                        </div>
-                        <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
-                      <!-- end row -->
-                      <!-- begin row -->
-                      <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="5" data-select-option-type="toggle">
-                        <!-- begin row left -->
-                        <div class="forms-table__left forms-table__left_pop-up">
-                          <!-- begin select cell -->
-                          <div class="forms-table__cell forms-table__cell_select">
-                            <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                          </div>
-                          <!-- end select cell -->
-                          <!-- begin cells name and purpose -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                            <!-- begin name cell -->
-                            <div class="forms-table__cell forms-table__cell_name">
-                              <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
+                            <!-- end cells description and dates -->
+                            <!-- begin fee cell -->
+                            <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
+                              <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up fee_na">N/A</span> </div>
                             </div>
-                            <!-- end name cell -->
-                            <!-- begin purpose cell -->
-                            <div class="forms-table__cell forms-table__cell_purpose">
-                              <div class="forms-table__cell-content forms-table__cell-content_purpose">Medical</div>
-                            </div>
-                            <!-- end purpose cell -->
+                            <!-- end fee cell -->
                           </div>
-                          <!-- end cells name and purpose -->
-                        </div>
-                        <!-- end row left -->
-                        <!-- begin row right -->
-                        <div class="forms-table__right forms-table__right_pop-up">
-                          <!-- begin cells description and dates -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                            <!-- begin description cell -->
-                            <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                              <div class="forms-table__cell-content forms-table__cell-content_desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.</p>
+                          <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
+                        <!-- end row -->
+                        <!-- begin row -->
+                        <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="4" name="selected-forms-users[]" data-target="input-checkbox" /></label>
+                          <!-- begin row left -->
+                          <div class="forms-table__left forms-table__left_pop-up">
+                            <!-- begin select cell -->
+                            <div class="forms-table__cell forms-table__cell_select">
+                              <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                            </div>
+                            <!-- end select cell -->
+                            <!-- begin cells name and purpose -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                              <!-- begin name cell -->
+                              <div class="forms-table__cell forms-table__cell_name">
+                                <div class="forms-table__cell-content forms-table__cell-content_name">Some Long Name</div>
                               </div>
-                            </div>
-                            <!-- end description cell -->
-                            <!-- begin dates cell -->
-                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                              <!-- begin first date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-1">
-                                <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                              <!-- end name cell -->
+                              <!-- begin purpose cell -->
+                              <div class="forms-table__cell forms-table__cell_purpose">
+                                <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
                               </div>
-                              <!-- end first date cell -->
-                              <!-- begin second date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
-                                <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">May 12, 2017</div>
+                              <!-- end purpose cell -->
+                            </div>
+                            <!-- end cells name and purpose -->
+                          </div>
+                          <!-- end row left -->
+                          <!-- begin row right -->
+                          <div class="forms-table__right forms-table__right_pop-up">
+                            <!-- begin cells description and dates -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                              <!-- begin description cell -->
+                              <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                                <div class="forms-table__cell-content forms-table__cell-content_desc">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.</p>
+                                </div>
                               </div>
-                              <!-- end second date cell -->
-                            </div>
-                            <!-- end dates cell -->
-                          </div>
-                          <!-- end cells description and dates -->
-                          <!-- begin fee cell -->
-                          <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
-                            <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up ">120</span> </div>
-                          </div>
-                          <!-- end fee cell -->
-                        </div>
-                        <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
-                      <!-- end row -->
-                      <!-- begin row -->
-                      <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="6" data-select-option-type="toggle">
-                        <!-- begin row left -->
-                        <div class="forms-table__left forms-table__left_pop-up">
-                          <!-- begin select cell -->
-                          <div class="forms-table__cell forms-table__cell_select">
-                            <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                          </div>
-                          <!-- end select cell -->
-                          <!-- begin cells name and purpose -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                            <!-- begin name cell -->
-                            <div class="forms-table__cell forms-table__cell_name">
-                              <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
-                            </div>
-                            <!-- end name cell -->
-                            <!-- begin purpose cell -->
-                            <div class="forms-table__cell forms-table__cell_purpose">
-                              <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
-                            </div>
-                            <!-- end purpose cell -->
-                          </div>
-                          <!-- end cells name and purpose -->
-                        </div>
-                        <!-- end row left -->
-                        <!-- begin row right -->
-                        <div class="forms-table__right forms-table__right_pop-up">
-                          <!-- begin cells description and dates -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                            <!-- begin description cell -->
-                            <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                              <div class="forms-table__cell-content forms-table__cell-content_desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien</p>
+                              <!-- end description cell -->
+                              <!-- begin dates cell -->
+                              <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                                <!-- begin first date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-1">
+                                  <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                                </div>
+                                <!-- end first date cell -->
+                                <!-- begin second date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
+                                  <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">May 12, 2017</div>
+                                </div>
+                                <!-- end second date cell -->
                               </div>
+                              <!-- end dates cell -->
                             </div>
-                            <!-- end description cell -->
-                            <!-- begin dates cell -->
-                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                              <!-- begin first date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-1">
-                                <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                            <!-- end cells description and dates -->
+                            <!-- begin fee cell -->
+                            <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
+                              <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up ">240</span> </div>
+                            </div>
+                            <!-- end fee cell -->
+                          </div>
+                          <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
+                        <!-- end row -->
+                        <!-- begin row -->
+                        <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="5" name="selected-forms-users[]" data-target="input-checkbox" /></label>
+                          <!-- begin row left -->
+                          <div class="forms-table__left forms-table__left_pop-up">
+                            <!-- begin select cell -->
+                            <div class="forms-table__cell forms-table__cell_select">
+                              <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                            </div>
+                            <!-- end select cell -->
+                            <!-- begin cells name and purpose -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                              <!-- begin name cell -->
+                              <div class="forms-table__cell forms-table__cell_name">
+                                <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
                               </div>
-                              <!-- end first date cell -->
-                              <!-- begin second date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
-                                <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">December 12, 2017</div>
+                              <!-- end name cell -->
+                              <!-- begin purpose cell -->
+                              <div class="forms-table__cell forms-table__cell_purpose">
+                                <div class="forms-table__cell-content forms-table__cell-content_purpose">Medical</div>
                               </div>
-                              <!-- end second date cell -->
+                              <!-- end purpose cell -->
                             </div>
-                            <!-- end dates cell -->
+                            <!-- end cells name and purpose -->
                           </div>
-                          <!-- end cells description and dates -->
-                          <!-- begin fee cell -->
-                          <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
-                            <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up fee_na">N/A</span> </div>
-                          </div>
-                          <!-- end fee cell -->
-                        </div>
-                        <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
-                      <!-- end row -->
-                      <!-- begin row -->
-                      <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="7" data-select-option-type="toggle">
-                        <!-- begin row left -->
-                        <div class="forms-table__left forms-table__left_pop-up">
-                          <!-- begin select cell -->
-                          <div class="forms-table__cell forms-table__cell_select">
-                            <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                          </div>
-                          <!-- end select cell -->
-                          <!-- begin cells name and purpose -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                            <!-- begin name cell -->
-                            <div class="forms-table__cell forms-table__cell_name">
-                              <div class="forms-table__cell-content forms-table__cell-content_name">Some Long Name</div>
-                            </div>
-                            <!-- end name cell -->
-                            <!-- begin purpose cell -->
-                            <div class="forms-table__cell forms-table__cell_purpose">
-                              <div class="forms-table__cell-content forms-table__cell-content_purpose">Registration</div>
-                            </div>
-                            <!-- end purpose cell -->
-                          </div>
-                          <!-- end cells name and purpose -->
-                        </div>
-                        <!-- end row left -->
-                        <!-- begin row right -->
-                        <div class="forms-table__right forms-table__right_pop-up">
-                          <!-- begin cells description and dates -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                            <!-- begin description cell -->
-                            <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                              <div class="forms-table__cell-content forms-table__cell-content_desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.</p>
+                          <!-- end row left -->
+                          <!-- begin row right -->
+                          <div class="forms-table__right forms-table__right_pop-up">
+                            <!-- begin cells description and dates -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                              <!-- begin description cell -->
+                              <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                                <div class="forms-table__cell-content forms-table__cell-content_desc">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.</p>
+                                </div>
                               </div>
-                            </div>
-                            <!-- end description cell -->
-                            <!-- begin dates cell -->
-                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                              <!-- begin first date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-1">
-                                <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                              <!-- end description cell -->
+                              <!-- begin dates cell -->
+                              <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                                <!-- begin first date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-1">
+                                  <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                                </div>
+                                <!-- end first date cell -->
+                                <!-- begin second date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
+                                  <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">May 12, 2017</div>
+                                </div>
+                                <!-- end second date cell -->
                               </div>
-                              <!-- end first date cell -->
-                              <!-- begin second date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
-                                <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">May 12, 2017</div>
+                              <!-- end dates cell -->
+                            </div>
+                            <!-- end cells description and dates -->
+                            <!-- begin fee cell -->
+                            <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
+                              <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up ">120</span> </div>
+                            </div>
+                            <!-- end fee cell -->
+                          </div>
+                          <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
+                        <!-- end row -->
+                        <!-- begin row -->
+                        <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="6" name="selected-forms-users[]" data-target="input-checkbox" /></label>
+                          <!-- begin row left -->
+                          <div class="forms-table__left forms-table__left_pop-up">
+                            <!-- begin select cell -->
+                            <div class="forms-table__cell forms-table__cell_select">
+                              <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                            </div>
+                            <!-- end select cell -->
+                            <!-- begin cells name and purpose -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                              <!-- begin name cell -->
+                              <div class="forms-table__cell forms-table__cell_name">
+                                <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
                               </div>
-                              <!-- end second date cell -->
-                            </div>
-                            <!-- end dates cell -->
-                          </div>
-                          <!-- end cells description and dates -->
-                          <!-- begin fee cell -->
-                          <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
-                            <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up ">240</span> </div>
-                          </div>
-                          <!-- end fee cell -->
-                        </div>
-                        <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
-                      <!-- end row -->
-                      <!-- begin row -->
-                      <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="8" data-select-option-type="toggle">
-                        <!-- begin row left -->
-                        <div class="forms-table__left forms-table__left_pop-up">
-                          <!-- begin select cell -->
-                          <div class="forms-table__cell forms-table__cell_select">
-                            <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                          </div>
-                          <!-- end select cell -->
-                          <!-- begin cells name and purpose -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                            <!-- begin name cell -->
-                            <div class="forms-table__cell forms-table__cell_name">
-                              <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
-                            </div>
-                            <!-- end name cell -->
-                            <!-- begin purpose cell -->
-                            <div class="forms-table__cell forms-table__cell_purpose">
-                              <div class="forms-table__cell-content forms-table__cell-content_purpose">Registration</div>
-                            </div>
-                            <!-- end purpose cell -->
-                          </div>
-                          <!-- end cells name and purpose -->
-                        </div>
-                        <!-- end row left -->
-                        <!-- begin row right -->
-                        <div class="forms-table__right forms-table__right_pop-up">
-                          <!-- begin cells description and dates -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                            <!-- begin description cell -->
-                            <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                              <div class="forms-table__cell-content forms-table__cell-content_desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien</p>
+                              <!-- end name cell -->
+                              <!-- begin purpose cell -->
+                              <div class="forms-table__cell forms-table__cell_purpose">
+                                <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
                               </div>
+                              <!-- end purpose cell -->
                             </div>
-                            <!-- end description cell -->
-                            <!-- begin dates cell -->
-                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                              <!-- begin first date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-1">
-                                <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                            <!-- end cells name and purpose -->
+                          </div>
+                          <!-- end row left -->
+                          <!-- begin row right -->
+                          <div class="forms-table__right forms-table__right_pop-up">
+                            <!-- begin cells description and dates -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                              <!-- begin description cell -->
+                              <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                                <div class="forms-table__cell-content forms-table__cell-content_desc">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien</p>
+                                </div>
                               </div>
-                              <!-- end first date cell -->
-                              <!-- begin second date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
-                                <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">May 12, 2017</div>
+                              <!-- end description cell -->
+                              <!-- begin dates cell -->
+                              <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                                <!-- begin first date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-1">
+                                  <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                                </div>
+                                <!-- end first date cell -->
+                                <!-- begin second date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
+                                  <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">December 12, 2017</div>
+                                </div>
+                                <!-- end second date cell -->
                               </div>
-                              <!-- end second date cell -->
+                              <!-- end dates cell -->
                             </div>
-                            <!-- end dates cell -->
-                          </div>
-                          <!-- end cells description and dates -->
-                          <!-- begin fee cell -->
-                          <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
-                            <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up ">120</span> </div>
-                          </div>
-                          <!-- end fee cell -->
-                        </div>
-                        <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
-                      <!-- end row -->
-                      <!-- begin row -->
-                      <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="9" data-select-option-type="toggle">
-                        <!-- begin row left -->
-                        <div class="forms-table__left forms-table__left_pop-up">
-                          <!-- begin select cell -->
-                          <div class="forms-table__cell forms-table__cell_select">
-                            <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                          </div>
-                          <!-- end select cell -->
-                          <!-- begin cells name and purpose -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                            <!-- begin name cell -->
-                            <div class="forms-table__cell forms-table__cell_name">
-                              <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
+                            <!-- end cells description and dates -->
+                            <!-- begin fee cell -->
+                            <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
+                              <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up fee_na">N/A</span> </div>
                             </div>
-                            <!-- end name cell -->
-                            <!-- begin purpose cell -->
-                            <div class="forms-table__cell forms-table__cell_purpose">
-                              <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
-                            </div>
-                            <!-- end purpose cell -->
+                            <!-- end fee cell -->
                           </div>
-                          <!-- end cells name and purpose -->
-                        </div>
-                        <!-- end row left -->
-                        <!-- begin row right -->
-                        <div class="forms-table__right forms-table__right_pop-up">
-                          <!-- begin cells description and dates -->
-                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                            <!-- begin description cell -->
-                            <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                              <div class="forms-table__cell-content forms-table__cell-content_desc">
-                                <p>Lorem ipsum dolor sit amet.</p>
+                          <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
+                        <!-- end row -->
+                        <!-- begin row -->
+                        <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="7" name="selected-forms-users[]" data-target="input-checkbox" /></label>
+                          <!-- begin row left -->
+                          <div class="forms-table__left forms-table__left_pop-up">
+                            <!-- begin select cell -->
+                            <div class="forms-table__cell forms-table__cell_select">
+                              <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                            </div>
+                            <!-- end select cell -->
+                            <!-- begin cells name and purpose -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                              <!-- begin name cell -->
+                              <div class="forms-table__cell forms-table__cell_name">
+                                <div class="forms-table__cell-content forms-table__cell-content_name">Some Long Name</div>
                               </div>
-                            </div>
-                            <!-- end description cell -->
-                            <!-- begin dates cell -->
-                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                              <!-- begin first date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-1">
-                                <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                              <!-- end name cell -->
+                              <!-- begin purpose cell -->
+                              <div class="forms-table__cell forms-table__cell_purpose">
+                                <div class="forms-table__cell-content forms-table__cell-content_purpose">Registration</div>
                               </div>
-                              <!-- end first date cell -->
-                              <!-- begin second date cell -->
-                              <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
-                                <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                                <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">December 12, 2017</div>
-                              </div>
-                              <!-- end second date cell -->
+                              <!-- end purpose cell -->
                             </div>
-                            <!-- end dates cell -->
+                            <!-- end cells name and purpose -->
                           </div>
-                          <!-- end cells description and dates -->
-                          <!-- begin fee cell -->
-                          <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
-                            <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up fee_na">N/A</span> </div>
+                          <!-- end row left -->
+                          <!-- begin row right -->
+                          <div class="forms-table__right forms-table__right_pop-up">
+                            <!-- begin cells description and dates -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                              <!-- begin description cell -->
+                              <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                                <div class="forms-table__cell-content forms-table__cell-content_desc">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.</p>
+                                </div>
+                              </div>
+                              <!-- end description cell -->
+                              <!-- begin dates cell -->
+                              <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                                <!-- begin first date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-1">
+                                  <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                                </div>
+                                <!-- end first date cell -->
+                                <!-- begin second date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
+                                  <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">May 12, 2017</div>
+                                </div>
+                                <!-- end second date cell -->
+                              </div>
+                              <!-- end dates cell -->
+                            </div>
+                            <!-- end cells description and dates -->
+                            <!-- begin fee cell -->
+                            <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
+                              <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up ">240</span> </div>
+                            </div>
+                            <!-- end fee cell -->
                           </div>
-                          <!-- end fee cell -->
-                        </div>
-                        <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
-                      <!-- end row -->
+                          <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
+                        <!-- end row -->
+                        <!-- begin row -->
+                        <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="8" name="selected-forms-users[]" data-target="input-checkbox" /></label>
+                          <!-- begin row left -->
+                          <div class="forms-table__left forms-table__left_pop-up">
+                            <!-- begin select cell -->
+                            <div class="forms-table__cell forms-table__cell_select">
+                              <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                            </div>
+                            <!-- end select cell -->
+                            <!-- begin cells name and purpose -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                              <!-- begin name cell -->
+                              <div class="forms-table__cell forms-table__cell_name">
+                                <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
+                              </div>
+                              <!-- end name cell -->
+                              <!-- begin purpose cell -->
+                              <div class="forms-table__cell forms-table__cell_purpose">
+                                <div class="forms-table__cell-content forms-table__cell-content_purpose">Registration</div>
+                              </div>
+                              <!-- end purpose cell -->
+                            </div>
+                            <!-- end cells name and purpose -->
+                          </div>
+                          <!-- end row left -->
+                          <!-- begin row right -->
+                          <div class="forms-table__right forms-table__right_pop-up">
+                            <!-- begin cells description and dates -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                              <!-- begin description cell -->
+                              <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                                <div class="forms-table__cell-content forms-table__cell-content_desc">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien</p>
+                                </div>
+                              </div>
+                              <!-- end description cell -->
+                              <!-- begin dates cell -->
+                              <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                                <!-- begin first date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-1">
+                                  <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                                </div>
+                                <!-- end first date cell -->
+                                <!-- begin second date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
+                                  <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">May 12, 2017</div>
+                                </div>
+                                <!-- end second date cell -->
+                              </div>
+                              <!-- end dates cell -->
+                            </div>
+                            <!-- end cells description and dates -->
+                            <!-- begin fee cell -->
+                            <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
+                              <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up ">120</span> </div>
+                            </div>
+                            <!-- end fee cell -->
+                          </div>
+                          <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
+                        <!-- end row -->
+                        <!-- begin row -->
+                        <div class="forms-table__row forms-table__row_pop-up" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="9" name="selected-forms-users[]" data-target="input-checkbox" /></label>
+                          <!-- begin row left -->
+                          <div class="forms-table__left forms-table__left_pop-up">
+                            <!-- begin select cell -->
+                            <div class="forms-table__cell forms-table__cell_select">
+                              <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                            </div>
+                            <!-- end select cell -->
+                            <!-- begin cells name and purpose -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                              <!-- begin name cell -->
+                              <div class="forms-table__cell forms-table__cell_name">
+                                <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
+                              </div>
+                              <!-- end name cell -->
+                              <!-- begin purpose cell -->
+                              <div class="forms-table__cell forms-table__cell_purpose">
+                                <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
+                              </div>
+                              <!-- end purpose cell -->
+                            </div>
+                            <!-- end cells name and purpose -->
+                          </div>
+                          <!-- end row left -->
+                          <!-- begin row right -->
+                          <div class="forms-table__right forms-table__right_pop-up">
+                            <!-- begin cells description and dates -->
+                            <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                              <!-- begin description cell -->
+                              <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                                <div class="forms-table__cell-content forms-table__cell-content_desc">
+                                  <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                              </div>
+                              <!-- end description cell -->
+                              <!-- begin dates cell -->
+                              <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                                <!-- begin first date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-1">
+                                  <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                                </div>
+                                <!-- end first date cell -->
+                                <!-- begin second date cell -->
+                                <div class="forms-table__cell forms-table__cell_date-2 forms-table__cell_date-2-pop-up">
+                                  <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                                  <div class="forms-table__cell-content forms-table__cell-content_date-2 forms-table__cell-content_date-2">December 12, 2017</div>
+                                </div>
+                                <!-- end second date cell -->
+                              </div>
+                              <!-- end dates cell -->
+                            </div>
+                            <!-- end cells description and dates -->
+                            <!-- begin fee cell -->
+                            <div class="forms-table__cell forms-table__cell_fee forms-table__cell_fee-pop-up">
+                              <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_pop-up fee_na">N/A</span> </div>
+                            </div>
+                            <!-- end fee cell -->
+                          </div>
+                          <!-- end row right --><a href="#" class="forms-table__toggle-btn forms-table__toggle-btn_pop-up" data-target="expand-row-btn"></a> </div>
+                        <!-- end row -->
+                      </div>
                     </div>
                   </div>
                   <!-- end flex table -->
                 </div>
-                <div class="popup-modal-msg__btn-holder"> <button type="submit" class="button button_middle-blue button_m" data-target="pop-up-action" data-action="send-forms" disabled>
+                <div class="popup-modal-msg__btn-holder"> <button type="submit" class="button button_middle-blue button_m" data-target="pop-up-action" data-action="send-forms" data-related-fields="selected-forms-users" disabled>
 					
 <svg class="icon icon-point-at"><use xlink:href="img/sprite.svg#icon-point-at"></use></svg>
 

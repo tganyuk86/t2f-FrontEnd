@@ -27,23 +27,25 @@
 					<div class="form-status-filter">
 						<a href="#" class="form-status-filter__btn" data-target="filter-toggle-btn">Display</a>
 						<div class="filter-overlay" data-target="filter-overlay"></div>
-						<ul class="form-status-list form-status-filter__form-status-list" data-target="filter-list">
-							<li class="form-status-list__item">
-								<a href="#" class="form-status-list__btn form-status-list__btn_draft" data-target="filter-list-item">Draft</a>
-							</li>
-							<li class="form-status-list__item">
-								<a href="#" class="form-status-list__btn form-status-list__btn_commited" data-target="filter-list-item">Committed</a>
-							</li>
-							<li class="form-status-list__item">
-								<a href="#" class="form-status-list__btn form-status-list__btn_in-use" data-target="filter-list-item">In Use</a>
-							</li>
-							<li class="form-status-list__item">
-								<a href="#" class="form-status-list__btn form-status-list__btn_archived" data-target="filter-list-item">Archived</a>
-							</li>
-							<li class="form-status-list__item">
-								<a href="#" class="form-status-list__btn form-status-list__btn_assigned" data-target="filter-list-item">Assigned</a>
-							</li>
-						</ul>
+						<div data-target="checkbox-group" data-target-name="status-filter" data-select-type="multiple">
+							<ul class="form-status-list form-status-filter__form-status-list" data-target="filter-list">
+								<li class="form-status-list__item">
+									<span class="form-status-list__btn form-status-list__btn_draft" data-target="filter-list-item" data-checkbox-anchor>Draft<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="Draft" name="status-filter[]" data-target="input-checkbox" /></label></span>
+								</li>
+								<li class="form-status-list__item">
+									<span class="form-status-list__btn form-status-list__btn_commited" data-target="filter-list-item" data-checkbox-anchor>Committed<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="Committed" name="status-filter[]" data-target="input-checkbox" /></label></span>
+								</li>
+								<li class="form-status-list__item">
+									<span class="form-status-list__btn form-status-list__btn_in-use" data-target="filter-list-item" data-checkbox-anchor>In Use<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="In Use" name="status-filter[]" data-target="input-checkbox" /></label></span>
+								</li>
+								<li class="form-status-list__item">
+									<span class="form-status-list__btn form-status-list__btn_archived" data-target="filter-list-item" data-checkbox-anchor>Archived<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="Archived" name="status-filter[]" data-target="input-checkbox" /></label></span>
+								</li>
+								<li class="form-status-list__item">
+									<span class="form-status-list__btn form-status-list__btn_assigned" data-target="filter-list-item" data-checkbox-anchor>Assigned<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="Assigned" name="status-filter[]" data-target="input-checkbox" /></label></span>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>

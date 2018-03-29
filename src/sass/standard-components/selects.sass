@@ -45,8 +45,7 @@
 			width: calc(100% - 164px)
 
 
-.select-list
-	&__value
+.select-list-value
 		display: block
 		position: relative
 		cursor: pointer
@@ -54,34 +53,25 @@
 		font-size: 0
 		&:hover
 			color: #3f92cc
-	&__image
-		display: inline-block
-		vertical-align: middle
-		width: 22px
-		height: 16px
-		background-position: center center
-		background-repeat: no-repeat
-		background-size: cover
-		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.33)
-	&__text
-		display: inline-block
-		vertical-align: middle
-		font-size: 16px
-		margin-left: 12px
-		position: relative
-		top: -2px
-		+r(734)
-			color: #525459
+		&__image
+			display: inline-block
+			vertical-align: middle
+			width: 22px
+			height: 16px
+			background-position: center center
+			background-repeat: no-repeat
+			background-size: cover
+			box-shadow: 0 1px 6px rgba(0, 0, 0, 0.33)
+		&__text
+			display: inline-block
+			vertical-align: middle
+			font-size: 16px
+			margin-left: 12px
+			position: relative
+			top: -2px
+			+r(734)
+				color: #525459
 	
-.form-select-selected
-	&__option
-		@extend .select-list__value
-	&__image
-		@extend .select-list__image
-	&__text
-		@extend .select-list__text
-		+r(734)
-			color: #fff
 .select-list-holder.scroll-wrapper
 	.scroll-element.scroll-y
 		width: 6px
@@ -144,6 +134,11 @@
 		font-weight: 400
 		text-decoration: none
 		padding-left: 30px
+		background-color: transparent
+		cursor: pointer
+		position: relative
+		&:focus
+			outline: none
 		&:hover
 			text-decoration: none
 			color: #52545a
@@ -221,3 +216,14 @@
 
 .generated-select
 	display: none
+
+.label-checkbox
+	position: absolute
+	left: 0
+	right: 0
+	top: 0
+	height: 100%
+	z-index: 1
+	cursor: pointer
+.input-checkbox
+	visibility: hidden

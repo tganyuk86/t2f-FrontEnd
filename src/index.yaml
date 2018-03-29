@@ -1,0 +1,19 @@
+ProjectTitle: true-2-forms
+
+PageList:
+- file: page.html
+  ready: 50
+- file: sign-up.html
+  ready: 50
+- file: sign-up-2.html
+  ready: 50
+- file: login.html
+  ready: 50
+- file: settings.html
+  ready: 50
+- file: forms.html
+  ready: 50
+- file: teams.html
+  ready: 50
+- file: users.html
+  ready: 50

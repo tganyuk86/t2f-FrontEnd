@@ -129,7 +129,7 @@
               <!-- begin interface action panel -->
               <div class="int-action-panel">
                 <div class="int-action-panel__left">
-                  <div class="int-action-panel__item int-action-panel__item_top"> <button type="button" class="button button_middle-blue button_m int-action-panel__button" data-target="open-pop-up" data-action="choose-user" data-assign-type="multiple" disabled>
+                  <div class="int-action-panel__item int-action-panel__item_top"> <button type="button" class="button button_middle-blue button_m int-action-panel__button" data-target="open-pop-up" data-action="choose-user" data-related-fields="selected-forms" data-assign-type="multiple" disabled>
 			<svg class="icon icon-point-at">
 				<use xlink:href="img/sprite.svg#icon-point-at"></use>
 			</svg>
@@ -153,13 +153,15 @@
                   <div class="int-action-panel__item int-action-panel__item_filter">
                     <div class="form-status-filter"> <a href="#" class="form-status-filter__btn" data-target="filter-toggle-btn">Display</a>
                       <div class="filter-overlay" data-target="filter-overlay"></div>
-                      <ul class="form-status-list form-status-filter__form-status-list" data-target="filter-list">
-                        <li class="form-status-list__item"> <a href="#" class="form-status-list__btn form-status-list__btn_draft" data-target="filter-list-item">Draft</a> </li>
-                        <li class="form-status-list__item"> <a href="#" class="form-status-list__btn form-status-list__btn_commited" data-target="filter-list-item">Committed</a> </li>
-                        <li class="form-status-list__item"> <a href="#" class="form-status-list__btn form-status-list__btn_in-use" data-target="filter-list-item">In Use</a> </li>
-                        <li class="form-status-list__item"> <a href="#" class="form-status-list__btn form-status-list__btn_archived" data-target="filter-list-item">Archived</a> </li>
-                        <li class="form-status-list__item"> <a href="#" class="form-status-list__btn form-status-list__btn_assigned" data-target="filter-list-item">Assigned</a> </li>
-                      </ul>
+                      <div data-target="checkbox-group" data-target-name="status-filter" data-select-type="multiple">
+                        <ul class="form-status-list form-status-filter__form-status-list" data-target="filter-list">
+                          <li class="form-status-list__item"> <span class="form-status-list__btn form-status-list__btn_draft" data-target="filter-list-item" data-checkbox-anchor>Draft<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="Draft" name="status-filter[]" data-target="input-checkbox" /></label></span>                            </li>
+                          <li class="form-status-list__item"> <span class="form-status-list__btn form-status-list__btn_commited" data-target="filter-list-item" data-checkbox-anchor>Committed<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="Committed" name="status-filter[]" data-target="input-checkbox" /></label></span>                            </li>
+                          <li class="form-status-list__item"> <span class="form-status-list__btn form-status-list__btn_in-use" data-target="filter-list-item" data-checkbox-anchor>In Use<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="In Use" name="status-filter[]" data-target="input-checkbox" /></label></span>                            </li>
+                          <li class="form-status-list__item"> <span class="form-status-list__btn form-status-list__btn_archived" data-target="filter-list-item" data-checkbox-anchor>Archived<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="Archived" name="status-filter[]" data-target="input-checkbox" /></label></span>                            </li>
+                          <li class="form-status-list__item"> <span class="form-status-list__btn form-status-list__btn_assigned" data-target="filter-list-item" data-checkbox-anchor>Assigned<label class="label-checkbox"><input type="checkbox" class="input-checkbox" value="Assigned" name="status-filter[]" data-target="input-checkbox" /></label></span>                            </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -168,13 +170,13 @@
               <!-- begin interface content holder -->
               <div class="int-content-holder">
                 <!-- begin forms table -->
-                <div class="forms-table" data-target="forms-table" data-select="forms" data-select-name="forms" data-select-multiple="true">
+                <div class="forms-table" data-target="forms-table">
                   <!-- begin row -->
                   <div class="forms-table__row forms-table__row_heading">
                     <!-- begin row left -->
                     <div class="forms-table__left">
                       <!-- begin select cell -->
-                      <div class="forms-table__cell forms-table__cell_select"> <a href="#" class="select-row-btn select-row-btn_select-all" data-target="select-row-all" data-select-all="forms"></a> <span class="forms-table__column-name forms-table__column-name_select-all">All</span> </div>
+                      <div class="forms-table__cell forms-table__cell_select"> <button type="button" class="select-row-btn select-row-btn_select-all" data-target="check-all" data-related="selected-forms"></button> <span class="forms-table__column-name forms-table__column-name_select-all">All</span> </div>
                       <!-- end select cell -->
                       <!-- begin cells name and purpose -->
                       <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
@@ -237,627 +239,629 @@
                     </div>
                     <!-- end row right -->
                   </div>
-                  <!-- begin row -->
-                  <div class="forms-table__row" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="1" data-select-option-type="toggle">
-                    <!-- begin row left -->
-                    <div class="forms-table__left">
-                      <!-- begin select cell -->
-                      <div class="forms-table__cell forms-table__cell_select">
-                        <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                      </div>
-                      <!-- end select cell -->
-                      <!-- begin cells name and purpose -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                        <!-- begin name cell -->
-                        <div class="forms-table__cell forms-table__cell_name">
-                          <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
+                  <div data-target="checkbox-group" data-target-name="selected-forms" data-select-type="multiple">
+                    <!-- begin row -->
+                    <div class="forms-table__row" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-forms[]"  value="1" data-target="input-checkbox" /></label>
+                      <!-- begin row left -->
+                      <div class="forms-table__left">
+                        <!-- begin select cell -->
+                        <div class="forms-table__cell forms-table__cell_select">
+                          <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
                         </div>
-                        <!-- end name cell -->
-                        <!-- begin purpose cell -->
-                        <div class="forms-table__cell forms-table__cell_purpose">
-                          <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
+                        <!-- end select cell -->
+                        <!-- begin cells name and purpose -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                          <!-- begin name cell -->
+                          <div class="forms-table__cell forms-table__cell_name">
+                            <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
+                          </div>
+                          <!-- end name cell -->
+                          <!-- begin purpose cell -->
+                          <div class="forms-table__cell forms-table__cell_purpose">
+                            <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
+                          </div>
+                          <!-- end purpose cell -->
                         </div>
-                        <!-- end purpose cell -->
+                        <!-- end cells name and purpose -->
                       </div>
-                      <!-- end cells name and purpose -->
-                    </div>
-                    <!-- end row left -->
-                    <!-- begin row right -->
-                    <div class="forms-table__right">
-                      <!-- begin cells description and dates -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                        <!-- begin description cell -->
-                        <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                          <div class="forms-table__cell-content forms-table__cell-content_desc">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.</p>
+                      <!-- end row left -->
+                      <!-- begin row right -->
+                      <div class="forms-table__right">
+                        <!-- begin cells description and dates -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                          <!-- begin description cell -->
+                          <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                            <div class="forms-table__cell-content forms-table__cell-content_desc">
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.</p>
+                            </div>
+                          </div>
+                          <!-- end description cell -->
+                          <!-- begin dates cell -->
+                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                            <!-- begin first date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-1">
+                              <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                            </div>
+                            <!-- end first date cell -->
+                            <!-- begin second date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-2">
+                              <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-2">December 12, 2017</div>
+                            </div>
+                            <!-- end second date cell -->
+                          </div>
+                          <!-- end dates cell -->
+                        </div>
+                        <!-- end cells description and dates -->
+                        <!-- begin fee cell -->
+                        <div class="forms-table__cell forms-table__cell_fee">
+                          <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_na">N/A</span> </div>
+                        </div>
+                        <!-- end fee cell -->
+                        <!-- begin status cell -->
+                        <div class="forms-table__cell forms-table__cell_status">
+                          <div class="forms-table__cell-content forms-table__cell-content_status">
+                            <div class="form-status form-status_draft forms-table__form-status">D<span>raft</span></div>
                           </div>
                         </div>
-                        <!-- end description cell -->
-                        <!-- begin dates cell -->
-                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                          <!-- begin first date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-1">
-                            <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                        <!-- end status cell -->
+                      </div>
+                      <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="forms-table__row" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-forms[]"  value="2" data-target="input-checkbox" /></label>
+                      <!-- begin row left -->
+                      <div class="forms-table__left">
+                        <!-- begin select cell -->
+                        <div class="forms-table__cell forms-table__cell_select">
+                          <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                        </div>
+                        <!-- end select cell -->
+                        <!-- begin cells name and purpose -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                          <!-- begin name cell -->
+                          <div class="forms-table__cell forms-table__cell_name">
+                            <div class="forms-table__cell-content forms-table__cell-content_name">Form Name</div>
                           </div>
-                          <!-- end first date cell -->
-                          <!-- begin second date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-2">
-                            <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-2">December 12, 2017</div>
+                          <!-- end name cell -->
+                          <!-- begin purpose cell -->
+                          <div class="forms-table__cell forms-table__cell_purpose">
+                            <div class="forms-table__cell-content forms-table__cell-content_purpose">Registration</div>
                           </div>
-                          <!-- end second date cell -->
+                          <!-- end purpose cell -->
                         </div>
-                        <!-- end dates cell -->
+                        <!-- end cells name and purpose -->
                       </div>
-                      <!-- end cells description and dates -->
-                      <!-- begin fee cell -->
-                      <div class="forms-table__cell forms-table__cell_fee">
-                        <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_na">N/A</span> </div>
-                      </div>
-                      <!-- end fee cell -->
-                      <!-- begin status cell -->
-                      <div class="forms-table__cell forms-table__cell_status">
-                        <div class="forms-table__cell-content forms-table__cell-content_status">
-                          <div class="form-status form-status_draft forms-table__form-status">D<span>raft</span></div>
-                        </div>
-                      </div>
-                      <!-- end status cell -->
-                    </div>
-                    <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
-                  <!-- end row -->
-                  <!-- begin row -->
-                  <div class="forms-table__row" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="2" data-select-option-type="toggle">
-                    <!-- begin row left -->
-                    <div class="forms-table__left">
-                      <!-- begin select cell -->
-                      <div class="forms-table__cell forms-table__cell_select">
-                        <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                      </div>
-                      <!-- end select cell -->
-                      <!-- begin cells name and purpose -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                        <!-- begin name cell -->
-                        <div class="forms-table__cell forms-table__cell_name">
-                          <div class="forms-table__cell-content forms-table__cell-content_name">Form Name</div>
-                        </div>
-                        <!-- end name cell -->
-                        <!-- begin purpose cell -->
-                        <div class="forms-table__cell forms-table__cell_purpose">
-                          <div class="forms-table__cell-content forms-table__cell-content_purpose">Registration</div>
-                        </div>
-                        <!-- end purpose cell -->
-                      </div>
-                      <!-- end cells name and purpose -->
-                    </div>
-                    <!-- end row left -->
-                    <!-- begin row right -->
-                    <div class="forms-table__right">
-                      <!-- begin cells description and dates -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                        <!-- begin description cell -->
-                        <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                          <div class="forms-table__cell-content forms-table__cell-content_desc">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.</p>
+                      <!-- end row left -->
+                      <!-- begin row right -->
+                      <div class="forms-table__right">
+                        <!-- begin cells description and dates -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                          <!-- begin description cell -->
+                          <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                            <div class="forms-table__cell-content forms-table__cell-content_desc">
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.</p>
+                            </div>
                           </div>
-                        </div>
-                        <!-- end description cell -->
-                        <!-- begin dates cell -->
-                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                          <!-- begin first date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-1">
-                            <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                          <!-- end description cell -->
+                          <!-- begin dates cell -->
+                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                            <!-- begin first date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-1">
+                              <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                            </div>
+                            <!-- end first date cell -->
+                            <!-- begin second date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-2">
+                              <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-2">May 12, 2017</div>
+                            </div>
+                            <!-- end second date cell -->
                           </div>
-                          <!-- end first date cell -->
-                          <!-- begin second date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-2">
-                            <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-2">May 12, 2017</div>
-                          </div>
-                          <!-- end second date cell -->
+                          <!-- end dates cell -->
                         </div>
-                        <!-- end dates cell -->
-                      </div>
-                      <!-- end cells description and dates -->
-                      <!-- begin fee cell -->
-                      <div class="forms-table__cell forms-table__cell_fee">
-                        <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee ">80</span> </div>
-                      </div>
-                      <!-- end fee cell -->
-                      <!-- begin status cell -->
-                      <div class="forms-table__cell forms-table__cell_status">
-                        <div class="forms-table__cell-content forms-table__cell-content_status">
-                          <div class="form-status form-status_committed forms-table__form-status">C<span>ommitted</span></div>
+                        <!-- end cells description and dates -->
+                        <!-- begin fee cell -->
+                        <div class="forms-table__cell forms-table__cell_fee">
+                          <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee ">80</span> </div>
                         </div>
-                      </div>
-                      <!-- end status cell -->
-                    </div>
-                    <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
-                  <!-- end row -->
-                  <!-- begin row -->
-                  <div class="forms-table__row" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="3" data-select-option-type="toggle">
-                    <!-- begin row left -->
-                    <div class="forms-table__left">
-                      <!-- begin select cell -->
-                      <div class="forms-table__cell forms-table__cell_select">
-                        <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                      </div>
-                      <!-- end select cell -->
-                      <!-- begin cells name and purpose -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                        <!-- begin name cell -->
-                        <div class="forms-table__cell forms-table__cell_name">
-                          <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
-                        </div>
-                        <!-- end name cell -->
-                        <!-- begin purpose cell -->
-                        <div class="forms-table__cell forms-table__cell_purpose">
-                          <div class="forms-table__cell-content forms-table__cell-content_purpose">Medical</div>
-                        </div>
-                        <!-- end purpose cell -->
-                      </div>
-                      <!-- end cells name and purpose -->
-                    </div>
-                    <!-- end row left -->
-                    <!-- begin row right -->
-                    <div class="forms-table__right">
-                      <!-- begin cells description and dates -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                        <!-- begin description cell -->
-                        <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                          <div class="forms-table__cell-content forms-table__cell-content_desc">
-                            <p>Lorem ipsum dolor sit amet.</p>
+                        <!-- end fee cell -->
+                        <!-- begin status cell -->
+                        <div class="forms-table__cell forms-table__cell_status">
+                          <div class="forms-table__cell-content forms-table__cell-content_status">
+                            <div class="form-status form-status_committed forms-table__form-status">C<span>ommitted</span></div>
                           </div>
                         </div>
-                        <!-- end description cell -->
-                        <!-- begin dates cell -->
-                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                          <!-- begin first date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-1">
-                            <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                        <!-- end status cell -->
+                      </div>
+                      <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="forms-table__row" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-forms[]"  value="3" data-target="input-checkbox" /></label>
+                      <!-- begin row left -->
+                      <div class="forms-table__left">
+                        <!-- begin select cell -->
+                        <div class="forms-table__cell forms-table__cell_select">
+                          <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                        </div>
+                        <!-- end select cell -->
+                        <!-- begin cells name and purpose -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                          <!-- begin name cell -->
+                          <div class="forms-table__cell forms-table__cell_name">
+                            <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
                           </div>
-                          <!-- end first date cell -->
-                          <!-- begin second date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-2">
-                            <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-2">December 12, 2017</div>
+                          <!-- end name cell -->
+                          <!-- begin purpose cell -->
+                          <div class="forms-table__cell forms-table__cell_purpose">
+                            <div class="forms-table__cell-content forms-table__cell-content_purpose">Medical</div>
                           </div>
-                          <!-- end second date cell -->
+                          <!-- end purpose cell -->
                         </div>
-                        <!-- end dates cell -->
+                        <!-- end cells name and purpose -->
                       </div>
-                      <!-- end cells description and dates -->
-                      <!-- begin fee cell -->
-                      <div class="forms-table__cell forms-table__cell_fee">
-                        <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_na">N/A</span> </div>
-                      </div>
-                      <!-- end fee cell -->
-                      <!-- begin status cell -->
-                      <div class="forms-table__cell forms-table__cell_status">
-                        <div class="forms-table__cell-content forms-table__cell-content_status">
-                          <div class="form-status form-status_in-use forms-table__form-status"><span>In </span>U<span>se</span></div>
-                        </div>
-                      </div>
-                      <!-- end status cell -->
-                    </div>
-                    <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
-                  <!-- end row -->
-                  <!-- begin row -->
-                  <div class="forms-table__row" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="4" data-select-option-type="toggle">
-                    <!-- begin row left -->
-                    <div class="forms-table__left">
-                      <!-- begin select cell -->
-                      <div class="forms-table__cell forms-table__cell_select">
-                        <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                      </div>
-                      <!-- end select cell -->
-                      <!-- begin cells name and purpose -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                        <!-- begin name cell -->
-                        <div class="forms-table__cell forms-table__cell_name">
-                          <div class="forms-table__cell-content forms-table__cell-content_name">Some Long Name</div>
-                        </div>
-                        <!-- end name cell -->
-                        <!-- begin purpose cell -->
-                        <div class="forms-table__cell forms-table__cell_purpose">
-                          <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
-                        </div>
-                        <!-- end purpose cell -->
-                      </div>
-                      <!-- end cells name and purpose -->
-                    </div>
-                    <!-- end row left -->
-                    <!-- begin row right -->
-                    <div class="forms-table__right">
-                      <!-- begin cells description and dates -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                        <!-- begin description cell -->
-                        <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                          <div class="forms-table__cell-content forms-table__cell-content_desc">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.</p>
+                      <!-- end row left -->
+                      <!-- begin row right -->
+                      <div class="forms-table__right">
+                        <!-- begin cells description and dates -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                          <!-- begin description cell -->
+                          <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                            <div class="forms-table__cell-content forms-table__cell-content_desc">
+                              <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
                           </div>
-                        </div>
-                        <!-- end description cell -->
-                        <!-- begin dates cell -->
-                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                          <!-- begin first date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-1">
-                            <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                          <!-- end description cell -->
+                          <!-- begin dates cell -->
+                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                            <!-- begin first date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-1">
+                              <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                            </div>
+                            <!-- end first date cell -->
+                            <!-- begin second date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-2">
+                              <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-2">December 12, 2017</div>
+                            </div>
+                            <!-- end second date cell -->
                           </div>
-                          <!-- end first date cell -->
-                          <!-- begin second date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-2">
-                            <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-2">May 12, 2017</div>
-                          </div>
-                          <!-- end second date cell -->
+                          <!-- end dates cell -->
                         </div>
-                        <!-- end dates cell -->
-                      </div>
-                      <!-- end cells description and dates -->
-                      <!-- begin fee cell -->
-                      <div class="forms-table__cell forms-table__cell_fee">
-                        <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee ">240</span> </div>
-                      </div>
-                      <!-- end fee cell -->
-                      <!-- begin status cell -->
-                      <div class="forms-table__cell forms-table__cell_status">
-                        <div class="forms-table__cell-content forms-table__cell-content_status">
-                          <div class="form-status form-status_archived forms-table__form-status">A<span>rchived</span></div>
+                        <!-- end cells description and dates -->
+                        <!-- begin fee cell -->
+                        <div class="forms-table__cell forms-table__cell_fee">
+                          <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_na">N/A</span> </div>
                         </div>
-                      </div>
-                      <!-- end status cell -->
-                    </div>
-                    <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
-                  <!-- end row -->
-                  <!-- begin row -->
-                  <div class="forms-table__row" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="5" data-select-option-type="toggle">
-                    <!-- begin row left -->
-                    <div class="forms-table__left">
-                      <!-- begin select cell -->
-                      <div class="forms-table__cell forms-table__cell_select">
-                        <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                      </div>
-                      <!-- end select cell -->
-                      <!-- begin cells name and purpose -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                        <!-- begin name cell -->
-                        <div class="forms-table__cell forms-table__cell_name">
-                          <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
-                        </div>
-                        <!-- end name cell -->
-                        <!-- begin purpose cell -->
-                        <div class="forms-table__cell forms-table__cell_purpose">
-                          <div class="forms-table__cell-content forms-table__cell-content_purpose">Medical</div>
-                        </div>
-                        <!-- end purpose cell -->
-                      </div>
-                      <!-- end cells name and purpose -->
-                    </div>
-                    <!-- end row left -->
-                    <!-- begin row right -->
-                    <div class="forms-table__right">
-                      <!-- begin cells description and dates -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                        <!-- begin description cell -->
-                        <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                          <div class="forms-table__cell-content forms-table__cell-content_desc">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.</p>
+                        <!-- end fee cell -->
+                        <!-- begin status cell -->
+                        <div class="forms-table__cell forms-table__cell_status">
+                          <div class="forms-table__cell-content forms-table__cell-content_status">
+                            <div class="form-status form-status_in-use forms-table__form-status"><span>In </span>U<span>se</span></div>
                           </div>
                         </div>
-                        <!-- end description cell -->
-                        <!-- begin dates cell -->
-                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                          <!-- begin first date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-1">
-                            <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                        <!-- end status cell -->
+                      </div>
+                      <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="forms-table__row" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-forms[]"  value="4" data-target="input-checkbox" /></label>
+                      <!-- begin row left -->
+                      <div class="forms-table__left">
+                        <!-- begin select cell -->
+                        <div class="forms-table__cell forms-table__cell_select">
+                          <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                        </div>
+                        <!-- end select cell -->
+                        <!-- begin cells name and purpose -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                          <!-- begin name cell -->
+                          <div class="forms-table__cell forms-table__cell_name">
+                            <div class="forms-table__cell-content forms-table__cell-content_name">Some Long Name</div>
                           </div>
-                          <!-- end first date cell -->
-                          <!-- begin second date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-2">
-                            <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-2">May 12, 2017</div>
+                          <!-- end name cell -->
+                          <!-- begin purpose cell -->
+                          <div class="forms-table__cell forms-table__cell_purpose">
+                            <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
                           </div>
-                          <!-- end second date cell -->
+                          <!-- end purpose cell -->
                         </div>
-                        <!-- end dates cell -->
+                        <!-- end cells name and purpose -->
                       </div>
-                      <!-- end cells description and dates -->
-                      <!-- begin fee cell -->
-                      <div class="forms-table__cell forms-table__cell_fee">
-                        <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee ">120</span> </div>
-                      </div>
-                      <!-- end fee cell -->
-                      <!-- begin status cell -->
-                      <div class="forms-table__cell forms-table__cell_status">
-                        <div class="forms-table__cell-content forms-table__cell-content_status">
-                          <div class="form-status form-status_assigned forms-table__form-status">As<span>signed</span></div>
-                        </div>
-                      </div>
-                      <!-- end status cell -->
-                    </div>
-                    <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
-                  <!-- end row -->
-                  <!-- begin row -->
-                  <div class="forms-table__row" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="6" data-select-option-type="toggle">
-                    <!-- begin row left -->
-                    <div class="forms-table__left">
-                      <!-- begin select cell -->
-                      <div class="forms-table__cell forms-table__cell_select">
-                        <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                      </div>
-                      <!-- end select cell -->
-                      <!-- begin cells name and purpose -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                        <!-- begin name cell -->
-                        <div class="forms-table__cell forms-table__cell_name">
-                          <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
-                        </div>
-                        <!-- end name cell -->
-                        <!-- begin purpose cell -->
-                        <div class="forms-table__cell forms-table__cell_purpose">
-                          <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
-                        </div>
-                        <!-- end purpose cell -->
-                      </div>
-                      <!-- end cells name and purpose -->
-                    </div>
-                    <!-- end row left -->
-                    <!-- begin row right -->
-                    <div class="forms-table__right">
-                      <!-- begin cells description and dates -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                        <!-- begin description cell -->
-                        <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                          <div class="forms-table__cell-content forms-table__cell-content_desc">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien</p>
+                      <!-- end row left -->
+                      <!-- begin row right -->
+                      <div class="forms-table__right">
+                        <!-- begin cells description and dates -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                          <!-- begin description cell -->
+                          <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                            <div class="forms-table__cell-content forms-table__cell-content_desc">
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.</p>
+                            </div>
                           </div>
-                        </div>
-                        <!-- end description cell -->
-                        <!-- begin dates cell -->
-                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                          <!-- begin first date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-1">
-                            <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                          <!-- end description cell -->
+                          <!-- begin dates cell -->
+                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                            <!-- begin first date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-1">
+                              <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                            </div>
+                            <!-- end first date cell -->
+                            <!-- begin second date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-2">
+                              <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-2">May 12, 2017</div>
+                            </div>
+                            <!-- end second date cell -->
                           </div>
-                          <!-- end first date cell -->
-                          <!-- begin second date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-2">
-                            <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-2">December 12, 2017</div>
-                          </div>
-                          <!-- end second date cell -->
+                          <!-- end dates cell -->
                         </div>
-                        <!-- end dates cell -->
-                      </div>
-                      <!-- end cells description and dates -->
-                      <!-- begin fee cell -->
-                      <div class="forms-table__cell forms-table__cell_fee">
-                        <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_na">N/A</span> </div>
-                      </div>
-                      <!-- end fee cell -->
-                      <!-- begin status cell -->
-                      <div class="forms-table__cell forms-table__cell_status">
-                        <div class="forms-table__cell-content forms-table__cell-content_status">
-                          <div class="form-status form-status_archived forms-table__form-status">A<span>rchived</span></div>
+                        <!-- end cells description and dates -->
+                        <!-- begin fee cell -->
+                        <div class="forms-table__cell forms-table__cell_fee">
+                          <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee ">240</span> </div>
                         </div>
-                      </div>
-                      <!-- end status cell -->
-                    </div>
-                    <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
-                  <!-- end row -->
-                  <!-- begin row -->
-                  <div class="forms-table__row" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="7" data-select-option-type="toggle">
-                    <!-- begin row left -->
-                    <div class="forms-table__left">
-                      <!-- begin select cell -->
-                      <div class="forms-table__cell forms-table__cell_select">
-                        <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                      </div>
-                      <!-- end select cell -->
-                      <!-- begin cells name and purpose -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                        <!-- begin name cell -->
-                        <div class="forms-table__cell forms-table__cell_name">
-                          <div class="forms-table__cell-content forms-table__cell-content_name">Some Long Name</div>
-                        </div>
-                        <!-- end name cell -->
-                        <!-- begin purpose cell -->
-                        <div class="forms-table__cell forms-table__cell_purpose">
-                          <div class="forms-table__cell-content forms-table__cell-content_purpose">Registration</div>
-                        </div>
-                        <!-- end purpose cell -->
-                      </div>
-                      <!-- end cells name and purpose -->
-                    </div>
-                    <!-- end row left -->
-                    <!-- begin row right -->
-                    <div class="forms-table__right">
-                      <!-- begin cells description and dates -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                        <!-- begin description cell -->
-                        <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                          <div class="forms-table__cell-content forms-table__cell-content_desc">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.</p>
+                        <!-- end fee cell -->
+                        <!-- begin status cell -->
+                        <div class="forms-table__cell forms-table__cell_status">
+                          <div class="forms-table__cell-content forms-table__cell-content_status">
+                            <div class="form-status form-status_archived forms-table__form-status">A<span>rchived</span></div>
                           </div>
                         </div>
-                        <!-- end description cell -->
-                        <!-- begin dates cell -->
-                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                          <!-- begin first date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-1">
-                            <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                        <!-- end status cell -->
+                      </div>
+                      <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="forms-table__row" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-forms[]"  value="5" data-target="input-checkbox" /></label>
+                      <!-- begin row left -->
+                      <div class="forms-table__left">
+                        <!-- begin select cell -->
+                        <div class="forms-table__cell forms-table__cell_select">
+                          <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                        </div>
+                        <!-- end select cell -->
+                        <!-- begin cells name and purpose -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                          <!-- begin name cell -->
+                          <div class="forms-table__cell forms-table__cell_name">
+                            <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
                           </div>
-                          <!-- end first date cell -->
-                          <!-- begin second date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-2">
-                            <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-2">May 12, 2017</div>
+                          <!-- end name cell -->
+                          <!-- begin purpose cell -->
+                          <div class="forms-table__cell forms-table__cell_purpose">
+                            <div class="forms-table__cell-content forms-table__cell-content_purpose">Medical</div>
                           </div>
-                          <!-- end second date cell -->
+                          <!-- end purpose cell -->
                         </div>
-                        <!-- end dates cell -->
+                        <!-- end cells name and purpose -->
                       </div>
-                      <!-- end cells description and dates -->
-                      <!-- begin fee cell -->
-                      <div class="forms-table__cell forms-table__cell_fee">
-                        <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee ">240</span> </div>
-                      </div>
-                      <!-- end fee cell -->
-                      <!-- begin status cell -->
-                      <div class="forms-table__cell forms-table__cell_status">
-                        <div class="forms-table__cell-content forms-table__cell-content_status">
-                          <div class="form-status form-status_archived forms-table__form-status">A<span>rchived</span></div>
-                        </div>
-                      </div>
-                      <!-- end status cell -->
-                    </div>
-                    <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
-                  <!-- end row -->
-                  <!-- begin row -->
-                  <div class="forms-table__row" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="8" data-select-option-type="toggle">
-                    <!-- begin row left -->
-                    <div class="forms-table__left">
-                      <!-- begin select cell -->
-                      <div class="forms-table__cell forms-table__cell_select">
-                        <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                      </div>
-                      <!-- end select cell -->
-                      <!-- begin cells name and purpose -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                        <!-- begin name cell -->
-                        <div class="forms-table__cell forms-table__cell_name">
-                          <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
-                        </div>
-                        <!-- end name cell -->
-                        <!-- begin purpose cell -->
-                        <div class="forms-table__cell forms-table__cell_purpose">
-                          <div class="forms-table__cell-content forms-table__cell-content_purpose">Registration</div>
-                        </div>
-                        <!-- end purpose cell -->
-                      </div>
-                      <!-- end cells name and purpose -->
-                    </div>
-                    <!-- end row left -->
-                    <!-- begin row right -->
-                    <div class="forms-table__right">
-                      <!-- begin cells description and dates -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                        <!-- begin description cell -->
-                        <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                          <div class="forms-table__cell-content forms-table__cell-content_desc">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien</p>
+                      <!-- end row left -->
+                      <!-- begin row right -->
+                      <div class="forms-table__right">
+                        <!-- begin cells description and dates -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                          <!-- begin description cell -->
+                          <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                            <div class="forms-table__cell-content forms-table__cell-content_desc">
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien interdum scelerisque.</p>
+                            </div>
                           </div>
-                        </div>
-                        <!-- end description cell -->
-                        <!-- begin dates cell -->
-                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                          <!-- begin first date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-1">
-                            <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                          <!-- end description cell -->
+                          <!-- begin dates cell -->
+                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                            <!-- begin first date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-1">
+                              <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                            </div>
+                            <!-- end first date cell -->
+                            <!-- begin second date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-2">
+                              <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-2">May 12, 2017</div>
+                            </div>
+                            <!-- end second date cell -->
                           </div>
-                          <!-- end first date cell -->
-                          <!-- begin second date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-2">
-                            <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-2">May 12, 2017</div>
-                          </div>
-                          <!-- end second date cell -->
+                          <!-- end dates cell -->
                         </div>
-                        <!-- end dates cell -->
-                      </div>
-                      <!-- end cells description and dates -->
-                      <!-- begin fee cell -->
-                      <div class="forms-table__cell forms-table__cell_fee">
-                        <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee ">120</span> </div>
-                      </div>
-                      <!-- end fee cell -->
-                      <!-- begin status cell -->
-                      <div class="forms-table__cell forms-table__cell_status">
-                        <div class="forms-table__cell-content forms-table__cell-content_status">
-                          <div class="form-status form-status_draft forms-table__form-status">D<span>raft</span></div>
+                        <!-- end cells description and dates -->
+                        <!-- begin fee cell -->
+                        <div class="forms-table__cell forms-table__cell_fee">
+                          <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee ">120</span> </div>
                         </div>
-                      </div>
-                      <!-- end status cell -->
-                    </div>
-                    <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
-                  <!-- end row -->
-                  <!-- begin row -->
-                  <div class="forms-table__row" data-target="forms-table-row" data-selected="false" data-select-option="forms" data-select-option-value="9" data-select-option-type="toggle">
-                    <!-- begin row left -->
-                    <div class="forms-table__left">
-                      <!-- begin select cell -->
-                      <div class="forms-table__cell forms-table__cell_select">
-                        <div class="forms-table__cell-content"> <a href="#" class="select-row-btn" data-target="select-row"></a> </div>
-                      </div>
-                      <!-- end select cell -->
-                      <!-- begin cells name and purpose -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
-                        <!-- begin name cell -->
-                        <div class="forms-table__cell forms-table__cell_name">
-                          <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
-                        </div>
-                        <!-- end name cell -->
-                        <!-- begin purpose cell -->
-                        <div class="forms-table__cell forms-table__cell_purpose">
-                          <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
-                        </div>
-                        <!-- end purpose cell -->
-                      </div>
-                      <!-- end cells name and purpose -->
-                    </div>
-                    <!-- end row left -->
-                    <!-- begin row right -->
-                    <div class="forms-table__right">
-                      <!-- begin cells description and dates -->
-                      <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
-                        <!-- begin description cell -->
-                        <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
-                          <div class="forms-table__cell-content forms-table__cell-content_desc">
-                            <p>Lorem ipsum dolor sit amet.</p>
+                        <!-- end fee cell -->
+                        <!-- begin status cell -->
+                        <div class="forms-table__cell forms-table__cell_status">
+                          <div class="forms-table__cell-content forms-table__cell-content_status">
+                            <div class="form-status form-status_assigned forms-table__form-status">As<span>signed</span></div>
                           </div>
                         </div>
-                        <!-- end description cell -->
-                        <!-- begin dates cell -->
-                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
-                          <!-- begin first date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-1">
-                            <div class="forms-table__cell-content_date-1-title">Creation Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
-                          </div>
-                          <!-- end first date cell -->
-                          <!-- begin second date cell -->
-                          <div class="forms-table__cell forms-table__cell_date-2">
-                            <div class="forms-table__cell-content_date-2-title">Commit Date</div>
-                            <div class="forms-table__cell-content forms-table__cell-content_date-2">December 12, 2017</div>
-                          </div>
-                          <!-- end second date cell -->
+                        <!-- end status cell -->
+                      </div>
+                      <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="forms-table__row" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-forms[]"  value="6" data-target="input-checkbox" /></label>
+                      <!-- begin row left -->
+                      <div class="forms-table__left">
+                        <!-- begin select cell -->
+                        <div class="forms-table__cell forms-table__cell_select">
+                          <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
                         </div>
-                        <!-- end dates cell -->
-                      </div>
-                      <!-- end cells description and dates -->
-                      <!-- begin fee cell -->
-                      <div class="forms-table__cell forms-table__cell_fee">
-                        <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_na">N/A</span> </div>
-                      </div>
-                      <!-- end fee cell -->
-                      <!-- begin status cell -->
-                      <div class="forms-table__cell forms-table__cell_status">
-                        <div class="forms-table__cell-content forms-table__cell-content_status">
-                          <div class="form-status form-status_in-use forms-table__form-status"><span>In </span>U<span>se</span></div>
+                        <!-- end select cell -->
+                        <!-- begin cells name and purpose -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                          <!-- begin name cell -->
+                          <div class="forms-table__cell forms-table__cell_name">
+                            <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
+                          </div>
+                          <!-- end name cell -->
+                          <!-- begin purpose cell -->
+                          <div class="forms-table__cell forms-table__cell_purpose">
+                            <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
+                          </div>
+                          <!-- end purpose cell -->
                         </div>
+                        <!-- end cells name and purpose -->
                       </div>
-                      <!-- end status cell -->
-                    </div>
-                    <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
-                  <!-- end row -->
+                      <!-- end row left -->
+                      <!-- begin row right -->
+                      <div class="forms-table__right">
+                        <!-- begin cells description and dates -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                          <!-- begin description cell -->
+                          <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                            <div class="forms-table__cell-content forms-table__cell-content_desc">
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien</p>
+                            </div>
+                          </div>
+                          <!-- end description cell -->
+                          <!-- begin dates cell -->
+                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                            <!-- begin first date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-1">
+                              <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                            </div>
+                            <!-- end first date cell -->
+                            <!-- begin second date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-2">
+                              <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-2">December 12, 2017</div>
+                            </div>
+                            <!-- end second date cell -->
+                          </div>
+                          <!-- end dates cell -->
+                        </div>
+                        <!-- end cells description and dates -->
+                        <!-- begin fee cell -->
+                        <div class="forms-table__cell forms-table__cell_fee">
+                          <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_na">N/A</span> </div>
+                        </div>
+                        <!-- end fee cell -->
+                        <!-- begin status cell -->
+                        <div class="forms-table__cell forms-table__cell_status">
+                          <div class="forms-table__cell-content forms-table__cell-content_status">
+                            <div class="form-status form-status_archived forms-table__form-status">A<span>rchived</span></div>
+                          </div>
+                        </div>
+                        <!-- end status cell -->
+                      </div>
+                      <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="forms-table__row" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-forms[]"  value="7" data-target="input-checkbox" /></label>
+                      <!-- begin row left -->
+                      <div class="forms-table__left">
+                        <!-- begin select cell -->
+                        <div class="forms-table__cell forms-table__cell_select">
+                          <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                        </div>
+                        <!-- end select cell -->
+                        <!-- begin cells name and purpose -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                          <!-- begin name cell -->
+                          <div class="forms-table__cell forms-table__cell_name">
+                            <div class="forms-table__cell-content forms-table__cell-content_name">Some Long Name</div>
+                          </div>
+                          <!-- end name cell -->
+                          <!-- begin purpose cell -->
+                          <div class="forms-table__cell forms-table__cell_purpose">
+                            <div class="forms-table__cell-content forms-table__cell-content_purpose">Registration</div>
+                          </div>
+                          <!-- end purpose cell -->
+                        </div>
+                        <!-- end cells name and purpose -->
+                      </div>
+                      <!-- end row left -->
+                      <!-- begin row right -->
+                      <div class="forms-table__right">
+                        <!-- begin cells description and dates -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                          <!-- begin description cell -->
+                          <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                            <div class="forms-table__cell-content forms-table__cell-content_desc">
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit.</p>
+                            </div>
+                          </div>
+                          <!-- end description cell -->
+                          <!-- begin dates cell -->
+                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                            <!-- begin first date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-1">
+                              <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                            </div>
+                            <!-- end first date cell -->
+                            <!-- begin second date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-2">
+                              <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-2">May 12, 2017</div>
+                            </div>
+                            <!-- end second date cell -->
+                          </div>
+                          <!-- end dates cell -->
+                        </div>
+                        <!-- end cells description and dates -->
+                        <!-- begin fee cell -->
+                        <div class="forms-table__cell forms-table__cell_fee">
+                          <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee ">240</span> </div>
+                        </div>
+                        <!-- end fee cell -->
+                        <!-- begin status cell -->
+                        <div class="forms-table__cell forms-table__cell_status">
+                          <div class="forms-table__cell-content forms-table__cell-content_status">
+                            <div class="form-status form-status_archived forms-table__form-status">A<span>rchived</span></div>
+                          </div>
+                        </div>
+                        <!-- end status cell -->
+                      </div>
+                      <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="forms-table__row" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-forms[]"  value="8" data-target="input-checkbox" /></label>
+                      <!-- begin row left -->
+                      <div class="forms-table__left">
+                        <!-- begin select cell -->
+                        <div class="forms-table__cell forms-table__cell_select">
+                          <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                        </div>
+                        <!-- end select cell -->
+                        <!-- begin cells name and purpose -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                          <!-- begin name cell -->
+                          <div class="forms-table__cell forms-table__cell_name">
+                            <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
+                          </div>
+                          <!-- end name cell -->
+                          <!-- begin purpose cell -->
+                          <div class="forms-table__cell forms-table__cell_purpose">
+                            <div class="forms-table__cell-content forms-table__cell-content_purpose">Registration</div>
+                          </div>
+                          <!-- end purpose cell -->
+                        </div>
+                        <!-- end cells name and purpose -->
+                      </div>
+                      <!-- end row left -->
+                      <!-- begin row right -->
+                      <div class="forms-table__right">
+                        <!-- begin cells description and dates -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                          <!-- begin description cell -->
+                          <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                            <div class="forms-table__cell-content forms-table__cell-content_desc">
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at massa sit amet sapien</p>
+                            </div>
+                          </div>
+                          <!-- end description cell -->
+                          <!-- begin dates cell -->
+                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                            <!-- begin first date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-1">
+                              <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-1">March 10, 2017</div>
+                            </div>
+                            <!-- end first date cell -->
+                            <!-- begin second date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-2">
+                              <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-2">May 12, 2017</div>
+                            </div>
+                            <!-- end second date cell -->
+                          </div>
+                          <!-- end dates cell -->
+                        </div>
+                        <!-- end cells description and dates -->
+                        <!-- begin fee cell -->
+                        <div class="forms-table__cell forms-table__cell_fee">
+                          <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee ">120</span> </div>
+                        </div>
+                        <!-- end fee cell -->
+                        <!-- begin status cell -->
+                        <div class="forms-table__cell forms-table__cell_status">
+                          <div class="forms-table__cell-content forms-table__cell-content_status">
+                            <div class="form-status form-status_draft forms-table__form-status">D<span>raft</span></div>
+                          </div>
+                        </div>
+                        <!-- end status cell -->
+                      </div>
+                      <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="forms-table__row" data-target="forms-table-row" data-checkbox-anchor> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-forms[]"  value="9" data-target="input-checkbox" /></label>
+                      <!-- begin row left -->
+                      <div class="forms-table__left">
+                        <!-- begin select cell -->
+                        <div class="forms-table__cell forms-table__cell_select">
+                          <div class="forms-table__cell-content"> <button type="button" class="select-row-btn" data-target="select-row"></button> </div>
+                        </div>
+                        <!-- end select cell -->
+                        <!-- begin cells name and purpose -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_name-purpose">
+                          <!-- begin name cell -->
+                          <div class="forms-table__cell forms-table__cell_name">
+                            <div class="forms-table__cell-content forms-table__cell-content_name">Some Name</div>
+                          </div>
+                          <!-- end name cell -->
+                          <!-- begin purpose cell -->
+                          <div class="forms-table__cell forms-table__cell_purpose">
+                            <div class="forms-table__cell-content forms-table__cell-content_purpose">School Trip</div>
+                          </div>
+                          <!-- end purpose cell -->
+                        </div>
+                        <!-- end cells name and purpose -->
+                      </div>
+                      <!-- end row left -->
+                      <!-- begin row right -->
+                      <div class="forms-table__right">
+                        <!-- begin cells description and dates -->
+                        <div class="forms-table__collapsed-cells forms-table__collapsed-cells_desc-dates" data-target="hidden-cell" data-point="730">
+                          <!-- begin description cell -->
+                          <div class="forms-table__cell forms-table__cell_desc" data-target="hidden-cell" data-point="990">
+                            <div class="forms-table__cell-content forms-table__cell-content_desc">
+                              <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                          </div>
+                          <!-- end description cell -->
+                          <!-- begin dates cell -->
+                          <div class="forms-table__collapsed-cells forms-table__collapsed-cells_dates">
+                            <!-- begin first date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-1">
+                              <div class="forms-table__cell-content_date-1-title">Creation Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-1">December 10, 2017</div>
+                            </div>
+                            <!-- end first date cell -->
+                            <!-- begin second date cell -->
+                            <div class="forms-table__cell forms-table__cell_date-2">
+                              <div class="forms-table__cell-content_date-2-title">Commit Date</div>
+                              <div class="forms-table__cell-content forms-table__cell-content_date-2">December 12, 2017</div>
+                            </div>
+                            <!-- end second date cell -->
+                          </div>
+                          <!-- end dates cell -->
+                        </div>
+                        <!-- end cells description and dates -->
+                        <!-- begin fee cell -->
+                        <div class="forms-table__cell forms-table__cell_fee">
+                          <div class="forms-table__cell-content forms-table__cell-content_fee"> <span class="fee fee_na">N/A</span> </div>
+                        </div>
+                        <!-- end fee cell -->
+                        <!-- begin status cell -->
+                        <div class="forms-table__cell forms-table__cell_status">
+                          <div class="forms-table__cell-content forms-table__cell-content_status">
+                            <div class="form-status form-status_in-use forms-table__form-status"><span>In </span>U<span>se</span></div>
+                          </div>
+                        </div>
+                        <!-- end status cell -->
+                      </div>
+                      <!-- end row right --><a href="#" class="forms-table__toggle-btn" data-target="expand-row-btn"></a> </div>
+                    <!-- end row -->
+                  </div>
                 </div>
                 <!-- end forms table -->
               </div>
@@ -874,7 +878,7 @@
             <div data-target-content="choose-user" data-pop-up-size="md">
               <div class="popup-modal-msg page-pop-up__modal" data-target="pop-up-prompt-msg">
                 <div class="popup-modal-msg__caption" data-target="hidden-step-2">Choose User Lorem Ipsum</div>
-                <div class="select-user-block-wrapper" data-select="users" data-select-name="users" data-select-multiple="true">
+                <div class="select-user-block-wrapper">
                   <div class="popup-modal-msg__top-panel popup-modal-msg__top-panel_forms" data-target="hidden-step-2">
                     <div class="popup-modal-msg__top-panel-left">
                       <div class="popup-modal-msg__search-input-wrapper"> <span class="input-search" data-target="input-search-wrapper">
@@ -886,443 +890,245 @@
                       </div>
                     </div>
                   </div>
-                  <div class="select-user-block select-user-block_forms" data-target="select-user-block">
-                    <div class="select-user-block__left select-user-block__left_forms" data-target="users-select-s1">
-                      <div class="select-user-block__select-all  select-user-block__select-all_forms"> <a href="#" class="select-row-btn select-user-block__select-all-btn" data-target="select-all-users" data-select-all="users"></a> <span>All</span> </div>
-                      <div class="choose-user-scroll-area-wrapper">
-                        <div class="choose-user-list-scroll-area scrollbar-inner" data-target="choose-user-scroll-area">
-                          <ul class="choose-user-list">
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Angela Behar" data-user-id="Angela Behar0" data-select-option="users" data-select-option-value="Angela Behar0"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Angela Behar</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Tommy Hughes" data-user-id="Tommy Hughes0" data-select-option="users" data-select-option-value="Tommy Hughes0"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Tommy Hughes</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Dillon Ferro" data-user-id="Dillon Ferro0" data-select-option="users" data-select-option-value="Dillon Ferro0"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Dillon Ferro</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Joseph Brinker" data-user-id="Joseph Brinker0" data-select-option="users" data-select-option-value="Joseph Brinker0"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Joseph Brinker</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Errol Wilhite" data-user-id="Errol Wilhite0" data-select-option="users" data-select-option-value="Errol Wilhite0"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Errol Wilhite</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Bertram Dunston" data-user-id="Bertram Dunston0" data-select-option="users" data-select-option-value="Bertram Dunston0"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Bertram Dunston</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Chi Pigg" data-user-id="Chi Pigg0" data-select-option="users" data-select-option-value="Chi Pigg0"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Chi Pigg</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Francisco Ashline" data-user-id="Francisco Ashline0" data-select-option="users" data-select-option-value="Francisco Ashline0"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Francisco Ashline</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Angela Behar" data-user-id="Angela Behar1" data-select-option="users" data-select-option-value="Angela Behar1"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Angela Behar</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Tommy Hughes" data-user-id="Tommy Hughes1" data-select-option="users" data-select-option-value="Tommy Hughes1"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Tommy Hughes</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Dillon Ferro" data-user-id="Dillon Ferro1" data-select-option="users" data-select-option-value="Dillon Ferro1"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Dillon Ferro</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Joseph Brinker" data-user-id="Joseph Brinker1" data-select-option="users" data-select-option-value="Joseph Brinker1"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Joseph Brinker</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Errol Wilhite" data-user-id="Errol Wilhite1" data-select-option="users" data-select-option-value="Errol Wilhite1"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Errol Wilhite</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Bertram Dunston" data-user-id="Bertram Dunston1" data-select-option="users" data-select-option-value="Bertram Dunston1"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Bertram Dunston</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Chi Pigg" data-user-id="Chi Pigg1" data-select-option="users" data-select-option-value="Chi Pigg1"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Chi Pigg</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Francisco Ashline" data-user-id="Francisco Ashline1" data-select-option="users" data-select-option-value="Francisco Ashline1"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Francisco Ashline</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Angela Behar" data-user-id="Angela Behar2" data-select-option="users" data-select-option-value="Angela Behar2"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Angela Behar</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Tommy Hughes" data-user-id="Tommy Hughes2" data-select-option="users" data-select-option-value="Tommy Hughes2"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Tommy Hughes</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Dillon Ferro" data-user-id="Dillon Ferro2" data-select-option="users" data-select-option-value="Dillon Ferro2"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Dillon Ferro</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Joseph Brinker" data-user-id="Joseph Brinker2" data-select-option="users" data-select-option-value="Joseph Brinker2"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Joseph Brinker</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Errol Wilhite" data-user-id="Errol Wilhite2" data-select-option="users" data-select-option-value="Errol Wilhite2"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Errol Wilhite</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Bertram Dunston" data-user-id="Bertram Dunston2" data-select-option="users" data-select-option-value="Bertram Dunston2"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Bertram Dunston</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Chi Pigg" data-user-id="Chi Pigg2" data-select-option="users" data-select-option-value="Chi Pigg2"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Chi Pigg</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Francisco Ashline" data-user-id="Francisco Ashline2" data-select-option="users" data-select-option-value="Francisco Ashline2"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Francisco Ashline</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Angela Behar" data-user-id="Angela Behar3" data-select-option="users" data-select-option-value="Angela Behar3"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Angela Behar</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Tommy Hughes" data-user-id="Tommy Hughes3" data-select-option="users" data-select-option-value="Tommy Hughes3"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Tommy Hughes</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Dillon Ferro" data-user-id="Dillon Ferro3" data-select-option="users" data-select-option-value="Dillon Ferro3"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Dillon Ferro</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Joseph Brinker" data-user-id="Joseph Brinker3" data-select-option="users" data-select-option-value="Joseph Brinker3"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Joseph Brinker</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Errol Wilhite" data-user-id="Errol Wilhite3" data-select-option="users" data-select-option-value="Errol Wilhite3"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Errol Wilhite</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Bertram Dunston" data-user-id="Bertram Dunston3" data-select-option="users" data-select-option-value="Bertram Dunston3"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Bertram Dunston</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Chi Pigg" data-user-id="Chi Pigg3" data-select-option="users" data-select-option-value="Chi Pigg3"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Chi Pigg</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Francisco Ashline" data-user-id="Francisco Ashline3" data-select-option="users" data-select-option-value="Francisco Ashline3"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Francisco Ashline</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Angela Behar" data-user-id="Angela Behar4" data-select-option="users" data-select-option-value="Angela Behar4"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Angela Behar</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Tommy Hughes" data-user-id="Tommy Hughes4" data-select-option="users" data-select-option-value="Tommy Hughes4"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Tommy Hughes</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Dillon Ferro" data-user-id="Dillon Ferro4" data-select-option="users" data-select-option-value="Dillon Ferro4"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Dillon Ferro</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Joseph Brinker" data-user-id="Joseph Brinker4" data-select-option="users" data-select-option-value="Joseph Brinker4"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Joseph Brinker</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Errol Wilhite" data-user-id="Errol Wilhite4" data-select-option="users" data-select-option-value="Errol Wilhite4"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Errol Wilhite</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Bertram Dunston" data-user-id="Bertram Dunston4" data-select-option="users" data-select-option-value="Bertram Dunston4"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Bertram Dunston</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Chi Pigg" data-user-id="Chi Pigg4" data-select-option="users" data-select-option-value="Chi Pigg4"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Chi Pigg</span>
-													</span>
-												</a> </li>
-                            <li class="choose-user-list__item"> <a href="#" class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Francisco Ashline" data-user-id="Francisco Ashline4" data-select-option="users" data-select-option-value="Francisco Ashline4"
-                                data-select-option-type="toggle">
-													<span class="user-line__select-btn">
-														<span class="select-row-btn"></span>
-													</span>
-													<span class="user-line__user">
-														<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span>
-														<span class="user-line__name">Francisco Ashline</span>
-													</span>
-												</a> </li>
-                          </ul>
+                  <div data-target="checkbox-group" data-target-name="selected-users" data-select-type="multiple">
+                    <div class="select-user-block select-user-block_forms" data-target="select-user-block">
+                      <div class="select-user-block__left select-user-block__left_forms" data-target="users-select-s1">
+                        <div class="select-user-block__select-all  select-user-block__select-all_forms"> <button type="button" class="select-row-btn select-user-block__select-all-btn" data-target="check-all" data-related="selected-users"></button> <span>All</span> </div>
+                        <div class="choose-user-scroll-area-wrapper">
+                          <div class="choose-user-list-scroll-area scrollbar-inner" data-target="choose-user-scroll-area">
+                            <ul class="choose-user-list">
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Angela Behar" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Angela Behar</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Angela Behar_0" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Tommy Hughes" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Tommy Hughes</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Tommy Hughes_0" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Dillon Ferro" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Dillon Ferro</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Dillon Ferro_0" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Joseph Brinker" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Joseph Brinker</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Joseph Brinker_0" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Errol Wilhite" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Errol Wilhite</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Errol Wilhite_0" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Bertram Dunston" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Bertram Dunston</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Bertram Dunston_0" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Chi Pigg" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Chi Pigg</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Chi Pigg_0" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Francisco Ashline" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Francisco Ashline</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Francisco Ashline_0" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Angela Behar" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Angela Behar</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Angela Behar_1" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Tommy Hughes" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Tommy Hughes</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Tommy Hughes_1" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Dillon Ferro" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Dillon Ferro</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Dillon Ferro_1" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Joseph Brinker" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Joseph Brinker</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Joseph Brinker_1" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Errol Wilhite" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Errol Wilhite</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Errol Wilhite_1" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Bertram Dunston" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Bertram Dunston</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Bertram Dunston_1" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Chi Pigg" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Chi Pigg</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Chi Pigg_1" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Francisco Ashline" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Francisco Ashline</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Francisco Ashline_1" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Angela Behar" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Angela Behar</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Angela Behar_2" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Tommy Hughes" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Tommy Hughes</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Tommy Hughes_2" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Dillon Ferro" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Dillon Ferro</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Dillon Ferro_2" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Joseph Brinker" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Joseph Brinker</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Joseph Brinker_2" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Errol Wilhite" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Errol Wilhite</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Errol Wilhite_2" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Bertram Dunston" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Bertram Dunston</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Bertram Dunston_2" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Chi Pigg" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Chi Pigg</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Chi Pigg_2" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Francisco Ashline" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Francisco Ashline</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Francisco Ashline_2" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Angela Behar" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Angela Behar</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Angela Behar_3" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Tommy Hughes" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Tommy Hughes</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Tommy Hughes_3" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Dillon Ferro" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Dillon Ferro</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Dillon Ferro_3" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Joseph Brinker" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Joseph Brinker</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Joseph Brinker_3" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Errol Wilhite" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Errol Wilhite</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Errol Wilhite_3" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Bertram Dunston" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Bertram Dunston</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Bertram Dunston_3" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Chi Pigg" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Chi Pigg</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Chi Pigg_3" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Francisco Ashline" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Francisco Ashline</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Francisco Ashline_3" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Angela Behar" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Angela Behar</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Angela Behar_4" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Tommy Hughes" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Tommy Hughes</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Tommy Hughes_4" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Dillon Ferro" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Dillon Ferro</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Dillon Ferro_4" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Joseph Brinker" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Joseph Brinker</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Joseph Brinker_4" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Errol Wilhite" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Errol Wilhite</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Errol Wilhite_4" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Bertram Dunston" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Bertram Dunston</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Bertram Dunston_4" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Chi Pigg" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Chi Pigg</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Chi Pigg_4" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                              <li class="choose-user-list__item"> <span class="user-line choose-user-list__user-line" data-target="select-user" data-image="img/profile-image.jpg" data-name="Francisco Ashline" data-checkbox-anchor>
+														<span class="user-line__select-btn">
+															<span class="select-row-btn" data-target="select-row"></span> </span> <span class="user-line__user">
+															<span class="user-line__img" style="background-image: url(img/profile-image.jpg)"></span> <span class="user-line__name">Francisco Ashline</span> </span> <label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="selected-users[]" value="Francisco Ashline_4" data-target="input-checkbox" /></label>                                </span>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="select-user-block__right" data-target="users-select-s2"> <button type="button" class="select-user-back" data-target="select-user-previous">
-								
+                      <div class="select-user-block__right" data-target="users-select-s2"> <button type="button" class="select-user-back" data-target="select-user-previous">
+									
 <svg class="icon icon-left-arrow"><use xlink:href="img/sprite.svg#icon-left-arrow"></use></svg>
 
-								<span>Back</span>
-							</button>
-                      <div class="select-chosen-users select-user-block__select-chosen-users">
-                        <div class="select-chosen-users__caption">You chose these users lorem ipsum:</div>
-                        <div class="choose-user-list-scroll-area choose-user-list-scroll-area_right scrollbar-inner" data-target="choose-user-scroll-area">
-                          <ul class="chosen-users-list" data-target="selected-users-list">
-                            <!-- begin markup for selected user -->
-                            <li class="chosen-users-list__item" data-target="selected-user"> <span class="chosen-users-list__user">
-												<span class="chosen-users-list__user-img" style="background-image: url(img/profile-image.jpg)" data-target="selected-user-image"></span> <span class="chosen-users-list__user-name" data-target="selected-user-name"></span> </span> <button type="button"
-                                class="chosen-users-list__remove-btn" data-target="cancel-selection" data-select-option="users" data-select-option-value="NaN" data-select-option-type="remove"></button> </li>
-                            <!-- end markup for selected user -->
-                          </ul>
+									<span>Back</span>
+								</button>
+                        <div class="select-chosen-users select-user-block__select-chosen-users">
+                          <div class="select-chosen-users__caption">You chose these users lorem ipsum:</div>
+                          <div class="choose-user-list-scroll-area choose-user-list-scroll-area_right scrollbar-inner" data-target="choose-user-scroll-area">
+                            <ul class="chosen-users-list" data-target="selected-users-list">
+                              <!-- begin markup for selected user -->
+                              <li class="chosen-users-list__item" data-target="selected-user"> <span class="chosen-users-list__user">
+													<span class="chosen-users-list__user-img" style="background-image: url(img/profile-image.jpg)" data-target="selected-user-image"></span> <span class="chosen-users-list__user-name" data-target="selected-user-name"></span> </span> <button type="button"
+                                  class="chosen-users-list__remove-btn" data-target="cancel-check"></button> </li>
+                              <!-- end markup for selected user -->
+                            </ul>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="popup-modal-msg__btn-holder"> <button type="submit" class="button button_middle-blue button_m assign-btn" data-target="pop-up-action" disabled>
+                <div class="popup-modal-msg__btn-holder"> <button type="submit" class="button button_middle-blue button_m assign-btn" data-target="pop-up-action" data-related-fields="selected-users" disabled>
 						
 <svg class="icon icon-point-at"><use xlink:href="img/sprite.svg#icon-point-at"></use></svg>
 
 						<span>Assign form</span>
-					</button> <button type="button" class="button button_middle-blue button_m next-step" data-target="select-user-next" disabled>
+					</button> <button type="button" class="button button_middle-blue button_m next-step" data-target="select-user-next" data-related-fields="selected-users" disabled>
 						
 <svg class="icon icon-left-arrow"><use xlink:href="img/sprite.svg#icon-left-arrow"></use></svg>
 

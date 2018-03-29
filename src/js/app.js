@@ -4,11 +4,11 @@ import 'jquery.scrollbar';
 
 var app = {
   components: [
+    require('./selects'),
     require('./formsTable'),
     require('./menu'),
     require('./scroll'),
-    require('./formElements'),
-    require('./selects'),
+    require('./formElements'),    
     require('./popUps'),
     require('./dropdownFilter'),
     require('./toggleMap')

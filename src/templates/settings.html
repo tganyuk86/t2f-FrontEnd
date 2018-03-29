@@ -72,28 +72,28 @@ page: Settings
 												<div class="select-with-input__left">
 	
 														<!-- begin  custom select -->
-											<div class="form-select" data-target="js-select" data-select="phone-prefix" data-select-name="phone-prefix" data-select-multiple="false">
+											<!-- begin  custom select -->
+											<div data-target="checkbox-group" data-target-name="phone-prefix" data-select-type="single">
+											<div class="form-select" data-target="select-dropdown">
 												
-												<span class="form-select-selected form-select__selected" data-target="js-select-toggle">
-													<span class="form-select-selected__option"  data-target="js-selected-option">
-														<span class="form-select-selected__image" style="background-image: url(img/flag.jpg)" data-target="js-select-selected-image"></span>
-														<span class="form-select-selected__text" data-target="js-select-selected-text">+120</span>
-													</span>
+												<span class="form-select-selected form-select__selected" data-target="select-toggle">
+													<span class="select-list-value" data-target="selected-value"></span>
 												</span>
-												<div class="form-select__select-list-holder select-list-holder scrollbar-inner" data-target="js-select-holder">
-													<ul class="select-list" data-target="js-select-list">
-														{% for i in range(0, 20) -%}
-														<li class="select-list__option" data-target="js-select-option" data-select-option="phone-prefix" data-select-option-value="+{{120 + i}}" data-select-option-type="add">
-															<span class="select-list__value">
-																<span class="select-list__image" style="background-image: url(img/flag.jpg)" data-target="js-select-image"></span>
-																<span class="select-list__text"
-																data-target="js-select-text">+{{120 + i}}</span>
+												<div class="form-select__select-list-holder select-list-holder scrollbar-inner" data-target="select-holder">
+													<ul class="select-list" data-target="select-list">
+														{% for i in range(0, 20) %}
+														<li class="select-list__option">
+															<span class="select-list-value" data-checkbox-anchor data-target="option-value">
+																<span class="select-list-value__image" style="background-image: url(img/flag.jpg)"></span>
+																<span class="select-list-value__text">+{{120 + i}}</span><label class="label-checkbox"><input type="checkbox" class="input-checkbox" name="phone-prefix[]" value="{{120 + i}}" data-target="input-checkbox" /></label>
 															</span>
 														</li>
 														{% endfor %}
 													</ul>
 												</div>
 											</div>
+											</div>
+											<!-- end  custom select -->
 											<!-- end  custom select -->
 
 												</div>

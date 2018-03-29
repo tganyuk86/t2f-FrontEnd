@@ -46,7 +46,7 @@ function createConfig(env) {
         jQuery: 'jquery',
         'window.jQuery': 'jquery',
       }),
-      // new webpack.NoEmitOnErrorsPlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
 
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
@@ -57,7 +57,6 @@ function createConfig(env) {
     resolve: {
       extensions: ['.js'],
       alias: {
-        jquery: path.resolve('node_modules', 'jquery/src/jquery.js'),
         TweenLite: path.resolve('node_modules', 'gsap/src/uncompressed/TweenLite.js'),
         TweenMax: path.resolve('node_modules', 'gsap/src/uncompressed/TweenMax.js'),
         TimelineLite: path.resolve('node_modules', 'gsap/src/uncompressed/TimelineLite.js'),
