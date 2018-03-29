@@ -46,6 +46,19 @@ var selects = {
       holder.removeClass('is-open')
         .parent().removeClass('is-open');
     });
+
+    elem.find('[data-select-option-value="'+elem.data('select-value')+'"]').each(function() {
+      var selected = $(this).closest('[data-target="js-select"]').find('[data-target="js-select-toggle"]');
+      selected
+        .find('[data-target="js-select-selected-image"]')
+        .css('background-image', $(this).find('[data-target="js-select-image"]').css('background-image'));
+      selected
+        .find('[data-target="js-select-selected-text"]')
+        .text($(this).find('[data-target="js-select-text"]').text());
+    });
+    
+
+    
     
   },
   generateSelect: function(elem) {

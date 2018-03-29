@@ -66,7 +66,9 @@ var selectUser = {
     currentUser.attr('data-user-id', $(elem).data('user-id'));
 
 
-    currentUser.find('[data-target="selected-user-image"]').css('background-image', 'url(' + $(elem).data('image') + ')');
+    // currentUser.find('[data-target="selected-user-image"]').css('background-image', 'url(' + $(elem).data('image') + ')');
+    currentUser.find('[data-target="selected-user-image"]').html($(elem).find('.user-line__img').clone());
+
     currentUser.find('[data-target="selected-user-name"]').text($(elem).data('name'));
 
     var closeBtn = currentUser.find('[data-target="cancel-selection"]');
